@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.hpw.mvpframe.AppManager;
 import com.hpw.mvpframe.R;
 import com.hpw.mvpframe.utils.DialogUtils;
 import com.hpw.mvpframe.utils.LogUtil;
@@ -63,12 +64,15 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
         mModel = TUtil.getT(this, 1);
         this.initView();
         if (this instanceof CoreBaseView) mPresenter.attachVM(this, mModel);
+        AppManager.getAppManager().addActivity(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        AppManager.getAppManager().finishActivity(this);
         if (mPresenter != null) mPresenter.detachVM();
+        if (progressDialog != null) progressDialog.dismiss();
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.hpw.myapp.ui.main;
 
 import com.hpw.mvpframe.base.CoreBaseActivity;
-import com.hpw.mvpframe.utils.StatusBarUtil;
 import com.hpw.myapp.R;
 
 import java.util.concurrent.TimeUnit;
@@ -26,7 +25,6 @@ public class FlashActivity extends CoreBaseActivity {
 
     @Override
     public void initView() {
-        StatusBarUtil.setTranslucentBackground(this);
         Observable.timer(2000, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(aVoid -> {

@@ -11,8 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.main.FlashActivity"
-            android:launchMode="singleTop"
-            android:theme="@style/AppTheme">
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,7 +19,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.main.MainActivity" />
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>
