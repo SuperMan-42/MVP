@@ -19,7 +19,7 @@ public class MainActivity extends CoreBaseActivity {
     @Override
     public void initView() {
         findViewById(R.id.btn_1).setOnClickListener(click -> {
-            SpUtil.setNight(this, !SpUtil.isNight());
+            SpUtil.setNightModel(mContext, !SpUtil.getNightModel(mContext));
             reload();
         });
     }

@@ -19,6 +19,7 @@ import com.hpw.mvpframe.utils.DialogUtils;
 import com.hpw.mvpframe.utils.LogUtil;
 import com.hpw.mvpframe.utils.SpUtil;
 import com.hpw.mvpframe.utils.TUtil;
+import com.hpw.mvpframe.utils.ThemeUtil;
 import com.hpw.mvpframe.utils.TitleBuilder;
 import com.hpw.mvpframe.utils.ToastUtils;
 import com.hpw.mvpframe.widget.SwipeBackLayout;
@@ -34,7 +35,6 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
     protected String TAG;
     private Dialog progressDialog;
 
-    public boolean isNight;
     public T mPresenter;
     public E mModel;
     public Context mContext;
@@ -55,8 +55,8 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
         TAG = getClass().getSimpleName();
         progressDialog = DialogUtils.createProgressDialog(this);
 
-        isNight = SpUtil.isNight();
-        setTheme(isNight ? R.style.AppThemeNight : R.style.AppThemeDay);
+        setTheme(ThemeUtil.themeArr[SpUtil.getThemeIndex(this)][
+                SpUtil.getNightModel(this) ? 1 : 0]);
         this.setContentView(this.getLayoutId());
         ButterKnife.bind(this);
         mContext = this;
@@ -78,7 +78,6 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
     @Override
     protected void onResume() {
         super.onResume();
-        if (isNight != SpUtil.isNight()) reload();
     }
 
     public void reload() {

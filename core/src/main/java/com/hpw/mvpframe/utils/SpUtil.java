@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.hpw.mvpframe.base.CoreBaseActivity;
-
 /**
  * Created by hpw on 16/10/28.
  */
@@ -17,14 +15,24 @@ public class SpUtil {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    public static boolean isNight() {
-        return prefs.getBoolean("isNight", false);
+    public static int getThemeIndex(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getInt("ThemeIndex", 9);
     }
 
-    public static void setNight(Context context, boolean isNight) {
-        prefs.edit().putBoolean("isNight", isNight).commit();
-        if (context instanceof CoreBaseActivity)
-            ((CoreBaseActivity) context).reload();
+    public static void setThemeIndex(Context context, int index) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putInt("ThemeIndex", index).apply();
+    }
+
+    public static boolean getNightModel(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean("pNightMode", false);
+    }
+
+    public static void setNightModel(Context context, boolean nightModel) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putBoolean("pNightMode", nightModel).apply();
     }
 }
 

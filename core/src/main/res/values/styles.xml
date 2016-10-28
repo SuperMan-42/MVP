@@ -16,27 +16,6 @@
         <item name="windowActionModeOverlay">true</item>
     </style>
 
-    <style name="AppThemeDay" parent="CoreAppTheme">
-        <!-- Customize your theme here. -->
-        <item name="android:windowBackground">@color/window_background_light</item>
-        <item name="android:listDivider">@color/list_divider_light</item>
-        <item name="widgetBackground">@color/selectable_item_background_general_light_normal</item>
-        <item name="widgetBackgroundDark">@color/selectable_item_background_general_light_pressed
-        </item>
-        <item name="widgetBackgroundTitle">@android:color/white</item>
-    </style>
-
-
-    <style name="AppThemeNight" parent="CoreAppTheme">
-        <!-- Customize your theme here. -->
-        <item name="android:windowBackground">@color/window_background_dark</item>
-        <item name="android:listDivider">@color/list_divider_dark</item>
-        <item name="widgetBackground">@color/selectable_item_background_general_dark_normal</item>
-        <item name="widgetBackgroundDark">@color/selectable_item_background_general_dark_pressed
-        </item>
-        <item name="widgetBackgroundTitle">@color/colorPrimary</item>
-    </style>
-
     <style name="TextViewTitle" parent="TextAppearance.AppCompat.Title">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
