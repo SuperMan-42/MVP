@@ -2,6 +2,7 @@ package com.hpw.myapp.ui.main;
 
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.myapp.R;
+import com.hpw.myapp.ui.home.HomeActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +29,7 @@ public class FlashActivity extends CoreBaseActivity {
         Observable.timer(2000, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(aVoid -> {
-                    startActivity(MainActivity.class);
+                    startActivity(HomeActivity.class);
                     finish();
                 });
     }

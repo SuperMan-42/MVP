@@ -5,10 +5,13 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -18,6 +21,7 @@ import com.hpw.mvpframe.R;
 import com.hpw.mvpframe.utils.DialogUtils;
 import com.hpw.mvpframe.utils.LogUtil;
 import com.hpw.mvpframe.utils.SpUtil;
+import com.hpw.mvpframe.utils.StatusBarUtil;
 import com.hpw.mvpframe.utils.TUtil;
 import com.hpw.mvpframe.utils.ThemeUtil;
 import com.hpw.mvpframe.utils.TitleBuilder;
@@ -46,7 +50,8 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setTranslucentStatus(isApplyStatusBarTranslucency());
+        setStatusBarColor(isApplyStatusBarColor());
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         init();
     }
@@ -121,6 +126,34 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
     public abstract int getLayoutId();
 
     public abstract void initView();
+
+    protected void setTranslucentStatus(boolean on) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window win = getWindow();
+            WindowManager.LayoutParams winParams = win.getAttributes();
+            final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+            if (on) {
+                winParams.flags |= bits;
+            } else {
+                winParams.flags &= ~bits;
+            }
+            win.setAttributes(winParams);
+        }
+    }
+
+    public void setStatusBarColor(boolean on) {
+        if (on) {
+            StatusBarUtil.setColor(this, ThemeUtil.getTheme(this), 0);
+        }
+    }
+
+    protected boolean isApplyStatusBarColor() {
+        return false;
+    }
+
+    protected boolean isApplyStatusBarTranslucency() {
+        return true;
+    }
 
     /**
      * 左侧有返回键的标题栏
