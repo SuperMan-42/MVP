@@ -3,7 +3,7 @@ package com.hpw.mvpframe.net;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ErrorConstants {
+public class CoreErrorConstants {
     public static Map<Integer, String> errors;
 
     static {

@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'android-apt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -21,6 +23,11 @@ android {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/NOTICE'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -68,6 +75,10 @@ dependencies {
     compile "com.commit451:PhotoView:$rootProject.photoviewVersion"
 //    compile "com.github.promeg:tinypinyin:1.0.0"
 //    compile "org.greenrobot:eventbus:3.0.0"
+
+    //Butterknife
+    compile 'com.jakewharton:butterknife:8.2.1'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
 }
 
 configurations {

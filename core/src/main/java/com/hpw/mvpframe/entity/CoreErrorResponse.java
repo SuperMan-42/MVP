@@ -1,6 +1,6 @@
 package com.hpw.mvpframe.entity;
 
-public class ErrorResponse {
+public class CoreErrorResponse {
 
     private int code;
     private String error;
@@ -23,7 +23,7 @@ public class ErrorResponse {
 
     @Override
     public String toString() {
-        return "ErrorResponse{" +
+        return "CoreErrorResponse{" +
                 "code=" + code +
                 ", error='" + error + '\'' +
                 '}';

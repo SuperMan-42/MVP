@@ -4,7 +4,7 @@
 
     </style>
 
-    <style name="AppTheme" parent="AppBaseTheme">
+    <style name="CoreAppTheme" parent="AppBaseTheme">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">false</item>
         <item name="android:windowActionBar">false</item>
@@ -14,6 +14,21 @@
         <item name="colorButtonNormal">@color/colorPrimary</item>
         <item name="colorControlActivated">@color/colorPrimary</item>
         <item name="android:windowBackground">@color/bg_gray</item>
+    </style>
+
+    <style name="AppThemeDay" parent="CoreAppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="AppThemeNight" parent="CoreAppTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#E91E63</item>
+        <item name="colorPrimaryDark">#E91E63</item>
+        <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
     <style name="TextViewTitle" parent="TextAppearance.AppCompat.Title">
