@@ -50,6 +50,7 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //设置状态栏透明
         setTranslucentStatus(isApplyStatusBarTranslucency());
         setStatusBarColor(isApplyStatusBarColor());
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
