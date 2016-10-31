@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -29,12 +28,14 @@ import com.hpw.mvpframe.utils.ToastUtils;
 import com.hpw.mvpframe.widget.SwipeBackLayout;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
+import me.yokeyword.fragmentation.SupportActivity;
 
 /**
  * Created by hpw on 16/10/12.
  */
 
-public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends CoreBaseModel> extends AppCompatActivity {
+public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends CoreBaseModel> extends SupportActivity {
 
     protected String TAG;
     private Dialog progressDialog;
@@ -42,6 +43,7 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
     public T mPresenter;
     public E mModel;
     public Context mContext;
+    Unbinder binder;
 
     private SwipeBackLayout swipeBackLayout;
     private ImageView ivShadow;
@@ -64,7 +66,7 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
         setTheme(ThemeUtil.themeArr[SpUtil.getThemeIndex(this)][
                 SpUtil.getNightModel(this) ? 1 : 0]);
         this.setContentView(this.getLayoutId());
-        ButterKnife.bind(this);
+        binder = ButterKnife.bind(this);
         mContext = this;
         mPresenter = TUtil.getT(this, 0);
         mModel = TUtil.getT(this, 1);
@@ -77,6 +79,7 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
     protected void onDestroy() {
         super.onDestroy();
         AppManager.getAppManager().finishActivity(this);
+        if (binder != null) binder.unbind();
         if (mPresenter != null) mPresenter.detachVM();
         if (progressDialog != null) progressDialog.dismiss();
     }
