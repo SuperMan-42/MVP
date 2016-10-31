@@ -1,7 +1,6 @@
 package com.hpw.mvpframe.base;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -17,7 +16,6 @@ import android.widget.Toast;
 
 import com.hpw.mvpframe.AppManager;
 import com.hpw.mvpframe.R;
-import com.hpw.mvpframe.utils.DialogUtils;
 import com.hpw.mvpframe.utils.LogUtil;
 import com.hpw.mvpframe.utils.SpUtil;
 import com.hpw.mvpframe.utils.StatusBarUtil;
@@ -38,11 +36,10 @@ import me.yokeyword.fragmentation.SupportActivity;
 public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends CoreBaseModel> extends SupportActivity {
 
     protected String TAG;
-    private Dialog progressDialog;
 
     public T mPresenter;
     public E mModel;
-    public Context mContext;
+    protected Context mContext;
     Unbinder binder;
 
     private SwipeBackLayout swipeBackLayout;
@@ -56,12 +53,11 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
         setTranslucentStatus(isApplyStatusBarTranslucency());
         setStatusBarColor(isApplyStatusBarColor());
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        init();
+        init(savedInstanceState);
     }
 
-    private void init() {
+    private void init(Bundle savedInstanceState) {
         TAG = getClass().getSimpleName();
-        progressDialog = DialogUtils.createProgressDialog(this);
 
         setTheme(ThemeUtil.themeArr[SpUtil.getThemeIndex(this)][
                 SpUtil.getNightModel(this) ? 1 : 0]);
@@ -70,7 +66,7 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
         mContext = this;
         mPresenter = TUtil.getT(this, 0);
         mModel = TUtil.getT(this, 1);
-        this.initView();
+        this.initView(savedInstanceState);
         if (this instanceof CoreBaseView) mPresenter.attachVM(this, mModel);
         AppManager.getAppManager().addActivity(this);
     }
@@ -81,7 +77,6 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
         AppManager.getAppManager().finishActivity(this);
         if (binder != null) binder.unbind();
         if (mPresenter != null) mPresenter.detachVM();
-        if (progressDialog != null) progressDialog.dismiss();
     }
 
     @Override
@@ -129,7 +124,7 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
 
     public abstract int getLayoutId();
 
-    public abstract void initView();
+    public abstract void initView(Bundle savedInstanceState);
 
     protected void setTranslucentStatus(boolean on) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -190,13 +185,5 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
 
     public void showLog(String msg) {
         LogUtil.i(TAG, msg);// TODO: 16/10/12 Log需要自己从新搞一下
-    }
-
-    public void showProgressDialog() {
-        progressDialog.show();
-    }
-
-    public void dismissProgressDialog() {
-        progressDialog.dismiss();
     }
 }

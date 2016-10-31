@@ -14,6 +14,7 @@ public abstract class CoreBasePresenter<M, T> {
     public void attachVM(T v, M m) {
         this.mView = v;
         this.mModel = m;
+        this.onStart();
     }
 
     public void detachVM() {
@@ -21,4 +22,6 @@ public abstract class CoreBasePresenter<M, T> {
         mView = null;
         mModel = null;
     }
+
+    public abstract void onStart();
 }

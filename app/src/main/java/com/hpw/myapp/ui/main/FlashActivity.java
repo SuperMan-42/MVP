@@ -1,5 +1,7 @@
 package com.hpw.myapp.ui.main;
 
+import android.os.Bundle;
+
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.myapp.R;
 import com.hpw.myapp.ui.home.HomeActivity;
@@ -25,7 +27,7 @@ public class FlashActivity extends CoreBaseActivity {
     }
 
     @Override
-    public void initView() {
+    public void initView(Bundle savedInstanceState) {
         Observable.timer(2000, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(aVoid -> {
