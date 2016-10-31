@@ -10,12 +10,14 @@ import android.view.MenuItem;
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.myapp.R;
 
+import butterknife.BindView;
+
 public class HomeActivity extends CoreBaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, HomeFragment.OnFragmentOpenDrawerListener {
 
-    //    @BindView(R.id.nav_view)
+    @BindView(R.id.nav_view)
     NavigationView navigationView;
-    //    @BindView(R.id.drawer_layout)
+    @BindView(R.id.drawer_layout)
     DrawerLayout drawer;
 
     @Override
@@ -30,13 +32,10 @@ public class HomeActivity extends CoreBaseActivity
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         if (savedInstanceState == null) {
             loadRootFragment(R.id.fl_container, HomeFragment.newInstance("HomeFragment"));

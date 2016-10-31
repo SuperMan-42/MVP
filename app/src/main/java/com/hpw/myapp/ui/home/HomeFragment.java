@@ -19,6 +19,8 @@ import com.hpw.myapp.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+
 /**
  * Created by hpw on 16/10/31.
  */
@@ -26,13 +28,13 @@ public class HomeFragment extends CoreBaseLazyFragment<HomePresenter, HomeModel>
     protected OnFragmentOpenDrawerListener mOpenDraweListener;
     List<Fragment> fragments = new ArrayList<>();
     private static final String ARG_TITLE = "arg_title";
-    //    @BindView(R.id.tabs)
+    @BindView(R.id.tabs)
     TabLayout tabs;
-    //    @BindView(R.id.viewpager)
+    @BindView(R.id.viewpager)
     ViewPager viewpager;
-    //    @BindView(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar toolbar;
-    //    @BindView(R.id.fab)
+    @BindView(R.id.fab)
     FloatingActionButton fab;
 
     @Override
@@ -73,10 +75,6 @@ public class HomeFragment extends CoreBaseLazyFragment<HomePresenter, HomeModel>
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
-        tabs = (TabLayout) view.findViewById(R.id.tabs);
-        viewpager = (ViewPager) view.findViewById(R.id.viewpager);
-        toolbar = (Toolbar) view.findViewById(R.id.toolbar);
-        fab = (FloatingActionButton) view.findViewById(R.id.fab);
     }
 
     @Override
