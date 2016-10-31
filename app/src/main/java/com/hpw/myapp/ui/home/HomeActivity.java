@@ -5,6 +5,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.hpw.mvpframe.base.CoreBaseActivity;
@@ -32,10 +33,6 @@ public class HomeActivity extends CoreBaseActivity
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
         if (savedInstanceState == null) {
             loadRootFragment(R.id.fl_container, HomeFragment.newInstance("HomeFragment"));
@@ -75,6 +72,10 @@ public class HomeActivity extends CoreBaseActivity
 
     @Override
     public void onOpenDrawer() {
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, (Toolbar) findViewById(R.id.toolbar), R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
         if (!drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.openDrawer(GravityCompat.START);
         }
