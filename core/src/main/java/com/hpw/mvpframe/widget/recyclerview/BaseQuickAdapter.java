@@ -155,6 +155,11 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
         return this.pageSize;
     }
 
+    public BaseQuickAdapter(int layoutResId) {
+        if (layoutResId != 0) {
+            this.mLayoutResId = layoutResId;
+        }
+    }
 
     /**
      * Same as QuickAdapter#QuickAdapter(Context,int) but with

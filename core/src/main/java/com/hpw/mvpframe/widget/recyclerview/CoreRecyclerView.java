@@ -16,7 +16,6 @@ import com.hpw.mvpframe.R;
 import com.hpw.mvpframe.widget.recyclerview.animation.BaseAnimation;
 import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -34,7 +33,6 @@ public class CoreRecyclerView<T> extends LinearLayout implements BaseQuickAdapte
     private int mCurrentCounter = 0;
     private boolean isErr;
     private View notLoadingView;
-    List<T> data = new ArrayList<>();
 
     public CoreRecyclerView(Context context) {
         super(context);
@@ -78,7 +76,7 @@ public class CoreRecyclerView<T> extends LinearLayout implements BaseQuickAdapte
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                mQuickAdapter.setNewData(data);
+//                mQuickAdapter.setNewData(data);
                 mQuickAdapter.openLoadMore(PAGE_SIZE);
                 mQuickAdapter.removeAllFooterView();
                 mCurrentCounter = PAGE_SIZE;
@@ -104,7 +102,7 @@ public class CoreRecyclerView<T> extends LinearLayout implements BaseQuickAdapte
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                mQuickAdapter.addData(data);
+//                                mQuickAdapter.addData(data);
                                 mCurrentCounter = mQuickAdapter.getData().size();
                             }
                         }, delayMillis);
@@ -188,8 +186,8 @@ public class CoreRecyclerView<T> extends LinearLayout implements BaseQuickAdapte
         return this;
     }
 
-    public CoreRecyclerView openLoadMore(int pageSize, List<T> data) {
-        this.data = data;
+    public CoreRecyclerView openLoadMore(int pageSize) {
+//        this.data = data == null ? new ArrayList<T>() : data;
         mQuickAdapter.openLoadMore(pageSize);
         mQuickAdapter.setOnLoadMoreListener(this);
         return this;
@@ -270,8 +268,8 @@ public class CoreRecyclerView<T> extends LinearLayout implements BaseQuickAdapte
         return this;
     }
 
-    public CoreRecyclerView openRefresh(List<T> data) {
-        this.data = data;
+    public CoreRecyclerView openRefresh() {
+//        this.data = data == null ? new ArrayList<T>() : data;
         mSwipeRefreshLayout.setEnabled(true);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         return this;

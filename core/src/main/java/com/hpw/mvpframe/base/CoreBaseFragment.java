@@ -57,8 +57,8 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
         mModel = TUtil.getT(this, 1);
         getBundle(getArguments());
         initUI(view, savedInstanceState);
-        initData();
         if (this instanceof CoreBaseView) mPresenter.attachVM(this, mModel);
+        initData();
         super.onViewCreated(view, savedInstanceState);
     }
 

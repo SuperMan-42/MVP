@@ -12,14 +12,14 @@ import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
 import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
 import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
+import com.hpw.myapp.DataServer;
 import com.hpw.myapp.R;
 
 /**
- * Created by hpw on 16/10/31.
+ * Created by hpw on 16/11/1.
  */
-public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyModel> {
-    CoreRecyclerView coreRecyclerView;
 
+public class QuickFragment extends CoreBaseLazyFragment {
     @Override
     public int getLayoutId() {
         return 0;
@@ -27,8 +27,8 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
 
     @Override
     public View getLayoutView() {
-        coreRecyclerView = new CoreRecyclerView<Status>(mContext)
-                .initAdapter(new BaseQuickAdapter<Status, BaseViewHolder>(R.layout.item_tweet) {
+        return new CoreRecyclerView<Status>(mContext)
+                .initAdapter(new BaseQuickAdapter<Status, BaseViewHolder>(R.layout.item_tweet, DataServer.getSampleData(6)) {
                     @Override
                     protected void convert(BaseViewHolder helper, Status item) {
                         helper.setText(R.id.tweetName, item.getUserName())
@@ -48,7 +48,6 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
                         showToast("点击了" + position);
                     }
                 });
-        return coreRecyclerView;
     }
 
     @Override
@@ -58,7 +57,7 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
 
     @Override
     public void initData() {
-        coreRecyclerView.setNewData(mModel.getData());
+
     }
 
     @Override
