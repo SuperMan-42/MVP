@@ -42,7 +42,11 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(getLayoutId(), null);
+        if (getLayoutView() != null) {
+            return getLayoutView();
+        } else {
+            return inflater.inflate(getLayoutId(), null);
+        }
     }
 
     @Override
@@ -79,6 +83,10 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
     }
 
     public abstract int getLayoutId();
+
+    public View getLayoutView() {
+        return null;
+    }
 
     /**
      * 得到Activity传进来的值

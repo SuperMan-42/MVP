@@ -1,8 +1,8 @@
 package com.hpw.mvpframe.utils;
 
 import com.google.gson.Gson;
-import com.hpw.mvpframe.entity.CoreErrorResponse;
-import com.hpw.mvpframe.net.CoreErrorConstants;
+import com.hpw.mvpframe.data.entity.CoreErrorResponse;
+import com.hpw.mvpframe.data.net.CoreErrorConstants;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.ResponseBody;
 

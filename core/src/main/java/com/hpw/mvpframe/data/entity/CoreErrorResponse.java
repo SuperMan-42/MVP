@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.entity;
+package com.hpw.mvpframe.data.entity;
 
 public class CoreErrorResponse {
 

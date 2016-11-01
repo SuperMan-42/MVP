@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.net;
+package com.hpw.mvpframe.data.net;
 
 /**
  * Created by hpw on 16/10/12.
