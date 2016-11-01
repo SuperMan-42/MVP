@@ -22,6 +22,15 @@ public class HomeActivity extends CoreBaseActivity
     DrawerLayout drawer;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, (Toolbar) findViewById(R.id.toolbar), R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.setDrawerListener(toggle);
+        toggle.syncState();
+    }
+
+    @Override
     public int getLayoutId() {
         return R.layout.activity_home;
     }
@@ -72,10 +81,6 @@ public class HomeActivity extends CoreBaseActivity
 
     @Override
     public void onOpenDrawer() {
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, (Toolbar) findViewById(R.id.toolbar), R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
         if (!drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.openDrawer(GravityCompat.START);
         }
