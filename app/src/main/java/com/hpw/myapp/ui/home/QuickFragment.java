@@ -19,7 +19,7 @@ import com.hpw.myapp.R;
  * Created by hpw on 16/11/1.
  */
 
-public class QuickFragment extends CoreBaseLazyFragment {
+public class QuickFragment extends CoreBaseLazyFragment<DailyPresenter, DailyModel> {
     @Override
     public int getLayoutId() {
         return 0;
@@ -27,7 +27,7 @@ public class QuickFragment extends CoreBaseLazyFragment {
 
     @Override
     public View getLayoutView() {
-        return new CoreRecyclerView<Status>(mContext)
+        return new CoreRecyclerView(mContext)
                 .initAdapter(new BaseQuickAdapter<Status, BaseViewHolder>(R.layout.item_tweet, DataServer.getSampleData(6)) {
                     @Override
                     protected void convert(BaseViewHolder helper, Status item) {

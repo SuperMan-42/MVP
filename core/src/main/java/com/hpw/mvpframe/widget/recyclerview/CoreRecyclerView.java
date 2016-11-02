@@ -22,11 +22,16 @@ import java.util.List;
  * Created by hpw on 16/11/1.
  */
 
-public class CoreRecyclerView<T> extends LinearLayout implements BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
-
+public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.RequestLoadMoreListener, SwipeRefreshLayout.OnRefreshListener {
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     BaseQuickAdapter mQuickAdapter;
+    addDataListener addDataListener;
+
+    public interface addDataListener<T> {
+        List<T> addData();
+    }
+
     private int delayMillis = 1000;
     private static final int TOTAL_COUNTER = 18;
     private static final int PAGE_SIZE = 6;
@@ -71,12 +76,18 @@ public class CoreRecyclerView<T> extends LinearLayout implements BaseQuickAdapte
         return this;
     }
 
+    public CoreRecyclerView setAddDataListener(addDataListener addDataListener) {
+        this.addDataListener = addDataListener;
+        mQuickAdapter.setNewData(addDataListener.addData());
+        return this;
+    }
+
     @Override
     public void onRefresh() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-//                mQuickAdapter.setNewData(data);
+                mQuickAdapter.setNewData(addDataListener.addData());
                 mQuickAdapter.openLoadMore(PAGE_SIZE);
                 mQuickAdapter.removeAllFooterView();
                 mCurrentCounter = PAGE_SIZE;
@@ -102,7 +113,7 @@ public class CoreRecyclerView<T> extends LinearLayout implements BaseQuickAdapte
                         new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
-//                                mQuickAdapter.addData(data);
+                                mQuickAdapter.addData(addDataListener.addData());
                                 mCurrentCounter = mQuickAdapter.getData().size();
                             }
                         }, delayMillis);
@@ -114,26 +125,6 @@ public class CoreRecyclerView<T> extends LinearLayout implements BaseQuickAdapte
                 }
             }
         });
-    }
-
-    public CoreRecyclerView addData(int position, T item) {
-        mQuickAdapter.addData(position, item);
-        return this;
-    }
-
-    public CoreRecyclerView addData(int position, List<T> data) {
-        mQuickAdapter.addData(position, data);
-        return this;
-    }
-
-    public CoreRecyclerView addData(List<T> newData) {
-        mQuickAdapter.addData(newData);
-        return this;
-    }
-
-    public CoreRecyclerView addData(T data) {
-        mQuickAdapter.addData(data);
-        return this;
     }
 
     public CoreRecyclerView addFooterView(View footer) {
@@ -248,11 +239,6 @@ public class CoreRecyclerView<T> extends LinearLayout implements BaseQuickAdapte
         return this;
     }
 
-    public CoreRecyclerView setNewData(List<T> data) {
-        mQuickAdapter.setNewData(data);
-        return this;
-    }
-
     public CoreRecyclerView setOnLoadMoreListener(BaseQuickAdapter.RequestLoadMoreListener requestLoadMoreListener) {
         mQuickAdapter.setOnLoadMoreListener(requestLoadMoreListener);
         return this;
@@ -269,7 +255,6 @@ public class CoreRecyclerView<T> extends LinearLayout implements BaseQuickAdapte
     }
 
     public CoreRecyclerView openRefresh() {
-//        this.data = data == null ? new ArrayList<T>() : data;
         mSwipeRefreshLayout.setEnabled(true);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         return this;

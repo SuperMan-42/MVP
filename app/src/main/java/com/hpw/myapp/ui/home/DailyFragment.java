@@ -27,7 +27,7 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
 
     @Override
     public View getLayoutView() {
-        coreRecyclerView = new CoreRecyclerView<Status>(mContext)
+        coreRecyclerView = new CoreRecyclerView(mContext)
                 .initAdapter(new BaseQuickAdapter<Status, BaseViewHolder>(R.layout.item_tweet) {
                     @Override
                     protected void convert(BaseViewHolder helper, Status item) {
@@ -47,7 +47,9 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
                     public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
                         showToast("点击了" + position);
                     }
-                });
+                })
+                .openLoadMore(6)
+                .openRefresh();
         return coreRecyclerView;
     }
 
@@ -58,7 +60,7 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
 
     @Override
     public void initData() {
-        coreRecyclerView.setNewData(mModel.getData());
+        coreRecyclerView.setAddDataListener(() -> mModel.getData());
     }
 
     @Override
