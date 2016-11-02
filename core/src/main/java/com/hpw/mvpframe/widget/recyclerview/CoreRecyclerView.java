@@ -84,44 +84,36 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
 
     @Override
     public void onRefresh() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mQuickAdapter.setNewData(addDataListener.addData());
-                mQuickAdapter.openLoadMore(PAGE_SIZE);
-                mQuickAdapter.removeAllFooterView();
-                mCurrentCounter = PAGE_SIZE;
-                mSwipeRefreshLayout.setRefreshing(false);
-                isErr = false;
-            }
-        }, delayMillis);
+        mQuickAdapter.setNewData(addDataListener.addData());
+        mQuickAdapter.openLoadMore(PAGE_SIZE);
+        mQuickAdapter.removeAllFooterView();
+        mCurrentCounter = PAGE_SIZE;
+        mSwipeRefreshLayout.setRefreshing(false);
+        isErr = false;
     }
 
     @Override
     public void onLoadMoreRequested() {
-        mRecyclerView.post(new Runnable() {
-            @Override
-            public void run() {
-                if (mCurrentCounter >= TOTAL_COUNTER) {
-                    mQuickAdapter.loadComplete();
-                    if (notLoadingView == null) {
-                        notLoadingView = LayoutInflater.from(getContext()).inflate(R.layout.not_loading, (ViewGroup) mRecyclerView.getParent(), false);
-                    }
-                    mQuickAdapter.addFooterView(notLoadingView);
+        mRecyclerView.post(() -> {
+            if (mCurrentCounter >= TOTAL_COUNTER) {
+                mQuickAdapter.loadComplete();
+                if (notLoadingView == null) {
+                    notLoadingView = LayoutInflater.from(getContext()).inflate(R.layout.not_loading, (ViewGroup) mRecyclerView.getParent(), false);
+                }
+                mQuickAdapter.addFooterView(notLoadingView);
+            } else {
+                if (isErr) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            mQuickAdapter.addData(addDataListener.addData());
+                            mCurrentCounter = mQuickAdapter.getData().size();
+                        }
+                    }, delayMillis);
                 } else {
-                    if (isErr) {
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                mQuickAdapter.addData(addDataListener.addData());
-                                mCurrentCounter = mQuickAdapter.getData().size();
-                            }
-                        }, delayMillis);
-                    } else {
-                        isErr = true;
-                        mQuickAdapter.showLoadMoreFailedView();
+                    isErr = true;
+                    mQuickAdapter.showLoadMoreFailedView();
 
-                    }
                 }
             }
         });
