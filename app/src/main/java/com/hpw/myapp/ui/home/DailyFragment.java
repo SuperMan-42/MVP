@@ -30,7 +30,7 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
             @Override
             protected void convert(BaseViewHolder helper, DailyListBean.StoriesBean item) {
                 helper.setText(R.id.tv_daily_item_title, item.getTitle());
-                Glide.with(mContext).load(item.getImages()).crossFade().placeholder(R.mipmap.def_head).into((ImageView) helper.getView(R.id.iv_daily_item_image));
+                Glide.with(mContext).load(item.getImages().get(0)).crossFade().placeholder(R.mipmap.def_head).into((ImageView) helper.getView(R.id.iv_daily_item_image));
             }
         }).addOnItemClickListener(new OnItemClickListener() {
             @Override

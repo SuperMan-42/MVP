@@ -156,6 +156,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
     }
 
     public BaseQuickAdapter(int layoutResId) {
+        this.mData = new ArrayList<T>();
         if (layoutResId != 0) {
             this.mLayoutResId = layoutResId;
         }
