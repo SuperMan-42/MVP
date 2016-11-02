@@ -7,4 +7,8 @@ import com.hpw.mvpframe.CoreApp;
  */
 
 public class App extends CoreApp {
+    @Override
+    public String setBaseUrl() {
+        return "http://news-at.zhihu.com/api/4/";
+    }
 }

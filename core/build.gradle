@@ -57,13 +57,15 @@ dependencies {
     compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
 
     // Retrofit
-    compile "com.squareup.retrofit:retrofit:$rootProject.retrofitVersion"
-    compile "com.squareup.retrofit:converter-gson:$rootProject.retrofitVersion"
-    compile "com.squareup.retrofit:adapter-rxjava:$rootProject.retrofitVersion"
-    compile "com.squareup.okhttp:logging-interceptor:$rootProject.okhttploggingVersion"
+    compile "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    compile "com.squareup.retrofit2:adapter-rxjava:$rootProject.retrofitVersion"
+    compile "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttploggingVersion"
+    compile "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
 
     // RxJava
-    compile "io.reactivex:rxandroid:$rootProject.rxjavaVersion"
+    compile "io.reactivex:rxjava:$rootProject.rxjavaVersion"
+    compile "io.reactivex:rxandroid:$rootProject.rxandroidVersion"
     compile "com.jakewharton.rxbinding:rxbinding:$rootProject.rxbindingVersion"
 
     // Glide

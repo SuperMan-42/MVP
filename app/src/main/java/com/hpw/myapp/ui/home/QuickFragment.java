@@ -18,7 +18,7 @@ import com.hpw.myapp.R;
  * Created by hpw on 16/11/1.
  */
 
-public class QuickFragment extends CoreBaseLazyFragment<DailyPresenter, DailyModel> {
+public class QuickFragment extends CoreBaseLazyFragment<QuickPresenter, QuickModel> {
     CoreRecyclerView coreRecyclerView;
 
     @Override

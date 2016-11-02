@@ -1,14 +1,14 @@
 package com.hpw.mvpframe.utils;
 
 import com.google.gson.Gson;
-import com.hpw.mvpframe.data.entity.CoreErrorResponse;
+import com.hpw.mvpframe.data.entity.CoreDataResponse;
 import com.hpw.mvpframe.data.net.CoreErrorConstants;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.ResponseBody;
 
 import java.net.UnknownHostException;
 
-import retrofit.HttpException;
+import okhttp3.MediaType;
+import okhttp3.ResponseBody;
+import retrofit2.adapter.rxjava.HttpException;
 
 public class ErrorInfoUtils {
 
@@ -28,8 +28,8 @@ public class ErrorInfoUtils {
             if (type.type().equals("application") && type.subtype().equals("json")) {
                 try {
                     // 这里的返回内容是Bmob/AVOS/Parse等RestFul API文档中的错误代码和错误信息对象
-                    CoreErrorResponse errorResponse = new Gson().fromJson(
-                            responseBody.string(), CoreErrorResponse.class);
+                    CoreDataResponse errorResponse = new Gson().fromJson(
+                            responseBody.string(), CoreDataResponse.class);
 
                     errorInfo = getLocalErrorInfo(errorResponse);
                 } catch (Exception e) {
@@ -48,10 +48,10 @@ public class ErrorInfoUtils {
     /**
      * 获取本地预设错误信息
      */
-    private static String getLocalErrorInfo(CoreErrorResponse error) {
+    private static String getLocalErrorInfo(CoreDataResponse error) {
         String s = CoreErrorConstants.errors.get(error.getCode());
         if (StringUtils.isEmpty(s)) {
-            return error.getError();
+            return error.getMessage();
         } else {
             return s;
         }

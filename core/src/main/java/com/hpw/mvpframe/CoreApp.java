@@ -10,7 +10,7 @@ import com.hpw.mvpframe.utils.SpUtil;
  * Created by hpw on 16/10/28.
  */
 
-public class CoreApp extends Application {
+public abstract class CoreApp extends Application {
     private static CoreApp mApp;
 
     @Override
@@ -20,12 +20,17 @@ public class CoreApp extends Application {
         SpUtil.init(this);
     }
 
-    public static Context getAppContext() {
+    public static synchronized CoreApp getInstance() {
         return mApp;
+    }
+
+    public static Context getAppContext() {
+        return mApp.getApplicationContext();
     }
 
     public static Resources getAppResources() {
         return mApp.getResources();
     }
 
+    public abstract String setBaseUrl();
 }

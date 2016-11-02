@@ -1,16 +1,18 @@
 package com.hpw.myapp.ui.home;
 
-import com.hpw.myapp.DataServer;
+import com.hpw.mvpframe.data.net.RxService;
+import com.hpw.mvpframe.utils.helper.RxUtil;
+import com.hpw.myapp.ui.api.ZhiHuApi;
 
-import java.util.List;
+import rx.Observable;
 
 /**
- * Created by hpw on 16/11/1.
+ * Created by hpw on 16/11/2.
  */
-
 public class DailyModel implements DailyContract.Model {
+
     @Override
-    public List<Status> getData() {
-        return DataServer.getSampleData(6);
+    public Observable<DailyListBean> getDailyData() {
+        return RxService.createApi(ZhiHuApi.class).getDailyList().compose(RxUtil.rxSchedulerHelper());
     }
 }

@@ -4,23 +4,22 @@ import com.hpw.mvpframe.base.CoreBaseModel;
 import com.hpw.mvpframe.base.CoreBasePresenter;
 import com.hpw.mvpframe.base.CoreBaseView;
 
-import rx.Observable;
+import java.util.List;
 
 /**
- * Created by hpw on 16/11/2.
+ * Created by hpw on 16/11/1.
  */
 
-public interface DailyContract {
+public interface QuickContract {
     interface Model extends CoreBaseModel {
-        Observable<DailyListBean> getDailyData();
+        List<Status> getData();
     }
 
     interface View extends CoreBaseView {
-        void showContent(DailyListBean info);
+
     }
 
     abstract class Presenter extends CoreBasePresenter<Model, View> {
 
-        abstract void getDailyData();
     }
 }
