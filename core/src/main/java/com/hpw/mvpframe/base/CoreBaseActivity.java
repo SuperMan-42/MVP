@@ -28,6 +28,8 @@ import com.hpw.mvpframe.widget.SwipeBackLayout;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportActivity;
+import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
+import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
  * Created by hpw on 16/10/12.
@@ -125,6 +127,18 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
     public abstract int getLayoutId();
 
     public abstract void initView(Bundle savedInstanceState);
+
+    @Override
+    protected FragmentAnimator onCreateFragmentAnimator() {
+        // 设置横向(和安卓4.x动画相同)
+        return new DefaultHorizontalAnimator();
+        // 设置无动画
+        // return new DefaultNoAnimator();
+        // 设置自定义动画
+        // return new FragmentAnimator(enter,exit,popEnter,popExit);
+        // 默认竖向(和安卓5.0以上的动画相同)
+//        return super.onCreateFragmentAnimator();
+    }
 
     protected void setTranslucentStatus(boolean on) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
