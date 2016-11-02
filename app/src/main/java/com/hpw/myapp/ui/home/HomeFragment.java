@@ -87,7 +87,11 @@ public class HomeFragment extends CoreBaseLazyFragment<HomePresenter, HomeModel>
         //TabLayout配合ViewPager有时会出现不显示Tab文字的Bug,需要按如下顺序
         for (int i = 0; i < mTabs.length; i++) {
             tabs.addTab(tabs.newTab().setText(mTabs[i]));
-            fragments.add(new DailyFragment());
+            if (i == 0) {
+                fragments.add(new DailyFragment());
+            } else {
+                fragments.add(new QuickFragment());
+            }
         }
         viewpager.setAdapter(new FragmentAdapter(getChildFragmentManager(), fragments));
         tabs.setupWithViewPager(viewpager);
