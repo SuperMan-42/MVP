@@ -11,16 +11,10 @@ import okhttp3.Cache;
  */
 public class HttpCache {
 
-    private static final int HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = 10 * 1024 * 1024;
-
-    private static File getCacheDir() {
-        //设置缓存路径
-        final File baseDir = new File(CoreApp.getAppContext().getCacheDir(), "ACache");
-        final File cacheDir = new File(baseDir, "HttpResponseCache");
-        return cacheDir;
-    }
+    private static final int HTTP_RESPONSE_DISK_CACHE_MAX_SIZE = 50 * 1024 * 1024;
 
     public static Cache getCache() {
-        return new Cache(getCacheDir(), HTTP_RESPONSE_DISK_CACHE_MAX_SIZE);
+        return new Cache(new File(CoreApp.getAppContext().getCacheDir().getAbsolutePath() + File.separator + "data/NetCache"),
+                HTTP_RESPONSE_DISK_CACHE_MAX_SIZE);
     }
 }
