@@ -55,9 +55,9 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
         binder = ButterKnife.bind(this, view);
         mPresenter = TUtil.getT(this, 0);
         mModel = TUtil.getT(this, 1);
-        getBundle(getArguments());
         initUI(view, savedInstanceState);
         if (this instanceof CoreBaseView) mPresenter.attachVM(this, mModel);
+        getBundle(getArguments());
         initData();
         super.onViewCreated(view, savedInstanceState);
     }

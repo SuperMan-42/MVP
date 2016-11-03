@@ -106,21 +106,5 @@ public class ZhihuDetailBean {
     public String getTitle() {
         return title;
     }
-
-    @Override
-    public String toString() {
-        return "ZhihuDetailBean{" +
-                "body='" + body + '\'' +
-                ", image_source='" + image_source + '\'' +
-                ", title='" + title + '\'' +
-                ", image='" + image + '\'' +
-                ", share_url='" + share_url + '\'' +
-                ", ga_prefix='" + ga_prefix + '\'' +
-                ", type=" + type +
-                ", id=" + id +
-                ", js=" + js +
-                ", css=" + css +
-                '}';
-    }
 }
 

@@ -46,7 +46,7 @@ public class DailyDetailsFragment extends CoreBaseFragment<DailyDetailsPresenter
 
     @Override
     public void showContent(ZhihuDetailBean info) {
-        showLog(info.toString());
+
     }
 
     @Override
