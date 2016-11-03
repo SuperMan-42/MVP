@@ -188,6 +188,15 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
      *
      * @param tarActivity 目标页面
      */
+    public void startActivity(Class<? extends Activity> tarActivity, Bundle options) {
+        Intent intent = new Intent(this, tarActivity);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            startActivity(intent, options);
+        } else {
+            startActivity(intent);
+        }
+    }
+
     public void startActivity(Class<? extends Activity> tarActivity) {
         Intent intent = new Intent(this, tarActivity);
         startActivity(intent);

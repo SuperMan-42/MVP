@@ -17,6 +17,8 @@ import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 import com.hpw.mvpframe.widget.recyclerview.recyclerviewpager.LoopRecyclerViewPager;
 import com.hpw.myapp.R;
 
+import me.yokeyword.fragmentation.SupportFragment;
+
 /**
  * Created by hpw on 16/10/31.
  */
@@ -26,7 +28,7 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
 
     @Override
     public int getLayoutId() {
-        return R.layout.item_daily;
+        return 0;
     }
 
     @Override
@@ -41,6 +43,7 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
             @Override
             public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
                 showToast("点击了" + position);
+                start(DailyDetailsFragment.newInstance(((DailyListBean.StoriesBean) adapter.getData().get(position)).getId()), SupportFragment.STANDARD);
             }
         });
         return coreRecyclerView;

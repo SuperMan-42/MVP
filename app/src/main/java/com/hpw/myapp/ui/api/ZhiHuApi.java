@@ -1,8 +1,10 @@
 package com.hpw.myapp.ui.api;
 
 import com.hpw.myapp.ui.home.DailyListBean;
+import com.hpw.myapp.ui.home.ZhihuDetailBean;
 
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import rx.Observable;
 
 /**
@@ -58,11 +60,11 @@ public interface ZhiHuApi {
 //    @GET("news/hot")
 //    Observable<HotListBean> getHotList();
 
-//    /**
-//     * 日报详情
-//     */
-//    @GET("news/{id}")
-//    Observable<ZhihuDetailBean> getDetailInfo(@Path("id") int id);
+    /**
+     * 日报详情
+     */
+    @GET("news/{id}")
+    Observable<ZhihuDetailBean> getDetailInfo(@Path("id") int id);
 
 //    /**
 //     * 日报的额外信息

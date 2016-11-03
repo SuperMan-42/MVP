@@ -21,13 +21,14 @@ import java.util.List;
 
 import butterknife.BindView;
 
+import static com.hpw.myapp.Constants.ARG_TITLE;
+
 /**
  * Created by hpw on 16/10/31.
  */
 public class HomeFragment extends CoreBaseLazyFragment<HomePresenter, HomeModel> implements HomeContract.View, Toolbar.OnMenuItemClickListener {
     protected OnFragmentOpenDrawerListener mOpenDraweListener;
     List<Fragment> fragments = new ArrayList<>();
-    private static final String ARG_TITLE = "arg_title";
     @BindView(R.id.tabs)
     TabLayout tabs;
     @BindView(R.id.viewpager)

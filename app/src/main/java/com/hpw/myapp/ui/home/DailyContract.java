@@ -13,6 +13,8 @@ import rx.Observable;
 public interface DailyContract {
     interface Model extends CoreBaseModel {
         Observable<DailyListBean> getDailyData();
+
+        Observable<ZhihuDetailBean> getDailyDetails(int anInt);
     }
 
     interface View extends CoreBaseView {
@@ -21,10 +23,17 @@ public interface DailyContract {
         void doInterval(int i);
     }
 
-    abstract class Presenter extends CoreBasePresenter<Model, View> {
+    interface DailyDetails extends CoreBaseView {
+        void showContent(ZhihuDetailBean info);
+    }
 
+    abstract class Presenter extends CoreBasePresenter<Model, View> {
         abstract void getDailyData();
 
-        public abstract void startInterval();
+        abstract void startInterval();
+    }
+
+    abstract class DetailsPresenter extends CoreBasePresenter<Model, DailyDetails> {
+        abstract void getDailyDetails(int anInt);
     }
 }

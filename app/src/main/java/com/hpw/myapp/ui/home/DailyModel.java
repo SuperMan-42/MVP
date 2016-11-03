@@ -15,4 +15,9 @@ public class DailyModel implements DailyContract.Model {
     public Observable<DailyListBean> getDailyData() {
         return RxService.createApi(ZhiHuApi.class).getDailyList().compose(RxUtil.rxSchedulerHelper());
     }
+
+    @Override
+    public Observable<ZhihuDetailBean> getDailyDetails(int anInt) {
+        return RxService.createApi(ZhiHuApi.class).getDetailInfo(anInt).compose(RxUtil.rxSchedulerHelper());
+    }
 }
