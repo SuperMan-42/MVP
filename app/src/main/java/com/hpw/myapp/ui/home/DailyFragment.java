@@ -43,7 +43,7 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
             @Override
             public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
                 showToast("点击了" + position);
-                start(DailyDetailsFragment.newInstance(((DailyListBean.StoriesBean) adapter.getData().get(position)).getId()), SupportFragment.STANDARD);
+                start(DailyDetailsFragment.newInstance(((DailyListBean.StoriesBean) adapter.getData().get(position)).getId()), SupportFragment.SINGLETOP);
             }
         });
         return coreRecyclerView;
@@ -74,7 +74,7 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
             @Override
             protected void convert(BaseViewHolder helper, DailyListBean.TopStoriesBean item) {
                 helper.setText(R.id.tv_top_title, item.getTitle());
-                Glide.with(mContext).load(item.getImage()).crossFade().into((ImageView) helper.getView(R.id.iv_top_image));
+                Glide.with(mContext).load(item.getImage()).crossFade().placeholder(R.drawable.ic_img).into((ImageView) helper.getView(R.id.iv_top_image));
             }
         });
         coreRecyclerView.setAddDataListener(() -> info.getStories());
