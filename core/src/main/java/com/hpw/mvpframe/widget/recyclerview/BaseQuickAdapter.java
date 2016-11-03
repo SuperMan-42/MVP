@@ -595,7 +595,7 @@ public abstract class BaseQuickAdapter<T, K extends BaseViewHolder> extends Recy
 
         switch (viewType) {
             case 0:
-                convert(holder, mData.get(holder.getLayoutPosition() - getHeaderLayoutCount()));
+                convert(holder, mData.get((holder.getLayoutPosition() - getHeaderLayoutCount()) % mData.size()));
                 break;
             case LOADING_VIEW:
                 addLoadMore(holder);

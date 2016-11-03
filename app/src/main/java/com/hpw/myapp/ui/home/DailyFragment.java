@@ -2,7 +2,10 @@ package com.hpw.myapp.ui.home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -11,6 +14,7 @@ import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
 import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
 import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
+import com.hpw.mvpframe.widget.recyclerview.recyclerviewpager.LoopRecyclerViewPager;
 import com.hpw.myapp.R;
 
 /**
@@ -18,6 +22,7 @@ import com.hpw.myapp.R;
  */
 public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyModel> implements DailyContract.View {
     CoreRecyclerView coreRecyclerView;
+    LoopRecyclerViewPager vpTop;
 
     @Override
     public int getLayoutId() {
@@ -43,12 +48,16 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
-
+        View view1 = LayoutInflater.from(mContext).inflate(R.layout.daily_header, (ViewGroup) coreRecyclerView.getParent(), false);
+        vpTop = (LoopRecyclerViewPager) view1.findViewById(R.id.vp_top);
+        vpTop.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        coreRecyclerView.addHeaderView(view1);
     }
 
     @Override
     public void initData() {
         mPresenter.getDailyData();
+        mPresenter.startInterval();
     }
 
     @Override
@@ -58,11 +67,23 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
 
     @Override
     public void showContent(DailyListBean info) {
+        vpTop.setAdapter(new BaseQuickAdapter<DailyListBean.TopStoriesBean, BaseViewHolder>(R.layout.item_daily_header, info.getTop_stories()) {
+            @Override
+            protected void convert(BaseViewHolder helper, DailyListBean.TopStoriesBean item) {
+                helper.setText(R.id.tv_top_title, item.getTitle());
+                Glide.with(mContext).load(item.getImage()).crossFade().into((ImageView) helper.getView(R.id.iv_top_image));
+            }
+        });
         coreRecyclerView.setAddDataListener(() -> info.getStories());
     }
 
     @Override
     public void showError(String msg) {
 
+    }
+
+    @Override
+    public void doInterval(int i) {
+        vpTop.smoothScrollToPosition(i);
     }
 }

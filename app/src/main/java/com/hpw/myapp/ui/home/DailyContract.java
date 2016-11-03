@@ -17,10 +17,14 @@ public interface DailyContract {
 
     interface View extends CoreBaseView {
         void showContent(DailyListBean info);
+
+        void doInterval(int i);
     }
 
     abstract class Presenter extends CoreBasePresenter<Model, View> {
 
         abstract void getDailyData();
+
+        public abstract void startInterval();
     }
 }
