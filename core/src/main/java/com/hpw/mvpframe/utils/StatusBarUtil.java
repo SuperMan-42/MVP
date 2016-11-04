@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.hpw.mvpframe.widget.StatusBarView;
+import com.hpw.mvpframe.widget.statusbar.StatusBarView;
 
 /**
  * Created by Jaeger on 16/2/14.

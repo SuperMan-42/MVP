@@ -1,4 +1,4 @@
-package com.hpw.mvpframe.widget;
+package com.hpw.mvpframe.widget.statusbar;
 
 import android.content.Context;
 import android.util.AttributeSet;

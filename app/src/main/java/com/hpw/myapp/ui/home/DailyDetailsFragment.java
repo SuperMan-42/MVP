@@ -110,7 +110,7 @@ public class DailyDetailsFragment extends CoreBaseFragment<DailyDetailsPresenter
 
     @Override
     public void showContent(ZhihuDetailBean info) {
-        Glide.with(mContext).load(info.getImage()).crossFade().placeholder(R.mipmap.def_head).into(detailBarImage);
+        Glide.with(mContext).load(info.getImage()).crossFade().into(detailBarImage);
         collapsingToolbar.setTitle(info.getTitle());
         detailBarCopyright.setText(info.getImage_source());
         String htmlData = HtmlUtil.createHtmlData(info.getBody(), info.getCss(), info.getJs());
