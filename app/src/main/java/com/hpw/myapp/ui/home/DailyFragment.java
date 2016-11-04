@@ -42,8 +42,9 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
         }).addOnItemClickListener(new OnItemClickListener() {
             @Override
             public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
-                showToast("点击了" + position);
+//                showToast("点击了" + position);
                 ((SupportFragment) getParentFragment()).start(DailyDetailsFragment.newInstance(((DailyListBean.StoriesBean) adapter.getData().get(position)).getId()));
+//                DailyDetailsActivity.start(mActivity, ((DailyListBean.StoriesBean) adapter.getData().get(position)).getId());
             }
         });
         return coreRecyclerView;

@@ -31,6 +31,9 @@
         <activity
             android:name=".ui.home.HomeActivity"
             android:launchMode="singleTask" />
+        <activity
+            android:name=".ui.home.DailyDetailsActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

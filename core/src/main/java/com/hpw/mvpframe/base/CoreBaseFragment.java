@@ -3,7 +3,6 @@ package com.hpw.mvpframe.base;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -11,14 +10,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.hpw.mvpframe.R;
 import com.hpw.mvpframe.utils.LogUtil;
+import com.hpw.mvpframe.utils.StatusBarUtil;
 import com.hpw.mvpframe.utils.TUtil;
-import com.hpw.mvpframe.utils.ThemeUtil;
 import com.hpw.mvpframe.utils.TitleBuilder;
 import com.hpw.mvpframe.utils.ToastUtils;
 
@@ -59,8 +56,7 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         //设置状态栏透明
-        setTranslucentStatus(isApplyStatusBarTranslucency());
-        setStatusBarColor(isApplyStatusBarColor());
+        setStatusBarColor();
         mActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         TAG = getClass().getSimpleName();
         binder = ButterKnife.bind(this, view);
@@ -116,32 +112,8 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
      */
     public abstract void initData();
 
-    protected void setTranslucentStatus(boolean on) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window win = mActivity.getWindow();
-            WindowManager.LayoutParams winParams = win.getAttributes();
-            final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-            if (on) {
-                winParams.flags |= bits;
-            } else {
-                winParams.flags &= ~bits;
-            }
-            win.setAttributes(winParams);
-        }
-    }
-
-    public void setStatusBarColor(boolean on) {
-        if (on) {
-            StatusBarUtil.setColor(mActivity, ThemeUtil.getTheme(mActivity), 0);
-        }
-    }
-
-    protected boolean isApplyStatusBarColor() {
-        return false;
-    }
-
-    protected boolean isApplyStatusBarTranslucency() {
-        return true;
+    public void setStatusBarColor() {
+        StatusBarUtil.setTranslucentForImageViewInFragment(getActivity(), null);
     }
 
     protected void setToolBar(Toolbar toolbar, String title) {

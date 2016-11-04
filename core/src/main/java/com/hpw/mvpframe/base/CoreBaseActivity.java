@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -53,8 +51,7 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //设置状态栏透明
-        setTranslucentStatus(isApplyStatusBarTranslucency());
-        setStatusBarColor(isApplyStatusBarColor());
+        setStatusBarColor();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         init(savedInstanceState);
     }
@@ -134,39 +131,16 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
         // 设置横向(和安卓4.x动画相同)
         return new DefaultHorizontalAnimator();
         // 设置无动画
-        // return new DefaultNoAnimator();
+//        return new DefaultNoAnimator();
         // 设置自定义动画
         // return new FragmentAnimator(enter,exit,popEnter,popExit);
         // 默认竖向(和安卓5.0以上的动画相同)
 //        return super.onCreateFragmentAnimator();
     }
 
-    protected void setTranslucentStatus(boolean on) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window win = getWindow();
-            WindowManager.LayoutParams winParams = win.getAttributes();
-            final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-            if (on) {
-                winParams.flags |= bits;
-            } else {
-                winParams.flags &= ~bits;
-            }
-            win.setAttributes(winParams);
-        }
-    }
-
-    public void setStatusBarColor(boolean on) {
-        if (on) {
-            StatusBarUtil.setColor(this, ThemeUtil.getTheme(this), 0);
-        }
-    }
-
-    protected boolean isApplyStatusBarColor() {
-        return false;
-    }
-
-    protected boolean isApplyStatusBarTranslucency() {
-        return true;
+    public void setStatusBarColor() {
+        StatusBarUtil.setTransparent(this);
+//        StatusBarUtil.setTranslucent(this);
     }
 
     protected void setToolBar(Toolbar toolbar, String title) {
