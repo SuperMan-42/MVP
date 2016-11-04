@@ -8,8 +8,6 @@ import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.myapp.Constants;
 import com.hpw.myapp.R;
 
-import static com.hpw.myapp.Constants.ARG_DAILY_ID;
-
 /**
  * Created by hpw on 16/11/3.
  */
@@ -19,7 +17,7 @@ public class DailyDetailsFragment extends CoreBaseFragment<DailyDetailsPresenter
     public static DailyDetailsFragment newInstance(int id) {
         DailyDetailsFragment fragment = new DailyDetailsFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt(ARG_DAILY_ID, id);
+        bundle.putInt(Constants.ARG_DAILY_ID, id);
         fragment.setArguments(bundle);
         return fragment;
     }

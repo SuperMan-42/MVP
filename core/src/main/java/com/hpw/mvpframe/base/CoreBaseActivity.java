@@ -68,8 +68,8 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
         mContext = this;
         mPresenter = TUtil.getT(this, 0);
         mModel = TUtil.getT(this, 1);
-        this.initView(savedInstanceState);
         if (this instanceof CoreBaseView) mPresenter.attachVM(this, mModel);
+        this.initView(savedInstanceState);
         AppManager.getAppManager().addActivity(this);
     }
 

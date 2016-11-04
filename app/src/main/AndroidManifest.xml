@@ -30,8 +30,7 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".ui.home.HomeActivity"
-            android:launchMode="singleTask"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>
