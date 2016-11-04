@@ -1,4 +1,4 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.model;
 
 import java.util.List;
 

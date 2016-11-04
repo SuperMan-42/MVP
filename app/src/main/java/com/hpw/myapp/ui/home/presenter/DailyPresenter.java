@@ -1,6 +1,7 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.presenter;
 
 import com.hpw.mvpframe.utils.helper.RxUtil;
+import com.hpw.myapp.ui.home.contract.DailyContract;
 
 import java.util.concurrent.TimeUnit;
 

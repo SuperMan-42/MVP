@@ -1,4 +1,4 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.model;
 
 /**
  * Created by hpw on 16/11/1.

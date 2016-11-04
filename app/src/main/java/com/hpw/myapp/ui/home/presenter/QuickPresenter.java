@@ -1,4 +1,6 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.presenter;
+
+import com.hpw.myapp.ui.home.contract.QuickContract;
 
 /**
  * Created by hpw on 16/11/1.

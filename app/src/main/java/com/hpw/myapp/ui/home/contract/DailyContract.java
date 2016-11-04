@@ -1,8 +1,10 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.contract;
 
 import com.hpw.mvpframe.base.CoreBaseModel;
 import com.hpw.mvpframe.base.CoreBasePresenter;
 import com.hpw.mvpframe.base.CoreBaseView;
+import com.hpw.myapp.ui.home.model.DailyListBean;
+import com.hpw.myapp.ui.home.model.ZhihuDetailBean;
 
 import rx.Observable;
 
@@ -28,12 +30,12 @@ public interface DailyContract {
     }
 
     abstract class Presenter extends CoreBasePresenter<Model, View> {
-        abstract void getDailyData();
+        public abstract void getDailyData();
 
-        abstract void startInterval();
+        public abstract void startInterval();
     }
 
     abstract class DetailsPresenter extends CoreBasePresenter<Model, DailyDetails> {
-        abstract void getDailyDetails(int anInt);
+        public abstract void getDailyDetails(int anInt);
     }
 }

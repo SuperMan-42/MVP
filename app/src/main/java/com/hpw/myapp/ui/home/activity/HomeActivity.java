@@ -1,4 +1,4 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.myapp.R;
+import com.hpw.myapp.ui.home.fragment.HomeFragment;
 
 import butterknife.BindView;
 

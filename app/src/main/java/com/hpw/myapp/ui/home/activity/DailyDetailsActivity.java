@@ -1,24 +1,28 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.hpw.mvpframe.base.CoreBaseFragment;
+import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.mvpframe.utils.HtmlUtil;
 import com.hpw.mvpframe.utils.NetUtils;
 import com.hpw.mvpframe.utils.SnackbarUtil;
 import com.hpw.mvpframe.utils.SpUtil;
 import com.hpw.myapp.Constants;
 import com.hpw.myapp.R;
+import com.hpw.myapp.ui.home.contract.DailyContract;
+import com.hpw.myapp.ui.home.model.DailyModel;
+import com.hpw.myapp.ui.home.model.ZhihuDetailBean;
+import com.hpw.myapp.ui.home.presenter.DailyDetailsPresenter;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
@@ -26,10 +30,10 @@ import com.tencent.smtt.sdk.WebViewClient;
 import butterknife.BindView;
 
 /**
- * Created by hpw on 16/11/3.
+ * Created by hpw on 16/11/4.
  */
 
-public class DailyDetailsFragment extends CoreBaseFragment<DailyDetailsPresenter, DailyModel> implements DailyContract.DailyDetails {
+public class DailyDetailsActivity extends CoreBaseActivity<DailyDetailsPresenter, DailyModel> implements DailyContract.DailyDetails {
 
     @BindView(R.id.detail_bar_image)
     ImageView detailBarImage;
@@ -48,21 +52,13 @@ public class DailyDetailsFragment extends CoreBaseFragment<DailyDetailsPresenter
     @BindView(R.id.fab)
     FloatingActionButton fab;
 
-    public static DailyDetailsFragment newInstance(int id) {
-        DailyDetailsFragment fragment = new DailyDetailsFragment();
-        Bundle bundle = new Bundle();
-        bundle.putInt(Constants.ARG_DAILY_ID, id);
-        fragment.setArguments(bundle);
-        return fragment;
-    }
-
     @Override
     public int getLayoutId() {
         return R.layout.fragment_daily_details;
     }
 
     @Override
-    public void initUI(View view, @Nullable Bundle savedInstanceState) {
+    public void initView(Bundle savedInstanceState) {
         setToolBar(toolbar, "");
         WebSettings settings = wvDetailContent.getSettings();
         if (SpUtil.getNoImageState()) {
@@ -96,16 +92,13 @@ public class DailyDetailsFragment extends CoreBaseFragment<DailyDetailsPresenter
 
             }
         });
+        mPresenter.getDailyDetails(getIntent().getIntExtra(Constants.ARG_DAILY_ID, -1));
     }
 
-    @Override
-    public void getBundle(Bundle bundle) {
-        mPresenter.getDailyDetails(bundle.getInt(Constants.ARG_DAILY_ID));
-    }
-
-    @Override
-    public void initData() {
-
+    public static void start(Context context, int id) {
+        Intent starter = new Intent(context, DailyDetailsActivity.class);
+        starter.putExtra(Constants.ARG_DAILY_ID, id);
+        context.startActivity(starter);
     }
 
     @Override
@@ -118,7 +111,12 @@ public class DailyDetailsFragment extends CoreBaseFragment<DailyDetailsPresenter
     }
 
     @Override
+    public Context getContext() {
+        return this;
+    }
+
+    @Override
     public void showError(String msg) {
-        SnackbarUtil.showShort(mActivity.getWindow().getDecorView(), msg);
+        SnackbarUtil.showShort(getWindow().getDecorView(), msg);
     }
 }

@@ -1,4 +1,4 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +13,9 @@ import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
 import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
 import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 import com.hpw.myapp.R;
+import com.hpw.myapp.ui.home.model.QuickModel;
+import com.hpw.myapp.ui.home.presenter.QuickPresenter;
+import com.hpw.myapp.ui.home.model.Status;
 
 /**
  * Created by hpw on 16/11/1.

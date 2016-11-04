@@ -1,6 +1,7 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.model;
 
 import com.hpw.myapp.DataServer;
+import com.hpw.myapp.ui.home.contract.QuickContract;
 
 import java.util.List;
 

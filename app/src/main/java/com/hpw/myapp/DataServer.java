@@ -1,6 +1,6 @@
 package com.hpw.myapp;
 
-import com.hpw.myapp.ui.home.Status;
+import com.hpw.myapp.ui.home.model.Status;
 
 import java.util.ArrayList;
 import java.util.List;

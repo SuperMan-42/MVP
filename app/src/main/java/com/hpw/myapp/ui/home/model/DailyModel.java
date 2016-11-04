@@ -1,8 +1,9 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.model;
 
 import com.hpw.mvpframe.data.net.RxService;
 import com.hpw.mvpframe.utils.helper.RxUtil;
 import com.hpw.myapp.ui.api.ZhiHuApi;
+import com.hpw.myapp.ui.home.contract.DailyContract;
 
 import rx.Observable;
 

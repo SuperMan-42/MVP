@@ -1,4 +1,6 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.presenter;
+
+import com.hpw.myapp.ui.home.contract.DailyContract;
 
 /**
  * Created by hpw on 16/11/3.
@@ -6,7 +8,7 @@ package com.hpw.myapp.ui.home;
 
 public class DailyDetailsPresenter extends DailyContract.DetailsPresenter {
     @Override
-    void getDailyDetails(int anInt) {
+    public void getDailyDetails(int anInt) {
         mRxManager.add(mModel
                 .getDailyDetails(anInt)
                 .subscribe(

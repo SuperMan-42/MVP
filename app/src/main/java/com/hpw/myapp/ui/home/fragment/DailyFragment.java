@@ -1,4 +1,4 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,6 +16,11 @@ import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
 import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 import com.hpw.mvpframe.widget.recyclerview.recyclerviewpager.LoopRecyclerViewPager;
 import com.hpw.myapp.R;
+import com.hpw.myapp.ui.home.model.DailyListBean;
+import com.hpw.myapp.ui.home.model.DailyModel;
+import com.hpw.myapp.ui.home.presenter.DailyPresenter;
+import com.hpw.myapp.ui.home.activity.DailyDetailsActivity;
+import com.hpw.myapp.ui.home.contract.DailyContract;
 
 /**
  * Created by hpw on 16/10/31.
@@ -74,6 +79,10 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
             protected void convert(BaseViewHolder helper, DailyListBean.TopStoriesBean item) {
                 helper.setText(R.id.tv_top_title, item.getTitle());
                 Glide.with(mContext).load(item.getImage()).crossFade().placeholder(R.drawable.ic_img).into((ImageView) helper.getView(R.id.iv_top_image));
+                helper.setOnClickListener(R.id.iv_top_image, v -> {
+                    DailyDetailsActivity.start(mActivity, item.getId());
+//                    ((SupportFragment) getParentFragment()).start(DailyDetailsFragment.newInstance(item.getId()));
+                });
             }
         });
         coreRecyclerView.setAddDataListener(() -> info.getStories());

@@ -1,4 +1,4 @@
-package com.hpw.myapp.ui.home;
+package com.hpw.myapp.ui.home.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -15,6 +15,9 @@ import android.view.View;
 import com.hpw.mvpframe.base.CoreBaseLazyFragment;
 import com.hpw.mvpframe.utils.helper.FragmentAdapter;
 import com.hpw.myapp.R;
+import com.hpw.myapp.ui.home.contract.HomeContract;
+import com.hpw.myapp.ui.home.model.HomeModel;
+import com.hpw.myapp.ui.home.presenter.HomePresenter;
 
 import java.util.ArrayList;
 import java.util.List;
