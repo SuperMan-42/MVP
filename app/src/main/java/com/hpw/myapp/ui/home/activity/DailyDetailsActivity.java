@@ -1,13 +1,17 @@
 package com.hpw.myapp.ui.home.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,6 +39,7 @@ import butterknife.BindView;
 
 public class DailyDetailsActivity extends CoreBaseActivity<DailyDetailsPresenter, DailyModel> implements DailyContract.DailyDetails {
 
+    private static final String TRANSLATE_VIEW = "translate_view";
     @BindView(R.id.detail_bar_image)
     ImageView detailBarImage;
     @BindView(R.id.detail_bar_copyright)
@@ -95,10 +100,10 @@ public class DailyDetailsActivity extends CoreBaseActivity<DailyDetailsPresenter
         mPresenter.getDailyDetails(getIntent().getIntExtra(Constants.ARG_DAILY_ID, -1));
     }
 
-    public static void start(Context context, int id) {
+    public static void start(Context context, View view, int id) {
         Intent starter = new Intent(context, DailyDetailsActivity.class);
         starter.putExtra(Constants.ARG_DAILY_ID, id);
-        context.startActivity(starter);
+        ActivityCompat.startActivity((Activity) context, starter, ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, view, TRANSLATE_VIEW).toBundle());
     }
 
     @Override
