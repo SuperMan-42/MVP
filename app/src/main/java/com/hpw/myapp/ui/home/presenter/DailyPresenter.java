@@ -33,7 +33,7 @@ public class DailyPresenter extends DailyContract.Presenter {
 
     @Override
     public void startInterval() {
-        mRxManager.add(Observable.interval(2, TimeUnit.SECONDS)
+        mRxManager.add(Observable.interval(5, TimeUnit.SECONDS)
                 .compose(RxUtil.rxSchedulerHelper())
                 .subscribe(aLong -> {
                             if (currentTopCount == topCount)
