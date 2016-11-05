@@ -27,6 +27,7 @@
                 android:id="@+id/iv_daily_item_image"
                 android:layout_width="@dimen/list_image_size"
                 android:layout_height="@dimen/list_image_size"
+                android:scaleType="centerCrop"
                 android:src="@mipmap/ic_launcher"
                 android:transitionName="translate_view" />
 
