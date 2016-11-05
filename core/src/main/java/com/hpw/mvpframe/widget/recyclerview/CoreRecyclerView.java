@@ -59,11 +59,16 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_list);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeLayout);
         mSwipeRefreshLayout.setEnabled(false);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         return this;
     }
 
-    public CoreRecyclerView initAdapter(BaseQuickAdapter mQuickAdapter) {
+    public CoreRecyclerView init(BaseQuickAdapter mQuickAdapter) {
+        init(null, mQuickAdapter);
+        return this;
+    }
+
+    public CoreRecyclerView init(RecyclerView.LayoutManager layoutManager, BaseQuickAdapter mQuickAdapter) {
+        mRecyclerView.setLayoutManager(layoutManager != null ? layoutManager : new LinearLayoutManager(getContext()));
         this.mQuickAdapter = mQuickAdapter;
         mRecyclerView.setAdapter(mQuickAdapter);
         mQuickAdapter.openLoadAnimation();

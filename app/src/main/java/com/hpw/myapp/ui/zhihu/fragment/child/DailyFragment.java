@@ -36,7 +36,7 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
 
     @Override
     public View getLayoutView() {
-        coreRecyclerView = new CoreRecyclerView(mContext).initAdapter(new BaseQuickAdapter<DailyListBean.StoriesBean, BaseViewHolder>(R.layout.item_daily) {
+        coreRecyclerView = new CoreRecyclerView(mContext).init(new BaseQuickAdapter<DailyListBean.StoriesBean, BaseViewHolder>(R.layout.item_daily) {
             @Override
             protected void convert(BaseViewHolder helper, DailyListBean.StoriesBean item) {
                 helper.setText(R.id.tv_daily_item_title, item.getTitle());

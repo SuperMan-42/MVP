@@ -2,6 +2,7 @@ package com.hpw.myapp.ui.zhihu.fragment.child;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -38,27 +39,28 @@ public class SectionFragment extends CoreBaseLazyFragment<SectionPresenter, Sect
 
     @Override
     public View getLayoutView() {
-        coreRecyclerView = new CoreRecyclerView(mContext).initAdapter(new BaseQuickAdapter<SectionListBean.DataBean, BaseViewHolder>(R.layout.item_section) {
-            @Override
-            protected void convert(BaseViewHolder helper, SectionListBean.DataBean item) {
-                //Glide在加载GridView等时,由于ImageView和Bitmap实际大小不符合,第一次时加载可能会变形(我这里出现了放大),必须在加载前再次固定ImageView大小
-                ViewGroup.LayoutParams lp = helper.getView(R.id.section_bg).getLayoutParams();
-                lp.width = (App.SCREEN_WIDTH - DisplayUtils.dp2px(mContext, 12)) / 2;
-                lp.height = DisplayUtils.dp2px(mContext, 120);
+        coreRecyclerView = new CoreRecyclerView(mContext).init(new GridLayoutManager(mContext, 2),
+                new BaseQuickAdapter<SectionListBean.DataBean, BaseViewHolder>(R.layout.item_section) {
+                    @Override
+                    protected void convert(BaseViewHolder helper, SectionListBean.DataBean item) {
+                        //Glide在加载GridView等时,由于ImageView和Bitmap实际大小不符合,第一次时加载可能会变形(我这里出现了放大),必须在加载前再次固定ImageView大小
+                        ViewGroup.LayoutParams lp = helper.getView(R.id.section_bg).getLayoutParams();
+                        lp.width = (App.SCREEN_WIDTH - DisplayUtils.dp2px(mContext, 12)) / 2;
+                        lp.height = DisplayUtils.dp2px(mContext, 120);
 
-                Glide.with(mContext).load(item.getThumbnail()).crossFade().placeholder(R.drawable.ic_img).into((ImageView) helper.getView(R.id.section_bg));
-                helper.setText(R.id.section_kind, item.getName());
-                helper.setText(R.id.section_des, item.getDescription());
-                helper.setOnClickListener(R.id.ll_click, v -> {
-                    showToast(item.getName());
+                        Glide.with(mContext).load(item.getThumbnail()).crossFade().placeholder(R.drawable.ic_img).into((ImageView) helper.getView(R.id.section_bg));
+                        helper.setText(R.id.section_kind, item.getName());
+                        helper.setText(R.id.section_des, item.getDescription());
+                        helper.setOnClickListener(R.id.ll_click, v -> {
+                            showToast(item.getName());
 //                        Intent intent = new Intent();
 //                        intent.setClass(mContext, SectionActivity.class);
 //                        intent.putExtra("id", mList.get(holder.getAdapterPosition()).getId());
 //                        intent.putExtra("title", mList.get(holder.getAdapterPosition()).getName());
 //                        mContext.startActivity(intent);
+                        });
+                    }
                 });
-            }
-        });
         return coreRecyclerView;
     }
 

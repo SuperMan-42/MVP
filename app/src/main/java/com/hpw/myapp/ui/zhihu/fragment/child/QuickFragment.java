@@ -32,7 +32,7 @@ public class QuickFragment extends CoreBaseLazyFragment<QuickPresenter, QuickMod
     @Override
     public View getLayoutView() {
         coreRecyclerView = new CoreRecyclerView(mContext)
-                .initAdapter(new BaseQuickAdapter<Status, BaseViewHolder>(R.layout.item_tweet) {
+                .init(new BaseQuickAdapter<Status, BaseViewHolder>(R.layout.item_tweet) {
                     @Override
                     protected void convert(BaseViewHolder helper, Status item) {
                         helper.setText(R.id.tweetName, item.getUserName())
