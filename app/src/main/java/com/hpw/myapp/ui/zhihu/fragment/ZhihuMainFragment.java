@@ -18,6 +18,7 @@ import com.hpw.myapp.R;
 import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
 import com.hpw.myapp.ui.zhihu.fragment.child.DailyFragment;
 import com.hpw.myapp.ui.zhihu.fragment.child.QuickFragment;
+import com.hpw.myapp.ui.zhihu.fragment.child.SectionFragment;
 import com.hpw.myapp.ui.zhihu.model.ZhihuMainModel;
 import com.hpw.myapp.ui.zhihu.presenter.ZhihuMainPresenter;
 
@@ -93,10 +94,16 @@ public class ZhihuMainFragment extends CoreBaseLazyFragment<ZhihuMainPresenter, 
         //TabLayout配合ViewPager有时会出现不显示Tab文字的Bug,需要按如下顺序
         for (int i = 0; i < mTabs.length; i++) {
             tabs.addTab(tabs.newTab().setText(mTabs[i]));
-            if (i == 0) {
-                fragments.add(new DailyFragment());
-            } else {
-                fragments.add(new QuickFragment());
+            switch (i) {
+                case 0:
+                    fragments.add(new DailyFragment());
+                    break;
+                case 1:
+                    fragments.add(new SectionFragment());
+                    break;
+                default:
+                    fragments.add(new QuickFragment());
+                    break;
             }
         }
         viewpager.setAdapter(new FragmentAdapter(getChildFragmentManager(), fragments));
