@@ -1,4 +1,4 @@
-package com.hpw.myapp.ui.home.activity;
+package com.hpw.myapp.ui.zhihu.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -24,10 +24,10 @@ import com.hpw.mvpframe.utils.SnackbarUtil;
 import com.hpw.mvpframe.utils.SpUtil;
 import com.hpw.myapp.Constants;
 import com.hpw.myapp.R;
-import com.hpw.myapp.ui.home.contract.DailyContract;
-import com.hpw.myapp.ui.home.model.DailyModel;
-import com.hpw.myapp.ui.home.model.ZhihuDetailBean;
-import com.hpw.myapp.ui.home.presenter.DailyDetailsPresenter;
+import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
+import com.hpw.myapp.ui.zhihu.model.dailymodel.DailyModel;
+import com.hpw.myapp.ui.zhihu.model.dailymodel.ZhihuDetailBean;
+import com.hpw.myapp.ui.zhihu.presenter.dailypresenter.DailyDetailsPresenter;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
@@ -38,7 +38,7 @@ import butterknife.BindView;
  * Created by hpw on 16/11/4.
  */
 
-public class DailyDetailsActivity extends CoreBaseActivity<DailyDetailsPresenter, DailyModel> implements DailyContract.DailyDetails {
+public class DailyDetailsActivity extends CoreBaseActivity<DailyDetailsPresenter, DailyModel> implements ZhihuContract.DailyDetailsView {
 
     private static final String TRANSLATE_VIEW = "translate_view";
     @BindView(R.id.detail_bar_image)

@@ -1,7 +1,7 @@
-package com.hpw.myapp.ui.home.presenter;
+package com.hpw.myapp.ui.zhihu.presenter.dailypresenter;
 
 import com.hpw.mvpframe.utils.helper.RxUtil;
-import com.hpw.myapp.ui.home.contract.DailyContract;
+import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
 
 import java.util.concurrent.TimeUnit;
 
@@ -10,7 +10,7 @@ import rx.Observable;
 /**
  * Created by hpw on 16/11/2.
  */
-public class DailyPresenter extends DailyContract.Presenter {
+public class DailyPresenter extends ZhihuContract.DailyPresenter {
     private int topCount = 0;
     private int currentTopCount = 0;
 

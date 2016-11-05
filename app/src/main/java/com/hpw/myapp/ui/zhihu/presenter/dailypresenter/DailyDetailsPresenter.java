@@ -1,12 +1,12 @@
-package com.hpw.myapp.ui.home.presenter;
+package com.hpw.myapp.ui.zhihu.presenter.dailypresenter;
 
-import com.hpw.myapp.ui.home.contract.DailyContract;
+import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
 
 /**
  * Created by hpw on 16/11/3.
  */
 
-public class DailyDetailsPresenter extends DailyContract.DetailsPresenter {
+public class DailyDetailsPresenter extends ZhihuContract.DailyDetailsPresenter {
     @Override
     public void getDailyDetails(int anInt) {
         mRxManager.add(mModel

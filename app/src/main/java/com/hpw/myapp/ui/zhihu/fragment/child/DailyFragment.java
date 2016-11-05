@@ -1,4 +1,4 @@
-package com.hpw.myapp.ui.home.fragment;
+package com.hpw.myapp.ui.zhihu.fragment.child;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,16 +16,16 @@ import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
 import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 import com.hpw.mvpframe.widget.recyclerview.recyclerviewpager.LoopRecyclerViewPager;
 import com.hpw.myapp.R;
-import com.hpw.myapp.ui.home.model.DailyListBean;
-import com.hpw.myapp.ui.home.model.DailyModel;
-import com.hpw.myapp.ui.home.presenter.DailyPresenter;
-import com.hpw.myapp.ui.home.activity.DailyDetailsActivity;
-import com.hpw.myapp.ui.home.contract.DailyContract;
+import com.hpw.myapp.ui.zhihu.activity.DailyDetailsActivity;
+import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
+import com.hpw.myapp.ui.zhihu.model.dailymodel.DailyListBean;
+import com.hpw.myapp.ui.zhihu.model.dailymodel.DailyModel;
+import com.hpw.myapp.ui.zhihu.presenter.dailypresenter.DailyPresenter;
 
 /**
  * Created by hpw on 16/10/31.
  */
-public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyModel> implements DailyContract.View {
+public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyModel> implements ZhihuContract.DailyView {
     CoreRecyclerView coreRecyclerView;
     LoopRecyclerViewPager vpTop;
 

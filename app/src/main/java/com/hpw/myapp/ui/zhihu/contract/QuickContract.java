@@ -1,9 +1,9 @@
-package com.hpw.myapp.ui.home.contract;
+package com.hpw.myapp.ui.zhihu.contract;
 
 import com.hpw.mvpframe.base.CoreBaseModel;
 import com.hpw.mvpframe.base.CoreBasePresenter;
 import com.hpw.mvpframe.base.CoreBaseView;
-import com.hpw.myapp.ui.home.model.Status;
+import com.hpw.myapp.ui.zhihu.model.quick.Status;
 
 import java.util.List;
 

@@ -1,12 +1,12 @@
-package com.hpw.myapp.ui.home.presenter;
+package com.hpw.myapp.ui.zhihu.presenter;
 
-import com.hpw.myapp.ui.home.contract.HomeContract;
+import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
 
 /**
  * Created by hpw on 16/10/31.
  */
 
-public class HomePresenter extends HomeContract.Presenter {
+public class ZhihuMainPresenter extends ZhihuContract.ZhihuMainPresenter {
 
     @Override
     public void getTabList() {

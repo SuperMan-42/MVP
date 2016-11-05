@@ -1,4 +1,4 @@
-package com.hpw.myapp.ui.home.activity;
+package com.hpw.myapp.ui.zhihu.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -10,12 +10,12 @@ import android.view.MenuItem;
 
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.myapp.R;
-import com.hpw.myapp.ui.home.fragment.HomeFragment;
+import com.hpw.myapp.ui.zhihu.fragment.ZhihuMainFragment;
 
 import butterknife.BindView;
 
-public class HomeActivity extends CoreBaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener, HomeFragment.OnFragmentOpenDrawerListener {
+public class ZhihuMainActivity extends CoreBaseActivity
+        implements NavigationView.OnNavigationItemSelectedListener, ZhihuMainFragment.OnFragmentOpenDrawerListener {
 
     @BindView(R.id.nav_view)
     NavigationView navigationView;
@@ -45,7 +45,7 @@ public class HomeActivity extends CoreBaseActivity
     public void initView(Bundle savedInstanceState) {
         navigationView.setNavigationItemSelectedListener(this);
         if (savedInstanceState == null) {
-            loadRootFragment(R.id.fl_container, HomeFragment.newInstance("HomeFragment"));
+            loadRootFragment(R.id.fl_container, ZhihuMainFragment.newInstance("ZhihuMainFragment"));
         }
     }
 

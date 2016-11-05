@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.mvpframe.utils.helper.RxUtil;
 import com.hpw.myapp.R;
-import com.hpw.myapp.ui.home.activity.HomeActivity;
+import com.hpw.myapp.ui.zhihu.activity.ZhihuMainActivity;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
 import java.util.concurrent.TimeUnit;
@@ -35,7 +35,7 @@ public class FlashActivity extends CoreBaseActivity {
                 .compose(RxUtil.rxSchedulerHelper())
                 .subscribe(granted -> {
                     if (granted) {
-                        startActivity(HomeActivity.class);
+                        startActivity(ZhihuMainActivity.class);
                         finish();
                     }
                 });

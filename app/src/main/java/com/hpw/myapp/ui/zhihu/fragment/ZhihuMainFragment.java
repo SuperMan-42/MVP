@@ -1,4 +1,4 @@
-package com.hpw.myapp.ui.home.fragment;
+package com.hpw.myapp.ui.zhihu.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -15,9 +15,11 @@ import android.view.View;
 import com.hpw.mvpframe.base.CoreBaseLazyFragment;
 import com.hpw.mvpframe.utils.helper.FragmentAdapter;
 import com.hpw.myapp.R;
-import com.hpw.myapp.ui.home.contract.HomeContract;
-import com.hpw.myapp.ui.home.model.HomeModel;
-import com.hpw.myapp.ui.home.presenter.HomePresenter;
+import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
+import com.hpw.myapp.ui.zhihu.fragment.child.DailyFragment;
+import com.hpw.myapp.ui.zhihu.fragment.child.QuickFragment;
+import com.hpw.myapp.ui.zhihu.model.ZhihuMainModel;
+import com.hpw.myapp.ui.zhihu.presenter.ZhihuMainPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +31,7 @@ import static com.hpw.myapp.Constants.ARG_TITLE;
 /**
  * Created by hpw on 16/10/31.
  */
-public class HomeFragment extends CoreBaseLazyFragment<HomePresenter, HomeModel> implements HomeContract.View, Toolbar.OnMenuItemClickListener {
+public class ZhihuMainFragment extends CoreBaseLazyFragment<ZhihuMainPresenter, ZhihuMainModel> implements ZhihuContract.ZhihuMainView, Toolbar.OnMenuItemClickListener {
     protected OnFragmentOpenDrawerListener mOpenDraweListener;
     List<Fragment> fragments = new ArrayList<>();
     @BindView(R.id.tabs)
@@ -64,8 +66,8 @@ public class HomeFragment extends CoreBaseLazyFragment<HomePresenter, HomeModel>
         void onOpenDrawer();
     }
 
-    public static HomeFragment newInstance(String title) {
-        HomeFragment fragment = new HomeFragment();
+    public static ZhihuMainFragment newInstance(String title) {
+        ZhihuMainFragment fragment = new ZhihuMainFragment();
         Bundle bundle = new Bundle();
         bundle.putString(ARG_TITLE, title);
         fragment.setArguments(bundle);
@@ -119,7 +121,7 @@ public class HomeFragment extends CoreBaseLazyFragment<HomePresenter, HomeModel>
             }
         });
         fab.setOnClickListener(v -> Snackbar.make(v, "Snackbar comes out", Snackbar.LENGTH_LONG).setAction("action", vi -> {
-            showToast("HomeFragment");
+            showToast("ZhihuMainFragment");
         }));
         toolbar.inflateMenu(R.menu.activity_main_drawer);
         toolbar.setOnMenuItemClickListener(this);

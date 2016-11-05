@@ -1,4 +1,4 @@
-package com.hpw.myapp.ui.home.model;
+package com.hpw.myapp.ui.zhihu.model.dailymodel;
 
 import java.util.List;
 

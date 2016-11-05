@@ -1,7 +1,6 @@
-package com.hpw.myapp.ui.home.model;
+package com.hpw.myapp.ui.zhihu.model.quick;
 
-import com.hpw.myapp.DataServer;
-import com.hpw.myapp.ui.home.contract.QuickContract;
+import com.hpw.myapp.ui.zhihu.contract.QuickContract;
 
 import java.util.List;
 

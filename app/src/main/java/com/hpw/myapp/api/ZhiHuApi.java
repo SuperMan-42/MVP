@@ -1,7 +1,7 @@
-package com.hpw.myapp.ui.api;
+package com.hpw.myapp.api;
 
-import com.hpw.myapp.ui.home.model.DailyListBean;
-import com.hpw.myapp.ui.home.model.ZhihuDetailBean;
+import com.hpw.myapp.ui.zhihu.model.dailymodel.DailyListBean;
+import com.hpw.myapp.ui.zhihu.model.dailymodel.ZhihuDetailBean;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;

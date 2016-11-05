@@ -1,6 +1,4 @@
-package com.hpw.myapp;
-
-import com.hpw.myapp.ui.home.model.Status;
+package com.hpw.myapp.ui.zhihu.model.quick;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.hpw.myapp.ui.home.presenter;
+package com.hpw.myapp.ui.zhihu.presenter.quickpresenter;
 
-import com.hpw.myapp.ui.home.contract.QuickContract;
+import com.hpw.myapp.ui.zhihu.contract.QuickContract;
 
 /**
  * Created by hpw on 16/11/1.

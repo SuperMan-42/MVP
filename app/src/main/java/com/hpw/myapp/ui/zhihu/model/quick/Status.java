@@ -1,4 +1,4 @@
-package com.hpw.myapp.ui.home.model;
+package com.hpw.myapp.ui.zhihu.model.quick;
 
 /**
  * Created by hpw on 16/11/1.

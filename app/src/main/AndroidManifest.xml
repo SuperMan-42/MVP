@@ -29,10 +29,10 @@
             android:name=".ui.main.MainActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.home.activity.HomeActivity"
+            android:name=".ui.zhihu.activity.ZhihuMainActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.home.activity.DailyDetailsActivity"
+            android:name=".ui.zhihu.activity.DailyDetailsActivity"
             android:launchMode="singleTask" />
     </application>
 
