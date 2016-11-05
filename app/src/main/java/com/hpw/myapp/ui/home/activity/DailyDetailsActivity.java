@@ -11,6 +11,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
+import android.transition.Transition;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -56,6 +57,9 @@ public class DailyDetailsActivity extends CoreBaseActivity<DailyDetailsPresenter
     NestedScrollView nsvScroller;
     @BindView(R.id.fab)
     FloatingActionButton fab;
+    boolean isTransitionEnd = false;
+    boolean isImageShow = false;
+    String imgUrl;
 
     @Override
     public int getLayoutId() {
@@ -98,6 +102,37 @@ public class DailyDetailsActivity extends CoreBaseActivity<DailyDetailsPresenter
             }
         });
         mPresenter.getDailyDetails(getIntent().getIntExtra(Constants.ARG_DAILY_ID, -1));
+        (getWindow().getSharedElementEnterTransition()).addListener(new Transition.TransitionListener() {
+            @Override
+            public void onTransitionStart(Transition transition) {
+            }
+
+            @Override
+            public void onTransitionEnd(Transition transition) {
+                /**
+                 * 测试发现部分手机(如红米note2)上加载图片会变形,没有达到centerCrop效果
+                 * 查阅资料发现Glide配合SharedElementTransition是有坑的,需要在Transition动画结束后再加载图片
+                 * https://github.com/TWiStErRob/glide-support/blob/master/src/glide3/java/com/bumptech/glide/supportapp/github/_847_shared_transition/DetailFragment.java
+                 */
+                isTransitionEnd = true;
+                if (imgUrl != null) {
+                    isImageShow = true;
+                    Glide.with(mContext).load(imgUrl).crossFade().into(detailBarImage);
+                }
+            }
+
+            @Override
+            public void onTransitionCancel(Transition transition) {
+            }
+
+            @Override
+            public void onTransitionPause(Transition transition) {
+            }
+
+            @Override
+            public void onTransitionResume(Transition transition) {
+            }
+        });
     }
 
     public static void start(Context context, View view, int id) {
@@ -108,7 +143,10 @@ public class DailyDetailsActivity extends CoreBaseActivity<DailyDetailsPresenter
 
     @Override
     public void showContent(ZhihuDetailBean info) {
-        Glide.with(mContext).load(info.getImage()).crossFade().into(detailBarImage);
+        imgUrl = info.getImage();
+        if (!isImageShow && isTransitionEnd) {
+            Glide.with(mContext).load(info.getImage()).crossFade().into(detailBarImage);
+        }
         collapsingToolbar.setTitle(info.getTitle());
         detailBarCopyright.setText(info.getImage_source());
         String htmlData = HtmlUtil.createHtmlData(info.getBody(), info.getCss(), info.getJs());
