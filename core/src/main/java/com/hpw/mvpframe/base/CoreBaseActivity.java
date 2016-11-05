@@ -127,6 +127,11 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
     public abstract void initView(Bundle savedInstanceState);
 
     @Override
+    public void onBackPressedSupport() {
+        supportFinishAfterTransition();
+    }
+
+    @Override
     protected FragmentAnimator onCreateFragmentAnimator() {
         // 设置横向(和安卓4.x动画相同)
         return new DefaultHorizontalAnimator();

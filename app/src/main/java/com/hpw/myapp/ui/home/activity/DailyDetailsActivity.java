@@ -124,9 +124,4 @@ public class DailyDetailsActivity extends CoreBaseActivity<DailyDetailsPresenter
     public void showError(String msg) {
         SnackbarUtil.showShort(getWindow().getDecorView(), msg);
     }
-
-    @Override
-    public void onBackPressedSupport() {
-        supportFinishAfterTransition();
-    }
 }
