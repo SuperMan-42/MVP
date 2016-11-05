@@ -32,7 +32,7 @@ public interface ZhihuContract {
     interface DailyModel extends CoreBaseModel {
         Observable<DailyListBean> getDailyData();
 
-        Observable<ZhihuDetailBean> getDailyDetails(int anInt);
+        Observable<ZhihuDetailBean> getZhihuDetails(int anInt);
     }
 
     interface DailyView extends CoreBaseView {
@@ -47,12 +47,12 @@ public interface ZhihuContract {
         public abstract void startInterval();
     }
 
-    interface DailyDetailsView extends CoreBaseView {
+    interface ZhihuDetailsView extends CoreBaseView {
         void showContent(ZhihuDetailBean info);
     }
 
-    abstract class DailyDetailsPresenter extends CoreBasePresenter<DailyModel, DailyDetailsView> {
-        public abstract void getDailyDetails(int anInt);
+    abstract class ZhihuDetailsPresenter extends CoreBasePresenter<DailyModel, ZhihuDetailsView> {
+        public abstract void getZhihuDetails(int anInt);
     }
 
     //section所有接口

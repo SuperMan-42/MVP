@@ -32,7 +32,7 @@
             android:name=".ui.zhihu.activity.ZhihuMainActivity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".ui.zhihu.activity.DailyDetailsActivity"
+            android:name=".ui.zhihu.activity.ZhihuDetailsActivity"
             android:launchMode="singleTask" />
     </application>
 

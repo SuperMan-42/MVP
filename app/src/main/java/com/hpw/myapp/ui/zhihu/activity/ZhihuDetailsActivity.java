@@ -27,7 +27,7 @@ import com.hpw.myapp.R;
 import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
 import com.hpw.myapp.ui.zhihu.model.dailymodel.DailyModel;
 import com.hpw.myapp.ui.zhihu.model.dailymodel.ZhihuDetailBean;
-import com.hpw.myapp.ui.zhihu.presenter.dailypresenter.DailyDetailsPresenter;
+import com.hpw.myapp.ui.zhihu.presenter.dailypresenter.ZhihuDetailsPresenter;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
@@ -38,7 +38,7 @@ import butterknife.BindView;
  * Created by hpw on 16/11/4.
  */
 
-public class DailyDetailsActivity extends CoreBaseActivity<DailyDetailsPresenter, DailyModel> implements ZhihuContract.DailyDetailsView {
+public class ZhihuDetailsActivity extends CoreBaseActivity<ZhihuDetailsPresenter, DailyModel> implements ZhihuContract.ZhihuDetailsView {
 
     private static final String TRANSLATE_VIEW = "translate_view";
     @BindView(R.id.detail_bar_image)
@@ -101,7 +101,7 @@ public class DailyDetailsActivity extends CoreBaseActivity<DailyDetailsPresenter
 
             }
         });
-        mPresenter.getDailyDetails(getIntent().getIntExtra(Constants.ARG_DAILY_ID, -1));
+        mPresenter.getZhihuDetails(getIntent().getIntExtra(Constants.ARG_DAILY_ID, -1));
         (getWindow().getSharedElementEnterTransition()).addListener(new Transition.TransitionListener() {
             @Override
             public void onTransitionStart(Transition transition) {
@@ -136,7 +136,7 @@ public class DailyDetailsActivity extends CoreBaseActivity<DailyDetailsPresenter
     }
 
     public static void start(Context context, View view, int id) {
-        Intent starter = new Intent(context, DailyDetailsActivity.class);
+        Intent starter = new Intent(context, ZhihuDetailsActivity.class);
         starter.putExtra(Constants.ARG_DAILY_ID, id);
         ActivityCompat.startActivity((Activity) context, starter, ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, view, TRANSLATE_VIEW).toBundle());
     }
