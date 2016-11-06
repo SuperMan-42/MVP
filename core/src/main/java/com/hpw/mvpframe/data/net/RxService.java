@@ -37,15 +37,17 @@ public class RxService {
             .retryOnConnectionFailure(true)
             .build();
 
-    private static Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(CoreApp.getInstance().setBaseUrl())
-            .client(okHttpClient)
-            .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build();
-
     public static <T> T createApi(Class<T> clazz) {
+        return createApi(clazz, CoreApp.getInstance().setBaseUrl());
+    }
 
+    public static <T> T createApi(Class<T> clazz, String url) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .client(okHttpClient)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
         return retrofit.create(clazz);
     }
 }

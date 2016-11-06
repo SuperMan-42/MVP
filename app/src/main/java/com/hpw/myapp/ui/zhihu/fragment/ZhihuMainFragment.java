@@ -20,6 +20,7 @@ import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
 import com.hpw.myapp.ui.zhihu.fragment.child.DailyFragment;
 import com.hpw.myapp.ui.zhihu.fragment.child.QuickFragment;
 import com.hpw.myapp.ui.zhihu.fragment.child.SectionFragment;
+import com.hpw.myapp.ui.zhihu.fragment.child.WechatFragment;
 import com.hpw.myapp.ui.zhihu.model.ZhihuMainModel;
 import com.hpw.myapp.ui.zhihu.presenter.ZhihuMainPresenter;
 
@@ -94,6 +95,9 @@ public class ZhihuMainFragment extends CoreBaseLazyFragment<ZhihuMainPresenter, 
                     break;
                 case 1:
                     fragments.add(new SectionFragment());
+                    break;
+                case 2:
+                    fragments.add(new WechatFragment());
                     break;
                 default:
                     fragments.add(new QuickFragment());

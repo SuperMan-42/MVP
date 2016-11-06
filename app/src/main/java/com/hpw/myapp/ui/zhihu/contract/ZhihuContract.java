@@ -7,6 +7,9 @@ import com.hpw.myapp.ui.zhihu.model.dailymodel.DailyListBean;
 import com.hpw.myapp.ui.zhihu.model.dailymodel.ZhihuDetailBean;
 import com.hpw.myapp.ui.zhihu.model.sectionmodel.SectionChildListBean;
 import com.hpw.myapp.ui.zhihu.model.sectionmodel.SectionListBean;
+import com.hpw.myapp.ui.zhihu.model.wechatmodel.WXItemBean;
+
+import java.util.List;
 
 import rx.Observable;
 
@@ -16,20 +19,25 @@ import rx.Observable;
 
 public interface ZhihuContract {
     //主页接口
+    abstract class ZhihuMainPresenter extends CoreBasePresenter<ZhihuMainModel, ZhihuMainView> {
+        public abstract void getTabList();
+    }
+
     interface ZhihuMainModel extends CoreBaseModel {
         String[] getTabs();
     }
-
 
     interface ZhihuMainView extends CoreBaseView {
         void showTabList(String[] mTabs);
     }
 
-    abstract class ZhihuMainPresenter extends CoreBasePresenter<ZhihuMainModel, ZhihuMainView> {
-        public abstract void getTabList();
+    //daily所有接口(model写在了一起,view presenter分开写)
+    abstract class DailyPresenter extends CoreBasePresenter<DailyModel, DailyView> {
+        public abstract void getDailyData();
+
+        public abstract void startInterval();
     }
 
-    //daily所有接口(model写在了一起,view presenter分开写)
     interface DailyModel extends CoreBaseModel {
         Observable<DailyListBean> getDailyData();
 
@@ -42,21 +50,20 @@ public interface ZhihuContract {
         void doInterval(int i);
     }
 
-    abstract class DailyPresenter extends CoreBasePresenter<DailyModel, DailyView> {
-        public abstract void getDailyData();
-
-        public abstract void startInterval();
+    abstract class ZhihuDetailsPresenter extends CoreBasePresenter<DailyModel, ZhihuDetailsView> {
+        public abstract void getZhihuDetails(int anInt);
     }
 
     interface ZhihuDetailsView extends CoreBaseView {
         void showContent(ZhihuDetailBean info);
     }
 
-    abstract class ZhihuDetailsPresenter extends CoreBasePresenter<DailyModel, ZhihuDetailsView> {
-        public abstract void getZhihuDetails(int anInt);
+    //section所有接口
+    abstract class SectionPresenter extends CoreBasePresenter<SectionModel, SectionView> {
+
+        public abstract void getSectionData();
     }
 
-    //section所有接口
     interface SectionModel extends CoreBaseModel {
 
         Observable<SectionListBean> getSectionData();
@@ -69,19 +76,25 @@ public interface ZhihuContract {
 
     }
 
-    abstract class SectionPresenter extends CoreBasePresenter<SectionModel, SectionView> {
-
-        public abstract void getSectionData();
-    }
-
-    public interface SectionListView extends CoreBaseView {
-        void showContent(SectionChildListBean info);
-    }
-
     abstract class SectionListPresenter extends CoreBasePresenter<SectionModel, SectionListView> {
 
         public abstract void getSectionListData(int id);
     }
 
+    interface SectionListView extends CoreBaseView {
+        void showContent(SectionChildListBean info);
+    }
+
+    abstract class WechatPresenter extends CoreBasePresenter<WechatModel, WechatView> {
+        public abstract void getWechatData();
+    }
+
+    interface WechatModel extends CoreBaseModel {
+        Observable<List<WXItemBean>> getWechatData();
+    }
+
+    interface WechatView extends CoreBaseView {
+        void showContent(List<WXItemBean> mList);
+    }
 }
 

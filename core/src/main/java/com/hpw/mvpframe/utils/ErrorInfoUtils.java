@@ -51,7 +51,7 @@ public class ErrorInfoUtils {
     private static String getLocalErrorInfo(CoreDataResponse error) {
         String s = CoreErrorConstants.errors.get(error.getCode());
         if (StringUtils.isEmpty(s)) {
-            return error.getMessage();
+            return error.getMsg();
         } else {
             return s;
         }

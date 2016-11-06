@@ -4,4 +4,5 @@
     <color name="colorCard">#FFFFFF</color>
     <color name="colorText">#2C2C2C</color>
     <color name="bottom_shadow">#6e000000</color>
+    <color name="comment_reply">#2C2C2C</color>
 </resources>

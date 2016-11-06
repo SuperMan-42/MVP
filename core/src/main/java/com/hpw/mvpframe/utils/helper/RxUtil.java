@@ -38,7 +38,7 @@ public class RxUtil {
             @Override
             public Observable<T> call(CoreDataResponse<T> tMyHttpResponse) {
                 if (tMyHttpResponse.getCode() == 200) {
-                    return createData(tMyHttpResponse.getData());
+                    return createData(tMyHttpResponse.getNewslist());
                 } else {
                     return Observable.error(new CoreApiException("服务器返回error"));
                 }

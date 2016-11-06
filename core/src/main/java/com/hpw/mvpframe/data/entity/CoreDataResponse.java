@@ -2,8 +2,8 @@ package com.hpw.mvpframe.data.entity;
 
 public class CoreDataResponse<T> {
     private int code;
-    private String message;
-    private T data;
+    private String msg;
+    private T newslist;
 
     public int getCode() {
         return code;
@@ -13,28 +13,28 @@ public class CoreDataResponse<T> {
         this.code = code;
     }
 
-    public String getMessage() {
-        return message;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public T getData() {
-        return data;
+    public T getNewslist() {
+        return newslist;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setNewslist(T newslist) {
+        this.newslist = newslist;
     }
 
     @Override
     public String toString() {
         return "CoreDataResponse{" +
                 "code=" + code +
-                ", message='" + message + '\'' +
-                ", data=" + data +
+                ", msg='" + msg + '\'' +
+                ", newslist=" + newslist +
                 '}';
     }
 }

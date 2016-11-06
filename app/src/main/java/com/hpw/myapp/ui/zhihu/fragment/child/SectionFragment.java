@@ -52,12 +52,11 @@ public class SectionFragment extends CoreBaseLazyFragment<SectionPresenter, Sect
                         lp.height = DisplayUtils.dp2px(mContext, 120);
 
                         Glide.with(mContext).load(item.getThumbnail()).crossFade().placeholder(R.drawable.ic_img).into((ImageView) helper.getView(R.id.section_bg));
-                        helper.setText(R.id.section_kind, item.getName());
-                        helper.setText(R.id.section_des, item.getDescription());
-                        helper.setOnClickListener(R.id.ll_click, v -> {
-//                            showToast(item.getName());
-                            ((SupportFragment) getParentFragment()).start(SectionListFragment.newInstance(item.getId(), item.getName()));
-                        });
+                        helper.setText(R.id.section_kind, item.getName())
+                                .setText(R.id.section_des, item.getDescription())
+                                .setOnClickListener(R.id.ll_click, v -> {
+                                    ((SupportFragment) getParentFragment()).start(SectionListFragment.newInstance(item.getId(), item.getName()));
+                                });
                     }
                 });
         return coreRecyclerView;
