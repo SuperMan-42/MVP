@@ -34,6 +34,7 @@
         <activity
             android:name=".ui.zhihu.activity.ZhihuDetailsActivity"
             android:launchMode="singleTask" />
+        <activity android:name=".ui.zhihu.activity.WechatDetailsActivity"></activity>
     </application>
 
 </manifest>

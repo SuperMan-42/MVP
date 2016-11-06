@@ -7,11 +7,11 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.hpw.mvpframe.base.CoreBaseFragment;
-import com.hpw.mvpframe.utils.LogUtil;
 import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
 import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
 import com.hpw.myapp.R;
+import com.hpw.myapp.ui.zhihu.activity.WechatDetailsActivity;
 import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
 import com.hpw.myapp.ui.zhihu.model.wechatmodel.WXItemBean;
 import com.hpw.myapp.ui.zhihu.model.wechatmodel.WechatModel;
@@ -39,7 +39,10 @@ public class WechatFragment extends CoreBaseFragment<WechatPresenter, WechatMode
                 Glide.with(mContext).load(item.getPicUrl()).crossFade().placeholder(R.drawable.ic_img).into((ImageView) helper.getView(R.id.iv_wechat_item_image));
                 helper.setText(R.id.tv_wechat_item_title, item.getTitle())
                         .setText(R.id.tv_wechat_item_from, item.getDescription())
-                        .setText(R.id.tv_wechat_item_time, item.getCtime());
+                        .setText(R.id.tv_wechat_item_time, item.getCtime())
+                        .setOnClickListener(R.id.ll_click, v -> {
+                            WechatDetailsActivity.start(mContext, item.getTitle(), item.getUrl());
+                        });
             }
         });
         return coreRecyclerView;
