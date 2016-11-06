@@ -2,7 +2,6 @@ package com.hpw.mvpframe.widget.recyclerview;
 
 import android.animation.Animator;
 import android.content.Context;
-import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,8 +15,6 @@ import com.hpw.mvpframe.R;
 import com.hpw.mvpframe.widget.recyclerview.animation.BaseAnimation;
 import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 
-import java.util.List;
-
 /**
  * Created by hpw on 16/11/1.
  */
@@ -28,16 +25,12 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
     BaseQuickAdapter mQuickAdapter;
     addDataListener addDataListener;
 
-    public interface addDataListener<T> {
-        List<T> addData();
+    public interface addDataListener {
+        void addData(int page);
     }
 
-    private int delayMillis = 1000;
-    private static final int TOTAL_COUNTER = 18;
-    private static final int PAGE_SIZE = 6;
-    private int mCurrentCounter = 0;
-    private boolean isErr;
     private View notLoadingView;
+    private int pager = 1;
 
     public CoreRecyclerView(Context context) {
         super(context);
@@ -83,45 +76,35 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
 
     public CoreRecyclerView setAddDataListener(addDataListener addDataListener) {
         this.addDataListener = addDataListener;
-        mQuickAdapter.setNewData(addDataListener.addData());
         return this;
     }
 
     @Override
     public void onRefresh() {
-        mQuickAdapter.setNewData(addDataListener.addData());
-        mQuickAdapter.openLoadMore(PAGE_SIZE);
+        mQuickAdapter.getData().clear();
+        addDataListener.addData(1);
+        mQuickAdapter.openLoadMore(mQuickAdapter.getPageSize());
         mQuickAdapter.removeAllFooterView();
-        mCurrentCounter = PAGE_SIZE;
         mSwipeRefreshLayout.setRefreshing(false);
-        isErr = false;
     }
 
     @Override
     public void onLoadMoreRequested() {
         mRecyclerView.post(() -> {
-            if (mCurrentCounter >= TOTAL_COUNTER) {
+            if (mQuickAdapter.getData().size() <= mQuickAdapter.getPageSize() * ++pager) {
                 mQuickAdapter.loadComplete();
                 if (notLoadingView == null) {
                     notLoadingView = LayoutInflater.from(getContext()).inflate(R.layout.not_loading, (ViewGroup) mRecyclerView.getParent(), false);
                 }
                 mQuickAdapter.addFooterView(notLoadingView);
             } else {
-                if (isErr) {
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            mQuickAdapter.addData(addDataListener.addData());
-                            mCurrentCounter = mQuickAdapter.getData().size();
-                        }
-                    }, delayMillis);
-                } else {
-                    isErr = true;
-                    mQuickAdapter.showLoadMoreFailedView();
-
-                }
+                addDataListener.addData(pager);
             }
         });
+    }
+
+    public BaseQuickAdapter getAdapter() {
+        return mQuickAdapter;
     }
 
     public CoreRecyclerView addFooterView(View footer) {

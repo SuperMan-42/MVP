@@ -74,6 +74,6 @@ public class SectionFragment extends CoreBaseLazyFragment<SectionPresenter, Sect
 
     @Override
     public void showContent(SectionListBean info) {
-        coreRecyclerView.setAddDataListener(() -> info.getData());
+        coreRecyclerView.getAdapter().addData(info.getData());
     }
 }

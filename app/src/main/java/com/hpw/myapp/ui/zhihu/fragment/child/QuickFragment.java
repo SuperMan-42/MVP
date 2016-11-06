@@ -64,7 +64,7 @@ public class QuickFragment extends CoreBaseLazyFragment<QuickPresenter, QuickMod
 
     @Override
     public void initData() {
-        coreRecyclerView.setAddDataListener(() -> mModel.getData());
+        coreRecyclerView.getAdapter().addData(mModel.getData());
     }
 
     @Override

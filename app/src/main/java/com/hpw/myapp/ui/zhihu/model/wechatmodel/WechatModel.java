@@ -15,9 +15,9 @@ import rx.Observable;
  */
 public class WechatModel implements ZhihuContract.WechatModel {
     @Override
-    public Observable<List<WXItemBean>> getWechatData() {
+    public Observable<List<WXItemBean>> getWechatData(int num, int page) {
         return RxService.createApi(WechatApi.class, WechatApi.HOST)
-                .getWXHot(Constants.WEIXIN_KEY, 10, 1)
+                .getWXHot(Constants.WEIXIN_KEY, num, page)
                 .compose(RxUtil.rxSchedulerHelper())
                 .compose(RxUtil.handleResult());
     }

@@ -85,7 +85,7 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
                 });
             }
         });
-        coreRecyclerView.setAddDataListener(() -> info.getStories());
+        coreRecyclerView.getAdapter().addData(info.getStories());
     }
 
     @Override

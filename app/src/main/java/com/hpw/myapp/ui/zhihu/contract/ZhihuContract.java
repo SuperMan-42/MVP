@@ -86,11 +86,11 @@ public interface ZhihuContract {
     }
 
     abstract class WechatPresenter extends CoreBasePresenter<WechatModel, WechatView> {
-        public abstract void getWechatData();
+        public abstract void getWechatData(int num, int page);
     }
 
     interface WechatModel extends CoreBaseModel {
-        Observable<List<WXItemBean>> getWechatData();
+        Observable<List<WXItemBean>> getWechatData(int num, int page);
     }
 
     interface WechatView extends CoreBaseView {

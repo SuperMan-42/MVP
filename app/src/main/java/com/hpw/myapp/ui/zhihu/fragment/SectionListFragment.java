@@ -71,7 +71,7 @@ public class SectionListFragment extends CoreBaseFragment<SectionListPresenter, 
 
     @Override
     public void showContent(SectionChildListBean info) {
-        coreRecyclerView.setAddDataListener(() -> info.getStories());
+        coreRecyclerView.getAdapter().addData(info.getStories());
     }
 
     @Override

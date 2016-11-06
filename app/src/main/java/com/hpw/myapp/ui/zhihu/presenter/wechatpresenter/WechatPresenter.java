@@ -8,12 +8,12 @@ import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
 public class WechatPresenter extends ZhihuContract.WechatPresenter {
     @Override
     public void onStart() {
-        getWechatData();
+        getWechatData(6, 1);
     }
 
     @Override
-    public void getWechatData() {
-        mRxManager.add(mModel.getWechatData()
+    public void getWechatData(int num, int page) {
+        mRxManager.add(mModel.getWechatData(num, page)
                 .subscribe(
                         data -> mView.showContent(data),
                         e -> mView.showError("数据加载失败ヽ(≧Д≦)ノ")

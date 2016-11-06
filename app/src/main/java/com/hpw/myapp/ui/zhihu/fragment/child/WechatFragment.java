@@ -25,6 +25,7 @@ import java.util.List;
 
 public class WechatFragment extends CoreBaseFragment<WechatPresenter, WechatModel> implements ZhihuContract.WechatView {
     CoreRecyclerView coreRecyclerView;
+    private static int pageNum = 6;
 
     @Override
     public int getLayoutId() {
@@ -44,22 +45,22 @@ public class WechatFragment extends CoreBaseFragment<WechatPresenter, WechatMode
                             WechatDetailsActivity.start(mContext, item.getTitle(), item.getUrl());
                         });
             }
-        });
+        }).openLoadMore(pageNum).openRefresh();
         return coreRecyclerView;
     }
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
-
+        coreRecyclerView.setAddDataListener(page -> mPresenter.getWechatData(pageNum, page));
     }
 
     @Override
     public void showContent(List<WXItemBean> mList) {
-        coreRecyclerView.setAddDataListener(() -> mList);
+        coreRecyclerView.getAdapter().addData(mList);
     }
 
     @Override
     public void showError(String msg) {
-
+        coreRecyclerView.showLoadMoreFailedView();
     }
 }
