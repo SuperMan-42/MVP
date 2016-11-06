@@ -5,6 +5,8 @@ package com.hpw.myapp;
  */
 
 public class Constants {
-    public static final String ARG_TITLE = "arg_title";
     public static final String ARG_DAILY_ID = "arg_daily_id";
+    public static final String ARG_SECTION_LIST_ID = "arg_section_list_id";
+    public static final String ARG_SECTION_LIST_TITLE = "arg_section_list_title";
+    public static final String ARG_POSITION = "arg_position";
 }

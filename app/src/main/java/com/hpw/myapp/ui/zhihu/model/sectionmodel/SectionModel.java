@@ -16,4 +16,9 @@ public class SectionModel implements ZhihuContract.SectionModel {
     public Observable<SectionListBean> getSectionData() {
         return RxService.createApi(ZhiHuApi.class).getSectionList().compose(RxUtil.rxSchedulerHelper());
     }
+
+    @Override
+    public Observable<SectionChildListBean> getSectionListData(int id) {
+        return RxService.createApi(ZhiHuApi.class).getSectionChildList(id).compose(RxUtil.rxSchedulerHelper());
+    }
 }

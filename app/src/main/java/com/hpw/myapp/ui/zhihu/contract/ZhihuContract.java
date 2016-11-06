@@ -5,6 +5,7 @@ import com.hpw.mvpframe.base.CoreBasePresenter;
 import com.hpw.mvpframe.base.CoreBaseView;
 import com.hpw.myapp.ui.zhihu.model.dailymodel.DailyListBean;
 import com.hpw.myapp.ui.zhihu.model.dailymodel.ZhihuDetailBean;
+import com.hpw.myapp.ui.zhihu.model.sectionmodel.SectionChildListBean;
 import com.hpw.myapp.ui.zhihu.model.sectionmodel.SectionListBean;
 
 import rx.Observable;
@@ -59,6 +60,8 @@ public interface ZhihuContract {
     interface SectionModel extends CoreBaseModel {
 
         Observable<SectionListBean> getSectionData();
+
+        Observable<SectionChildListBean> getSectionListData(int id);
     }
 
     interface SectionView extends CoreBaseView {
@@ -69,6 +72,15 @@ public interface ZhihuContract {
     abstract class SectionPresenter extends CoreBasePresenter<SectionModel, SectionView> {
 
         public abstract void getSectionData();
+    }
+
+    public interface SectionListView extends CoreBaseView {
+        void showContent(SectionChildListBean info);
+    }
+
+    abstract class SectionListPresenter extends CoreBasePresenter<SectionModel, SectionListView> {
+
+        public abstract void getSectionListData(int id);
     }
 
 }

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +29,7 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends CoreBaseModel> extends SupportFragment {
     protected String TAG;
+    protected OnBackToFirstListener _mBackToFirstListener;
 
     public T mPresenter;
     public E mModel;
@@ -42,6 +42,9 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
         mActivity = (Activity) context;
         mContext = context;
         super.onAttach(context);
+        if (context instanceof OnBackToFirstListener) {
+            _mBackToFirstListener = (OnBackToFirstListener) context;
+        }
     }
 
     @Override
@@ -73,6 +76,12 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
     public void onDestroyView() {
         super.onDestroyView();
         if (binder != null) binder.unbind();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        _mBackToFirstListener = null;
     }
 
     @Override
@@ -110,7 +119,9 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
     /**
      * 在监听器之前把数据准备好
      */
-    public abstract void initData();
+    public void initData() {
+
+    }
 
     public void setStatusBarColor() {
         StatusBarUtil.setTranslucentForImageViewInFragment(getActivity(), null);
@@ -118,15 +129,8 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
 
     protected void setToolBar(Toolbar toolbar, String title) {
         toolbar.setTitle(title);
-        ((AppCompatActivity) mActivity).setSupportActionBar(toolbar);
-        ((AppCompatActivity) mActivity).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((AppCompatActivity) mActivity).getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressedSupport();
-            }
-        });
+        toolbar.setNavigationIcon(R.mipmap.ic_arrow_back_white_24dp);
+        toolbar.setNavigationOnClickListener(v -> onBackPressedSupport());
     }
 
     /**
@@ -142,6 +146,27 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
                 .setLeftOnClickListener(v -> {
                     _mActivity.onBackPressed();
                 });
+    }
+
+    /**
+     * 处理回退事件
+     * 如果是孩子fragment需要重写onBackPressedSupport(){_mBackToFirstListener.onBackToFirstFragment();return true;}
+     *
+     * @return
+     */
+    @Override
+    public boolean onBackPressedSupport() {
+        if (getChildFragmentManager().getBackStackEntryCount() > 1) {
+            popChild();
+        } else {
+            _mBackToFirstListener.onBackToFirstFragment();
+            _mActivity.finish();
+        }
+        return true;
+    }
+
+    public interface OnBackToFirstListener {
+        void onBackToFirstFragment();
     }
 
     public void showToast(String msg) {

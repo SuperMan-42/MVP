@@ -16,9 +16,12 @@ import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
 import com.hpw.myapp.App;
 import com.hpw.myapp.R;
 import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
+import com.hpw.myapp.ui.zhihu.fragment.SectionListFragment;
 import com.hpw.myapp.ui.zhihu.model.sectionmodel.SectionListBean;
 import com.hpw.myapp.ui.zhihu.model.sectionmodel.SectionModel;
 import com.hpw.myapp.ui.zhihu.presenter.sectionpresenter.SectionPresenter;
+
+import me.yokeyword.fragmentation.SupportFragment;
 
 /**
  * Created by hpw on 16/11/5.
@@ -52,12 +55,8 @@ public class SectionFragment extends CoreBaseLazyFragment<SectionPresenter, Sect
                         helper.setText(R.id.section_kind, item.getName());
                         helper.setText(R.id.section_des, item.getDescription());
                         helper.setOnClickListener(R.id.ll_click, v -> {
-                            showToast(item.getName());
-//                        Intent intent = new Intent();
-//                        intent.setClass(mContext, SectionActivity.class);
-//                        intent.putExtra("id", mList.get(holder.getAdapterPosition()).getId());
-//                        intent.putExtra("title", mList.get(holder.getAdapterPosition()).getName());
-//                        mContext.startActivity(intent);
+//                            showToast(item.getName());
+                            ((SupportFragment) getParentFragment()).start(SectionListFragment.newInstance(item.getId(), item.getName()));
                         });
                     }
                 });
@@ -67,11 +66,6 @@ public class SectionFragment extends CoreBaseLazyFragment<SectionPresenter, Sect
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
 
-    }
-
-    @Override
-    public void initData() {
-        mPresenter.getSectionData();
     }
 
     @Override

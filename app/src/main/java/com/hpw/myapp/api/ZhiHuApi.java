@@ -2,6 +2,7 @@ package com.hpw.myapp.api;
 
 import com.hpw.myapp.ui.zhihu.model.dailymodel.DailyListBean;
 import com.hpw.myapp.ui.zhihu.model.dailymodel.ZhihuDetailBean;
+import com.hpw.myapp.ui.zhihu.model.sectionmodel.SectionChildListBean;
 import com.hpw.myapp.ui.zhihu.model.sectionmodel.SectionListBean;
 
 import retrofit2.http.GET;
@@ -49,11 +50,11 @@ public interface ZhiHuApi {
     @GET("sections")
     Observable<SectionListBean> getSectionList();
 
-//    /**
-//     * 专栏日报详情
-//     */
-//    @GET("section/{id}")
-//    Observable<SectionChildListBean> getSectionChildList(@Path("id") int id);
+    /**
+     * 专栏日报详情
+     */
+    @GET("section/{id}")
+    Observable<SectionChildListBean> getSectionChildList(@Path("id") int id);
 
 //    /**
 //     * 热门日报

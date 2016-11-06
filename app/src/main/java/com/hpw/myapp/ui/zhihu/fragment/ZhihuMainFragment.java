@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.hpw.mvpframe.base.CoreBaseLazyFragment;
 import com.hpw.mvpframe.utils.helper.FragmentAdapter;
+import com.hpw.myapp.Constants;
 import com.hpw.myapp.R;
 import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
 import com.hpw.myapp.ui.zhihu.fragment.child.DailyFragment;
@@ -26,8 +27,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-
-import static com.hpw.myapp.Constants.ARG_TITLE;
 
 /**
  * Created by hpw on 16/10/31.
@@ -67,10 +66,10 @@ public class ZhihuMainFragment extends CoreBaseLazyFragment<ZhihuMainPresenter, 
         void onOpenDrawer();
     }
 
-    public static ZhihuMainFragment newInstance(String title) {
+    public static ZhihuMainFragment newInstance(int position) {
         ZhihuMainFragment fragment = new ZhihuMainFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(ARG_TITLE, title);
+        bundle.putInt(Constants.ARG_POSITION, position);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -82,11 +81,6 @@ public class ZhihuMainFragment extends CoreBaseLazyFragment<ZhihuMainPresenter, 
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
-    }
-
-    @Override
-    public void initData() {
-
     }
 
     @Override
@@ -106,8 +100,11 @@ public class ZhihuMainFragment extends CoreBaseLazyFragment<ZhihuMainPresenter, 
                     break;
             }
         }
+        int position = getArguments().getInt(Constants.ARG_POSITION, 1);
         viewpager.setAdapter(new FragmentAdapter(getChildFragmentManager(), fragments));
+        viewpager.setCurrentItem(position);//要设置到viewpager.setAdapter后才起作用
         tabs.setupWithViewPager(viewpager);
+        tabs.setVerticalScrollbarPosition(position);
         for (int i = 0; i < mTabs.length; i++) {
             tabs.getTabAt(i).setText(mTabs[i]);
         }

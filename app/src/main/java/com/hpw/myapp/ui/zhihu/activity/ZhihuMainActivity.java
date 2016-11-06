@@ -9,13 +9,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.hpw.mvpframe.base.CoreBaseActivity;
+import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.myapp.R;
 import com.hpw.myapp.ui.zhihu.fragment.ZhihuMainFragment;
 
 import butterknife.BindView;
 
 public class ZhihuMainActivity extends CoreBaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ZhihuMainFragment.OnFragmentOpenDrawerListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        ZhihuMainFragment.OnFragmentOpenDrawerListener, CoreBaseFragment.OnBackToFirstListener {
 
     @BindView(R.id.nav_view)
     NavigationView navigationView;
@@ -45,7 +47,7 @@ public class ZhihuMainActivity extends CoreBaseActivity
     public void initView(Bundle savedInstanceState) {
         navigationView.setNavigationItemSelectedListener(this);
         if (savedInstanceState == null) {
-            loadRootFragment(R.id.fl_container, ZhihuMainFragment.newInstance("ZhihuMainFragment"));
+            loadRootFragment(R.id.fl_container, ZhihuMainFragment.newInstance(0));
         }
     }
 
@@ -85,5 +87,10 @@ public class ZhihuMainActivity extends CoreBaseActivity
         if (!drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.openDrawer(GravityCompat.START);
         }
+    }
+
+    @Override
+    public void onBackToFirstFragment() {
+        loadRootFragment(R.id.fl_container, ZhihuMainFragment.newInstance(1));
     }
 }

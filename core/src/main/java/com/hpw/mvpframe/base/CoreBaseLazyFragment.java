@@ -1,6 +1,5 @@
 package com.hpw.mvpframe.base;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -10,16 +9,7 @@ import android.support.annotation.Nullable;
 
 public abstract class CoreBaseLazyFragment<T extends CoreBasePresenter, E extends CoreBaseModel> extends CoreBaseFragment<T, E> {
     private boolean mInited = false;
-    protected OnBackToFirstListener _mBackToFirstListener;
     private Bundle mSavedInstanceState;
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnBackToFirstListener) {
-            _mBackToFirstListener = (OnBackToFirstListener) context;
-        }
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,12 +36,6 @@ public abstract class CoreBaseLazyFragment<T extends CoreBasePresenter, E extend
     }
 
     @Override
-    public void onDetach() {
-        super.onDetach();
-        _mBackToFirstListener = null;
-    }
-
-    @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (!mInited && !hidden) {
@@ -64,31 +48,4 @@ public abstract class CoreBaseLazyFragment<T extends CoreBasePresenter, E extend
      * 懒加载
      */
     protected abstract void initLazyView(@Nullable Bundle savedInstanceState);
-
-    /**
-     * 处理回退事件
-     *
-     * @return
-     */
-    @Override
-    public boolean onBackPressedSupport() {
-        if (getChildFragmentManager().getBackStackEntryCount() > 1) {
-            popChild();
-        } else {
-            if (isFirstFragment()) {   // 如果是 第一个Fragment 则退出app
-                _mActivity.finish();
-            } else {                                    // 如果不是,则回到第一个Fragment
-                _mBackToFirstListener.onBackToFirstFragment();
-            }
-        }
-        return true;
-    }
-
-    protected boolean isFirstFragment() {
-        return true;
-    }
-
-    public interface OnBackToFirstListener {
-        void onBackToFirstFragment();
-    }
 }
