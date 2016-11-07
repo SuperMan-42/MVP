@@ -11,6 +11,6 @@ import java.util.List;
 public class QuickModel implements QuickContract.Model {
     @Override
     public List<Status> getData() {
-        return DataServer.getSampleData(6);
+        return DataServer.getSampleData(10);
     }
 }

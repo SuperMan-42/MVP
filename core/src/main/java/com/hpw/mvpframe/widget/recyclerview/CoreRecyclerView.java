@@ -74,11 +74,6 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
         return this;
     }
 
-    public CoreRecyclerView setAddDataListener(addDataListener addDataListener) {
-        this.addDataListener = addDataListener;
-        return this;
-    }
-
     @Override
     public void onRefresh() {
         page = 0;
@@ -159,8 +154,9 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
         return this;
     }
 
-    public CoreRecyclerView openLoadMore(int pageSize) {
+    public CoreRecyclerView openLoadMore(int pageSize, addDataListener addDataListener) {
 //        this.data = data == null ? new ArrayList<T>() : data;
+        this.addDataListener = addDataListener;
         mQuickAdapter.openLoadMore(pageSize);
         mQuickAdapter.setOnLoadMoreListener(this);
         return this;

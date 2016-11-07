@@ -52,7 +52,7 @@ public class QuickFragment extends CoreBaseLazyFragment<QuickPresenter, QuickMod
                         showToast("点击了" + position);
                     }
                 })
-                .openLoadMore(6)
+                .openLoadMore(10, page -> coreRecyclerView.getAdapter().addData(mModel.getData()))
                 .openRefresh();
         return coreRecyclerView;
     }
