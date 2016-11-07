@@ -4,7 +4,9 @@ App based on Material Design + MVP + Rxjava + Retrofit + Okhttp + Glide
 
 本项目本着简洁的思想，让开发更加简单，抽取出了core做为库，可以直接引入进行快捷开发，项目仍在改进中，如果有好的建议或者发现什么问题欢迎[issue](https://github.com/SuperMan42/MVP/issues),email<424346976@qq.com>，如果感觉对你有帮助也欢迎点个star，fork，本项目仅做学习交流使用
 
-QQ群：482866708  
+简书:[http://www.jianshu.com/users/3231e0f0f920/latest_articles](http://www.jianshu.com/users/3231e0f0f920/latest_articles)
+
+QQ群:482866708  
 ![](https://github.com/SuperMan42/MVP/blob/master/share.png)
 
 ## Preview
