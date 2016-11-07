@@ -25,7 +25,7 @@ import java.util.List;
 
 public class WechatFragment extends CoreBaseFragment<WechatPresenter, WechatModel> implements ZhihuContract.WechatView {
     CoreRecyclerView coreRecyclerView;
-    private static int pageNum = 6;
+    private static int pageNum = 10;
 
     @Override
     public int getLayoutId() {
@@ -37,7 +37,7 @@ public class WechatFragment extends CoreBaseFragment<WechatPresenter, WechatMode
         coreRecyclerView = new CoreRecyclerView(mContext).init(new BaseQuickAdapter<WXItemBean, BaseViewHolder>(R.layout.item_weichat) {
             @Override
             protected void convert(BaseViewHolder helper, WXItemBean item) {
-                Glide.with(mContext).load(item.getPicUrl()).crossFade().placeholder(R.drawable.ic_img).into((ImageView) helper.getView(R.id.iv_wechat_item_image));
+                Glide.with(mContext).load(item.getPicUrl()).crossFade().into((ImageView) helper.getView(R.id.iv_wechat_item_image));
                 helper.setText(R.id.tv_wechat_item_title, item.getTitle())
                         .setText(R.id.tv_wechat_item_from, item.getDescription())
                         .setText(R.id.tv_wechat_item_time, item.getCtime())

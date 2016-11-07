@@ -8,7 +8,7 @@ import com.hpw.myapp.ui.zhihu.contract.ZhihuContract;
 public class WechatPresenter extends ZhihuContract.WechatPresenter {
     @Override
     public void onStart() {
-        getWechatData(6, 1);
+        getWechatData(10, 1);
     }
 
     @Override

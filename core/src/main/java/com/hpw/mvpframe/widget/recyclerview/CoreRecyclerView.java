@@ -30,7 +30,7 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
     }
 
     private View notLoadingView;
-    private int pager = 1;
+    private int page;
 
     public CoreRecyclerView(Context context) {
         super(context);
@@ -81,6 +81,7 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
 
     @Override
     public void onRefresh() {
+        page = 0;
         mQuickAdapter.getData().clear();
         addDataListener.addData(1);
         mQuickAdapter.openLoadMore(mQuickAdapter.getPageSize());
@@ -91,16 +92,17 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
     @Override
     public void onLoadMoreRequested() {
         mRecyclerView.post(() -> {
-            if (mQuickAdapter.getData().size() <= mQuickAdapter.getPageSize() * ++pager) {
+            if (mQuickAdapter.getData().size() < page * mQuickAdapter.getPageSize()) {
                 mQuickAdapter.loadComplete();
                 if (notLoadingView == null) {
                     notLoadingView = LayoutInflater.from(getContext()).inflate(R.layout.not_loading, (ViewGroup) mRecyclerView.getParent(), false);
                 }
                 mQuickAdapter.addFooterView(notLoadingView);
             } else {
-                addDataListener.addData(pager);
+                addDataListener.addData(page);
             }
         });
+        page += 1;
     }
 
     public BaseQuickAdapter getAdapter() {
