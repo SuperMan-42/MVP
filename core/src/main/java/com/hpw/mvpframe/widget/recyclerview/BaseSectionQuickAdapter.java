@@ -6,9 +6,6 @@ import com.hpw.mvpframe.widget.recyclerview.entity.SectionEntity;
 
 import java.util.List;
 
-/**
- * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
- */
 public abstract class BaseSectionQuickAdapter<T extends SectionEntity, K extends BaseViewHolder> extends BaseQuickAdapter<T, K> {
 
 

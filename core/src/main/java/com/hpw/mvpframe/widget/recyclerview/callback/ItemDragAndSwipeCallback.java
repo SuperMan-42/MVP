@@ -8,9 +8,6 @@ import android.view.View;
 import com.hpw.mvpframe.R;
 import com.hpw.mvpframe.widget.recyclerview.BaseItemDraggableAdapter;
 
-/**
- * Created by luoxw on 2016/6/20.
- */
 public class ItemDragAndSwipeCallback extends ItemTouchHelper.Callback {
 
 //    private static final String TAG = ItemDragAndSwipeCallback.class.getSimpleName();

@@ -8,9 +8,6 @@ import com.hpw.mvpframe.widget.recyclerview.entity.MultiItemEntity;
 
 import java.util.List;
 
-/**
- * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
- */
 public abstract class BaseMultiItemQuickAdapter<T extends MultiItemEntity, K extends BaseViewHolder> extends BaseQuickAdapter<T, K> {
 
     /**

@@ -20,11 +20,6 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * RecyclerViewPager
- *
- * @author Green
- */
 public class RecyclerViewPager extends RecyclerView {
 
     private RecyclerViewPagerAdapter<?> mViewPagerAdapter;
