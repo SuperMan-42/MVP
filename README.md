@@ -10,10 +10,10 @@ QQ群：482866708
 ## Preview
 ![](https://github.com/SuperMan42/MVP/blob/master/hpw.gif)
 
-[Download APK](https://github.com/SuperMan42/MVP/blob/master/download.png)
+[Download APK](http://pro-app-mt.fir.im/06c652ca03b6a152edd08935170fd24562ecb695.apk?AWSAccessKeyId=e0cada7f00f2465b929656d799937873&Expires=1478501552&Signature=t4jtAq%2BmWpyk4rDOEYij8V0aDlo%3D&filename=app-release.apk_1.0.apk)
 (Android 5.0 or above)  
 
-![]()
+![](https://github.com/SuperMan42/MVP/blob/master/download.png)
 
 ## Points
 * 使用Rxjava配合Retrofit2+okhttp做网络请求和缓存
