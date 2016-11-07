@@ -4,11 +4,16 @@ App based on Material Design + MVP + Rxjava + Retrofit + Okhttp + Glide
 
 本项目本着简洁的思想，让开发更加简单，抽取出了core做为库，可以直接引入进行快捷开发，项目仍在改进中，如果有好的建议或者发现什么问题欢迎[issue](https://github.com/SuperMan42/MVP/issues),email<424346976@qq.com>，如果感觉对你有帮助也欢迎点个star，fork，本项目仅做学习交流使用
 
+QQ群：482866708  
+![](https://github.com/SuperMan42/MVP/blob/master/share.png)
+
 ## Preview
 ![](https://github.com/SuperMan42/MVP/blob/master/hpw.gif)
 
-[Download APK]()
-(Android 5.0 or above)
+[Download APK](http://pro-app-mt.fir.im/06c652ca03b6a152edd08935170fd24562ecb695.apk?AWSAccessKeyId=e0cada7f00f2465b929656d799937873&Expires=1478501552&Signature=t4jtAq%2BmWpyk4rDOEYij8V0aDlo%3D&filename=app-release.apk_1.0.apk)
+(Android 5.0 or above)  
+
+![](https://github.com/SuperMan42/MVP/blob/master/download.png)
 
 ## Points
 * 使用Rxjava配合Retrofit2+okhttp做网络请求和缓存
@@ -24,3 +29,8 @@ App based on Material Design + MVP + Rxjava + Retrofit + Okhttp + Glide
 * 使用x5WebView做阅览页
 
 ## 使用
+
+## Thanks
+[知乎日报API](https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[微信精选API](http://www.tianapi.com/#wxnew)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+参考了很多大神的作品
