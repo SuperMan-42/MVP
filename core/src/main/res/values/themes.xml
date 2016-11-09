@@ -2,6 +2,9 @@
 <resources>
     <!-- App Theme Light -->
     <style name="BaseAppThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowActionBar">false</item>
         <item name="colorPrimary">?attr/themeColor</item>
         <item name="colorPrimaryDark">?attr/themeColor</item>
         <item name="colorAccent">?attr/themeColor</item>
@@ -27,6 +30,9 @@
 
     <!-- App Theme Dark -->
     <style name="BaseAppThemeDark" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowActionBar">false</item>
         <item name="colorPrimary">?attr/themeColor</item>
         <item name="colorPrimaryDark">?attr/themeColor</item>
         <item name="colorAccent">?attr/themeColor</item>
