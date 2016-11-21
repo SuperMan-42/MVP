@@ -12,7 +12,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.mvpframe.base.CoreBaseLazyFragment;
+import com.hpw.mvpframe.utils.SpUtil;
 import com.hpw.mvpframe.utils.helper.FragmentAdapter;
 import com.hpw.myapp.Constants;
 import com.hpw.myapp.R;
@@ -60,6 +62,17 @@ public class ZhihuMainFragment extends CoreBaseLazyFragment<ZhihuMainPresenter, 
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.day) {
+            SpUtil.setNightModel(mContext, false);
+            ((CoreBaseActivity) getActivity()).reload();
+            return true;
+        } else if (id == R.id.night) {
+            SpUtil.setNightModel(mContext, true);
+            ((CoreBaseActivity) getActivity()).reload();
+            return true;
+        }
         return false;
     }
 
@@ -131,7 +144,7 @@ public class ZhihuMainFragment extends CoreBaseLazyFragment<ZhihuMainPresenter, 
         fab.setOnClickListener(v -> Snackbar.make(v, "Snackbar comes out", Snackbar.LENGTH_LONG).setAction("action", vi -> {
             showToast("ZhihuMainFragment");
         }));
-        toolbar.inflateMenu(R.menu.activity_main_drawer);
+        toolbar.inflateMenu(R.menu.fragment_main_menu);
         toolbar.setOnMenuItemClickListener(this);
     }
 }

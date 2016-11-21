@@ -2,12 +2,7 @@
 <resources>
     <!-- basic -->
     <!-- 主色调 -->
-    <color name="colorPrimary">#8BC34A</color>
-    <color name="colorPrimaryDark">#76A63E</color>
-    <color name="colorPrimaryLight">#E8F3BD</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="colorSecondary">#ff9900</color>
-    <color name="colorSecondaryDark">#d88200</color>
+    <color name="colorPrimary">#ffeeeeee</color>
     <!-- 主题相关颜色 -->
     <color name="window_background_light">#ffeeeeee</color>
     <color name="window_background_dark">#ff303030</color>

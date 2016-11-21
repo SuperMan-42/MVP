@@ -38,7 +38,8 @@
 
     <!-- green -->
     <color name="md_green_500">#259b24</color>
-    <color name="md_green_700">#0a7e07</color>
+    <!--<color name="md_green_700">#0a7e07</color>-->
+    <color name="md_green_700">#ff3c3c3c</color>
 
     <!-- light_green -->
     <color name="md_light_green_500">#8bc34a</color>

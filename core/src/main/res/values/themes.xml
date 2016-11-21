@@ -42,12 +42,12 @@
         <item name="widgetBackground">@color/selectable_item_background_general_dark_normal</item>
         <item name="widgetBackgroundDark">@color/selectable_item_background_general_dark_pressed
         </item>
-        <item name="widgetBackgroundTitle">@color/colorPrimary</item>
+        <item name="widgetBackgroundTitle">?attr/colorPrimary</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="AppThemeDark" parent="BaseAppThemeDark">
-        <item name="themeColor">@color/md_green_700</item>
+        <item name="themeColor">@color/md_green_700</item>item
     </style>
 
     <style name="AppThemeDark.NoTranslucent" parent="BaseAppThemeDark">
@@ -58,7 +58,7 @@
 
     <!-- App Theme Launch -->
     <style name="AppThemeLaunch" parent="BaseAppThemeLight">
-        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:windowBackground">?attr/colorPrimary</item>
     </style>
 
     <style name="AppWidget" parent="Theme.AppCompat.Light" />
