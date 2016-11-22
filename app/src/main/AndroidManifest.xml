@@ -34,7 +34,11 @@
         <activity
             android:name=".ui.zhihu.activity.ZhihuDetailsActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".ui.zhihu.activity.WechatDetailsActivity"></activity>
+        <activity android:name=".ui.zhihu.activity.WechatDetailsActivity" />
+        <activity android:name=".ui.publish.PublishActivity" />
+        <activity android:name=".widget.imageselector.view.ImageSelectorActivity" />
+        <activity android:name=".widget.imageselector.view.ImagePreviewActivity" />
+        <activity android:name=".widget.imageselector.view.ImageCropActivity" />
     </application>
 
 </manifest>

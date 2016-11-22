@@ -10,19 +10,20 @@
         style="@style/MyToolbar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bar_height"
-        android:background="?attr/colorPrimary" >
+        android:background="?attr/colorPrimary">
+
         <TextView
             android:id="@+id/done_text"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/btn_height"
-            android:text="@string/done"
-            android:gravity="center"
-            android:enabled="false"
             android:layout_gravity="right"
             android:layout_marginRight="@dimen/margin_text"
             android:background="@drawable/btn_round_green_selector"
-            android:textSize="@dimen/small_text_size"
-            android:textColor="@color/white_text_selector"/>
+            android:enabled="false"
+            android:gravity="center"
+            android:text="@string/done"
+            android:textColor="@color/white_text_selector"
+            android:textSize="@dimen/small_text_size" />
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
@@ -43,10 +44,10 @@
             android:id="@+id/folder_layout"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingLeft="@dimen/margin_layout"
-            android:paddingRight="@dimen/margin_layout"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/margin_layout"
+            android:paddingRight="@dimen/margin_layout">
 
 
             <TextView
@@ -60,22 +61,23 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
                 android:layout_marginLeft="@dimen/margin_text"
+                android:layout_marginTop="4dp"
                 android:src="@mipmap/ic_arrow" />
         </LinearLayout>
+
         <TextView
             android:id="@+id/preview_text"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingLeft="@dimen/margin_layout"
-            android:gravity="center"
-            android:paddingRight="@dimen/margin_layout"
             android:layout_alignParentRight="true"
             android:enabled="false"
+            android:gravity="center"
+            android:paddingLeft="@dimen/margin_layout"
+            android:paddingRight="@dimen/margin_layout"
+            android:text="@string/preview"
             android:textColor="@color/white_text_selector"
-            android:textSize="@dimen/middle_text_size"
-            android:text="@string/preview"/>
+            android:textSize="@dimen/middle_text_size" />
     </RelativeLayout>
 
 </RelativeLayout>

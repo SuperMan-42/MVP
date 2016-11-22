@@ -9,13 +9,18 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="?attr/colorPrimary" />
+
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/toolbar_high">
+                android:layout_height="?attr/actionBarSize">
 
                 <TextView
                     android:id="@+id/tv_cancel"

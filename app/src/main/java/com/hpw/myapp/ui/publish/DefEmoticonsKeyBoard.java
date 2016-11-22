@@ -70,7 +70,7 @@ public class DefEmoticonsKeyBoard extends XhsEmoticonsKeyBoard {
                 toggleFuncView(FUNC_TYPE_EMOTION);
                 break;
             case R.id.btn_capture:
-//                PublishActivity.pickImage();
+                PublishActivity.pickImage();
                 break;
         }
     }
