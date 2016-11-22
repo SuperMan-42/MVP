@@ -37,4 +37,5 @@ dependencies {
     compile project(':core')
     compile 'com.android.support:appcompat-v7:23.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    compile 'com.isseiaoki:simplecropview:1.0.13'
 }

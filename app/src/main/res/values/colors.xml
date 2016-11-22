@@ -4,4 +4,20 @@
     <color name="colorCard">#FFFFFF</color>
     <color name="bottom_shadow">#6e000000</color>
     <color name="comment_reply">#2C2C2C</color>
+    <color name="toolbar_spilt_line">#CDCDCD</color>
+    <color name="toolbar_btn_nomal">@color/white</color>
+    <color name="toolbar_btn_select">#D9D9D9</color>
+    <color name="spilt_line">#CFCFCF</color>
+    <color name="btn_send_textcolor">@color/white</color>
+    <color name="black_3">#333333</color>
+    <color name="font_dark_gery">#666666</color>
+    <color name="green">#43c117</color>
+    <color name="content_grey">#353535</color>
+    <color name="image_overlay">#20000000</color>
+    <color name="image_overlay2">#80000000</color>
+    <color name="divider_color">#dcdcdc</color>
+    <color name="white_70">#ADFFFFFF</color>
+    <color name="green_70">#AD43c117</color>
+    <color name="bar_grey_90">#dd393a3e</color>
+    <color name="black">#000000</color>
 </resources>
