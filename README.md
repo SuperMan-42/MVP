@@ -27,6 +27,7 @@ QQ群:482866708
 * 使用MVP架构整个项目，并且抽取出core做为库，导入core即可省去50%的代码开发哦
 * 使用Glide做图片处理和加载
 * 使用Fragmentation简化Fragment的操作和懒加载
+* 日间和夜间模式切换
 * 自己封装了recyclerview和recyclerviewpager实现下拉刷新，上拉加载更多和pagerview功能（只需简单几句代码即可实现各种列表，无需adapter，无需自己设计分页加载）
 * 使用x5WebView做阅览页
 * 日报首页的头部可以循环滚动（使用了rxjava轮循和recyclerviewpager）
