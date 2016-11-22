@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.myapp.R;
+import com.hpw.myapp.ui.publish.PublishActivity;
 import com.hpw.myapp.ui.zhihu.fragment.ZhihuMainFragment;
 
 import butterknife.BindView;
@@ -63,6 +64,12 @@ public class ZhihuMainActivity extends CoreBaseActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.menu_publish) {
+            startActivity(PublishActivity.class);
+        }
+
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

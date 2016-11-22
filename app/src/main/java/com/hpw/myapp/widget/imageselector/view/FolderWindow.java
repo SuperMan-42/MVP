@@ -14,7 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.PopupWindow;
 
-import com.hpw.mvpframe.R;
+import com.hpw.myapp.R;
 import com.hpw.myapp.widget.imageselector.adapter.ImageFolderAdapter;
 import com.hpw.myapp.widget.imageselector.model.LocalMediaFolder;
 import com.hpw.myapp.widget.imageselector.utils.ScreenUtils;

@@ -3,9 +3,9 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/menu_publish"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="图片选择器" />
+            android:title="发布模块" />
     </group>
 
     <item android:title="选项">

@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-import com.hpw.mvpframe.R;
+import com.hpw.myapp.R;
 import com.hpw.myapp.widget.emoticonskeyboard.adpater.PageSetAdapter;
 import com.hpw.myapp.widget.emoticonskeyboard.data.PageSetEntity;
 import com.hpw.myapp.widget.emoticonskeyboard.utils.EmoticonsKeyboardUtils;

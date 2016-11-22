@@ -17,7 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.hpw.mvpframe.R;
+import com.hpw.myapp.R;
 import com.hpw.myapp.widget.imageselector.model.LocalMedia;
 import com.hpw.myapp.widget.imageselector.widget.PreviewViewPager;
 

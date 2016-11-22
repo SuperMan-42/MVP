@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.hpw.mvpframe.R;
+import com.hpw.myapp.R;
 import com.hpw.myapp.widget.emoticonskeyboard.utils.EmoticonsKeyboardUtils;
 
 public abstract class AutoHeightLayout extends SoftKeyboardSizeWatchLayout implements SoftKeyboardSizeWatchLayout.OnResizeListener {

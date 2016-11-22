@@ -9,8 +9,8 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.text.TextUtils;
 
-import com.rrcp.widget.imageselector.model.LocalMedia;
-import com.rrcp.widget.imageselector.model.LocalMediaFolder;
+import com.hpw.myapp.widget.imageselector.model.LocalMedia;
+import com.hpw.myapp.widget.imageselector.model.LocalMediaFolder;
 
 import java.io.File;
 import java.util.ArrayList;

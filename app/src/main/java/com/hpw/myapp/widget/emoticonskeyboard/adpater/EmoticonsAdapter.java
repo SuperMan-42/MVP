@@ -7,7 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import com.hpw.mvpframe.R;
+
+import com.hpw.myapp.R;
 import com.hpw.myapp.widget.emoticonskeyboard.data.EmoticonPageEntity;
 import com.hpw.myapp.widget.emoticonskeyboard.interfaces.EmoticonClickListener;
 import com.hpw.myapp.widget.emoticonskeyboard.interfaces.EmoticonDisplayListener;

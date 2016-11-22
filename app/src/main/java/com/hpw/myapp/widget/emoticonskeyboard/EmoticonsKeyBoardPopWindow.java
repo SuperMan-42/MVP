@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.PopupWindow;
 
-import com.hpw.mvpframe.R;
+import com.hpw.myapp.R;
 import com.hpw.myapp.widget.emoticonskeyboard.adpater.PageSetAdapter;
 import com.hpw.myapp.widget.emoticonskeyboard.data.PageSetEntity;
 import com.hpw.myapp.widget.emoticonskeyboard.utils.EmoticonsKeyboardUtils;

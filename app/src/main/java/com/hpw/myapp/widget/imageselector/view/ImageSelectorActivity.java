@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hpw.mvpframe.R;
+import com.hpw.myapp.R;
 import com.hpw.myapp.widget.imageselector.adapter.ImageFolderAdapter;
 import com.hpw.myapp.widget.imageselector.adapter.ImageListAdapter;
 import com.hpw.myapp.widget.imageselector.model.LocalMedia;

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.hpw.mvpframe.R;
+import com.hpw.myapp.R;
 import com.hpw.myapp.widget.imageselector.model.LocalMedia;
 import com.hpw.myapp.widget.imageselector.model.LocalMediaFolder;
 

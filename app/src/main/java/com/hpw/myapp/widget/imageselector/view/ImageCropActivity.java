@@ -15,9 +15,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
-import com.hpw.mvpframe.R;
+import com.hpw.myapp.R;
 import com.hpw.myapp.widget.imageselector.utils.CropUtil;
 import com.hpw.myapp.widget.imageselector.utils.FileUtils;
+import com.isseiaoki.simplecropview.CropImageView;
 
 import java.io.File;
 import java.io.IOException;
@@ -78,7 +79,7 @@ public class ImageCropActivity extends AppCompatActivity {
             BitmapFactory.Options option = new BitmapFactory.Options();
             option.inSampleSize = sampleSize;
             Bitmap sizeBitmap = BitmapFactory.decodeStream(is, null, option);
-            if(sizeBitmap==null)return;
+            if (sizeBitmap == null) return;
             Matrix matrix = getRotateMatrix(sizeBitmap, exifRotation % 360);
             Bitmap rotated = Bitmap.createBitmap(sizeBitmap, 0, 0, sizeBitmap.getWidth(), sizeBitmap.getHeight(), matrix, true);
             cropImageView.setImageBitmap(rotated);
