@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hpw.mvpframe.base.CoreBaseActivity;
+import com.hpw.mvpframe.utils.StatusBarUtil;
 import com.hpw.myapp.R;
 import com.hpw.myapp.widget.imageselector.adapter.ImageFolderAdapter;
 import com.hpw.myapp.widget.imageselector.adapter.ImageListAdapter;
@@ -84,6 +85,7 @@ public class ImageSelectorActivity extends CoreBaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        StatusBarUtil.setTranslucent(this);
         maxSelectNum = getIntent().getIntExtra(EXTRA_MAX_SELECT_NUM, 9);
         selectMode = getIntent().getIntExtra(EXTRA_SELECT_MODE, MODE_MULTIPLE);
         showCamera = getIntent().getBooleanExtra(EXTRA_SHOW_CAMERA, true);

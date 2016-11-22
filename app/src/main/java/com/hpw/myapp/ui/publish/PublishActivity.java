@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.hpw.mvpframe.base.CoreBaseActivity;
+import com.hpw.mvpframe.utils.StatusBarUtil;
 import com.hpw.mvpframe.utils.StringUtils;
 import com.hpw.myapp.R;
 import com.hpw.myapp.ui.publish.utils.PublishUtils;
@@ -63,6 +64,7 @@ public class PublishActivity extends CoreBaseActivity implements FuncLayout.OnFu
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        StatusBarUtil.setTransparent(this);
         ButterKnife.bind(this);
         activity = this;
         gridView.setOnItemClickListener(this);
