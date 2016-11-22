@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.myapp.R;
 import com.hpw.myapp.widget.imageselector.adapter.ImageFolderAdapter;
 import com.hpw.myapp.widget.imageselector.adapter.ImageListAdapter;
@@ -27,7 +28,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImageSelectorActivity extends AppCompatActivity {
+public class ImageSelectorActivity extends CoreBaseActivity {
     public final static int REQUEST_IMAGE = 66;
     public final static int REQUEST_CAMERA = 67;
 
@@ -77,10 +78,12 @@ public class ImageSelectorActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_imageselector);
+    public int getLayoutId() {
+        return R.layout.activity_imageselector;
+    }
 
+    @Override
+    public void initView(Bundle savedInstanceState) {
         maxSelectNum = getIntent().getIntExtra(EXTRA_MAX_SELECT_NUM, 9);
         selectMode = getIntent().getIntExtra(EXTRA_SELECT_MODE, MODE_MULTIPLE);
         showCamera = getIntent().getBooleanExtra(EXTRA_SHOW_CAMERA, true);

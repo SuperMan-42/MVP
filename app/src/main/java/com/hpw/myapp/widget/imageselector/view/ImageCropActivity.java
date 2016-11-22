@@ -10,11 +10,11 @@ import android.net.Uri;
 import android.opengl.GLES10;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.myapp.R;
 import com.hpw.myapp.widget.imageselector.utils.CropUtil;
 import com.hpw.myapp.widget.imageselector.utils.FileUtils;
@@ -25,7 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class ImageCropActivity extends AppCompatActivity {
+public class ImageCropActivity extends CoreBaseActivity {
     public static final String EXTRA_PATH = "extraPath";
     public static final String OUTPUT_PATH = "outputPath";
     public static final int REQUEST_CROP = 69;
@@ -49,9 +49,12 @@ public class ImageCropActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_crop);
+    public int getLayoutId() {
+        return R.layout.activity_image_crop;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         String path = getIntent().getStringExtra(EXTRA_PATH);
         sourceUri = Uri.fromFile(new File(path));
 

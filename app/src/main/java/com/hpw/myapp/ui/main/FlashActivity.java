@@ -31,7 +31,7 @@ public class FlashActivity extends CoreBaseActivity {
     @Override
     public void initView(Bundle savedInstanceState) {
         Observable.timer(2000, TimeUnit.MILLISECONDS)
-                .compose(RxPermissions.getInstance(this).ensureEach(Manifest.permission.READ_PHONE_STATE, Manifest.permission.CAMERA))
+                .compose(RxPermissions.getInstance(this).ensureEach(Manifest.permission.READ_PHONE_STATE, Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE))
                 .compose(RxUtil.rxSchedulerHelper())
                 .subscribe(permission -> {
                     if (permission.granted) {

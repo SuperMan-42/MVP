@@ -8,7 +8,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
@@ -64,12 +63,6 @@ public class PublishActivity extends CoreBaseActivity implements FuncLayout.OnFu
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        //不显示状态栏
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.flags |= WindowManager.LayoutParams.FLAG_FULLSCREEN;
-        getWindow().setAttributes(lp);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-
         ButterKnife.bind(this);
         activity = this;
         gridView.setOnItemClickListener(this);

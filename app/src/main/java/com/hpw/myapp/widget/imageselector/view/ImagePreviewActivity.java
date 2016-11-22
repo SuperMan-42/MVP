@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.myapp.R;
 import com.hpw.myapp.widget.imageselector.model.LocalMedia;
 import com.hpw.myapp.widget.imageselector.widget.PreviewViewPager;
@@ -24,7 +25,7 @@ import com.hpw.myapp.widget.imageselector.widget.PreviewViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImagePreviewActivity extends AppCompatActivity {
+public class ImagePreviewActivity extends CoreBaseActivity {
     public static final int REQUEST_PREVIEW = 68;
     public static final String EXTRA_PREVIEW_LIST = "previewList";
     public static final String EXTRA_PREVIEW_SELECT_LIST = "previewSelectList";
@@ -61,11 +62,12 @@ public class ImagePreviewActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        setContentView(R.layout.activity_image_preview);
+    public int getLayoutId() {
+        return R.layout.activity_image_preview;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         initView();
         registerListener();
     }
