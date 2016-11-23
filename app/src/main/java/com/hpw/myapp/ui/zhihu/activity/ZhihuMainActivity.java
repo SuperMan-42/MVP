@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.myapp.R;
+import com.hpw.myapp.ui.main.AboutActivity;
 import com.hpw.myapp.ui.publish.PublishActivity;
 import com.hpw.myapp.ui.zhihu.fragment.ZhihuMainFragment;
 
@@ -68,6 +69,8 @@ public class ZhihuMainActivity extends CoreBaseActivity
 
         if (id == R.id.menu_publish) {
             startActivity(PublishActivity.class);
+        } else if (id == R.id.about) {
+            startActivity(AboutActivity.class);
         }
 
         drawer.closeDrawer(GravityCompat.START);

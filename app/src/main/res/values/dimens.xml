@@ -30,4 +30,5 @@
     <dimen name="toolbar_high">48dp</dimen>
     <dimen name="space_15dp">15dp</dimen>
     <dimen name="txt_10sp">10sp</dimen>
+    <dimen name="txt_14sp">14sp</dimen>
 </resources>

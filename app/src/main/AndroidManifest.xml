@@ -41,6 +41,7 @@
         <activity android:name=".widget.imageselector.view.ImageSelectorActivity" />
         <activity android:name=".widget.imageselector.view.ImagePreviewActivity" />
         <activity android:name=".widget.imageselector.view.ImageCropActivity" />
+        <activity android:name=".ui.main.AboutActivity" />
     </application>
 
 </manifest>
