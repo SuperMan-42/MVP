@@ -46,8 +46,8 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
         View view = LayoutInflater.from(context).inflate(
                 R.layout.layout_recyclerview, null);
         view.setLayoutParams(new LinearLayout.LayoutParams(
-                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
-                android.view.ViewGroup.LayoutParams.MATCH_PARENT));
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT));
         addView(view);
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_list);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeLayout);

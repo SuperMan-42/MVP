@@ -4,13 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +15,10 @@ import com.bumptech.glide.Glide;
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.mvpframe.utils.StatusBarUtil;
 import com.hpw.mvpframe.utils.StringUtils;
+import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
+import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
+import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
+import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
 import com.hpw.myapp.R;
 import com.hpw.myapp.ui.publish.utils.PublishUtils;
 import com.hpw.myapp.widget.emoticonskeyboard.adpater.PageSetAdapter;
@@ -28,7 +29,6 @@ import com.hpw.myapp.widget.imageselector.model.LocalMedia;
 import com.hpw.myapp.widget.imageselector.view.ImagePreviewActivity;
 import com.hpw.myapp.widget.imageselector.view.ImageSelectorActivity;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -39,7 +39,7 @@ import butterknife.OnClick;
  * Created by hpw on 16/11/22.
  */
 
-public class PublishActivity extends CoreBaseActivity implements FuncLayout.OnFuncKeyBoardListener, AdapterView.OnItemClickListener {
+public class PublishActivity extends CoreBaseActivity implements FuncLayout.OnFuncKeyBoardListener {
 
     @BindView(R.id.tv_publish)
     TextView tvPublish;
@@ -55,7 +55,7 @@ public class PublishActivity extends CoreBaseActivity implements FuncLayout.OnFu
     private static ArrayList<String> mSelectPath = new ArrayList<>();
     private static Activity activity;
     @BindView(R.id.result_recycler)
-    GridView gridView;
+    CoreRecyclerView recyclerView;
 
     @Override
     public int getLayoutId() {
@@ -64,13 +64,28 @@ public class PublishActivity extends CoreBaseActivity implements FuncLayout.OnFu
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        mSelectPath.clear();
         StatusBarUtil.setTransparent(this);
         ButterKnife.bind(this);
         activity = this;
-        gridView.setOnItemClickListener(this);
         tvPublish.setEnabled(false);
         initEmoticonsKeyBoardBar();
         initEmoticonsEditText();
+        recyclerView.init(new GridLayoutManager(mContext, 5), new BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_photo_result) {
+            @Override
+            protected void convert(BaseViewHolder helper, String item) {
+                Glide.with(mContext).load(item).crossFade().centerCrop().into((ImageView) helper.getView(R.id.image));
+            }
+        }).addOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
+                ArrayList<LocalMedia> mSelect = new ArrayList<>();
+                for (String string : mSelectPath) {
+                    mSelect.add(new LocalMedia(string));
+                }
+                ImagePreviewActivity.startPreview(activity, mSelect, mSelect, mSelect.size(), position);
+            }
+        });
     }
 
     private void initEmoticonsEditText() {
@@ -198,69 +213,6 @@ public class PublishActivity extends CoreBaseActivity implements FuncLayout.OnFu
                 mSelectPath.add(localMedia.getPath());
             }
         }
-        gridView.setAdapter(new PhotoAdapter(mSelectPath));
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        ArrayList<LocalMedia> mSelect = new ArrayList<>();
-        for (String string : mSelectPath) {
-            mSelect.add(new LocalMedia(string));
-        }
-        ImagePreviewActivity.startPreview(activity, mSelect, mSelect, mSelect.size(), position);
-    }
-
-    /**
-     * 图片预览adapter
-     */
-    private class PhotoAdapter extends BaseAdapter {
-        private ArrayList<String> selectPath = new ArrayList<>();
-
-        public PhotoAdapter(ArrayList<String> mSelectPath) {
-            selectPath = mSelectPath;
-        }
-
-        @Override
-        public int getCount() {
-            return selectPath.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            if (position >= selectPath.size()) {
-                return null;
-            }
-            return selectPath.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
-            if (null == convertView) {
-                holder = new ViewHolder();
-                convertView = View.inflate(parent.getContext(), R.layout.item_photo_result, null);
-                holder.imageView = (ImageView) convertView.findViewById(R.id.image);
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-            String photoPath = selectPath.get(position);
-            if (null != photoPath) {
-                if (!photoPath.equals(holder.imageView.getTag())) {
-                    Glide.with(convertView.getContext()).load(new File(photoPath)).centerCrop().into(holder.imageView);
-                    holder.imageView.setTag(photoPath);
-                }
-            }
-            return convertView;
-        }
-
-        class ViewHolder {
-            ImageView imageView;
-        }
+        recyclerView.getAdapter().setNewData(mSelectPath);
     }
 }

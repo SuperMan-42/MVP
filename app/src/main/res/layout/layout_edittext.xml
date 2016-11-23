@@ -13,6 +13,12 @@
         android:layout_weight="1"
         android:hint="发布观点..." />
 
+    <com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView
+        android:id="@+id/result_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="134dp"
+        android:layout_margin="10dp" />
+
     <TextView
         android:id="@+id/et_limit"
         android:layout_width="wrap_content"
@@ -23,15 +29,5 @@
         android:paddingRight="@dimen/space_15dp"
         android:text=" 还可以输入300字"
         android:textColor="@color/font_dark_gery"
-        android:textSize="@dimen/txt_10sp" />\
-
-    <GridView
-        android:id="@+id/result_recycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:horizontalSpacing="3dp"
-        android:numColumns="5"
-        android:stretchMode="columnWidth"
-        android:verticalSpacing="3dp" />
+        android:textSize="@dimen/txt_10sp" />
 </LinearLayout>
