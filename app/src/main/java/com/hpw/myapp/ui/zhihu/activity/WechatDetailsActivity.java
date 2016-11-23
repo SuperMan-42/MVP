@@ -45,6 +45,7 @@ public class WechatDetailsActivity extends CoreBaseActivity {
                 settings.setCacheMode(WebSettings.LOAD_CACHE_ONLY);
             }
         }
+        wvTechContent.setBackgroundColor(0x00000000);
         settings.setJavaScriptEnabled(true);
         settings.setLoadWithOverviewMode(true);
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
