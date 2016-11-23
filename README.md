@@ -10,7 +10,12 @@ QQ群:482866708
 ![](https://github.com/SuperMan42/MVP/blob/master/share.png)
 
 ## Preview
-![](https://github.com/SuperMan42/MVP/blob/master/hpw.gif)
+1. 总览(列表)
+![](https://github.com/SuperMan42/MVP/blob/master/1.gif)  
+2. 图片选择器和表情键盘(支持动态表情和emoji表情等)
+![](https://github.com/SuperMan42/MVP/blob/master/2.gif)  
+3. 夜间和日间模式切换
+![](https://github.com/SuperMan42/MVP/blob/master/3.gif)  
 
 [Download APK](http://pro-app-mt.fir.im/06c652ca03b6a152edd08935170fd24562ecb695.apk?AWSAccessKeyId=e0cada7f00f2465b929656d799937873&Expires=1478501552&Signature=t4jtAq%2BmWpyk4rDOEYij8V0aDlo%3D&filename=app-release.apk_1.0.apk)
 (Android 5.0 or above)  
