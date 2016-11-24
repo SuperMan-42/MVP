@@ -47,7 +47,6 @@ QQ群:482866708
 dependencies {
     compile 'com.hpw.mvpframe.core.1.0.0'
 }
-
 ```  
 
 ## TODO
