@@ -44,12 +44,6 @@ QQ群:482866708
 
 ### 导入core库
 ```
-repositories {
-    maven {
-        url 'https://dl.bintray.com/hpw42/maven'
-    }
-}
-
 dependencies {
     compile 'com.hpw.mvpframe.core.1.0.0'
 }
