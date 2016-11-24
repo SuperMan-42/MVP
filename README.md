@@ -10,11 +10,11 @@ QQ群:482866708
 ![](https://github.com/SuperMan42/MVP/blob/master/share.png)
 
 ## Preview
-1. 总览(列表)
+1. 总览(列表)  
 ![](https://github.com/SuperMan42/MVP/blob/master/1.gif)  
-2. 图片选择器和表情键盘(支持动态表情和emoji表情等)
+2. 图片选择器和表情键盘(支持动态表情和emoji表情等)  
 ![](https://github.com/SuperMan42/MVP/blob/master/2.gif)  
-3. 夜间和日间模式切换
+3. 夜间和日间模式切换  
 ![](https://github.com/SuperMan42/MVP/blob/master/3.gif)  
 
 [Download APK](http://pro-app-mt.fir.im/06c652ca03b6a152edd08935170fd24562ecb695.apk?AWSAccessKeyId=e0cada7f00f2465b929656d799937873&Expires=1478501552&Signature=t4jtAq%2BmWpyk4rDOEYij8V0aDlo%3D&filename=app-release.apk_1.0.apk)
@@ -187,5 +187,3 @@ new CoreRecyclerView(mContext).init(new BaseQuickAdapter<WXItemBean, BaseViewHol
 
 ## Thanks
 [知乎日报API](https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[微信精选API](http://www.tianapi.com/#wxnew)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-参考了很多大神的作品
