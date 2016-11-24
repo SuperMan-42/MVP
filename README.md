@@ -54,7 +54,7 @@ dependencies {
 
 ```  
 
-2. 接口定义(demo)  
+2. 接口定义(demo)
 
 ``` 
 abstract class DailyPresenter extends CoreBasePresenter<DailyModel, DailyView> {
@@ -138,7 +138,7 @@ RxManage用于管理订阅者，观察者以及事件
 发送事件：`mRxManage.post(Constants.msg, user);`  
 接受事件：`mRxManage.on(Constants.msg, arg ->mView.initUserInfo((_User) arg));`  
 
-5. 列表的实现  
+5. 列表的实现
 
 ```
 public class WechatFragment extends CoreBaseFragment<WechatPresenter, WechatModel> implements ZhihuContract.WechatView {
@@ -201,7 +201,7 @@ new CoreRecyclerView(mContext).init(new BaseQuickAdapter<WXItemBean, BaseViewHol
 ## TODO
 1. 添加aop
 2. 继续优化  
-还有很多。。。
+3. 还有很多。。。
 
 ## Thanks
 [知乎日报API](https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[微信精选API](http://www.tianapi.com/#wxnew)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
