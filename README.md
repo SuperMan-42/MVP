@@ -38,7 +38,8 @@ QQ群:482866708
 * 使用x5WebView做阅览页
 * 日报首页的头部可以循环滚动（使用了rxjava轮循和recyclerviewpager）
 
-## 使用
+## 使用  
+
 1. 导入core库
 ```
 repositories {
@@ -51,7 +52,8 @@ dependencies {
     compile 'com.hpw.mvpframe.core.1.0.0'
 }
 
-```
+```  
+
 2. 接口定义(demo)  
 
 ``` 
@@ -92,7 +94,8 @@ public class DailyModel implements ZhihuContract.DailyModel {
         return RxService.createApi(ZhiHuApi.class).getDetailInfo(anInt).compose(RxUtil.rxSchedulerHelper());
     }
 }
-```
+```  
+
 4. 实现presenter(demo)
 
 ```
@@ -197,7 +200,7 @@ new CoreRecyclerView(mContext).init(new BaseQuickAdapter<WXItemBean, BaseViewHol
 
 ## TODO
 1. 添加aop
-2. 继续优化
+2. 继续优化  
 还有很多。。。
 
 ## Thanks
