@@ -9,8 +9,8 @@ App based on Material Design + MVP + Rxjava + Retrofit + Okhttp + Glide
 QQ群:482866708  
 ![](https://github.com/SuperMan42/MVP/blob/master/share.png)  
 
-[Wiki](https://github.com/SuperMan42/MVP/wiki)
-
+## [Wiki](https://github.com/SuperMan42/MVP/wiki)
+   
 ## Preview
 1. 总览(列表)  
 ![](https://github.com/SuperMan42/MVP/blob/master/1.gif)  
