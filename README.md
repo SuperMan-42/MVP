@@ -6,21 +6,21 @@ The project is based on the idea of simplicity, make development more simple, ex
 
 Blog (details): [http://www.jianshu.com/p/d98013e0cd03](http://www.jianshu.com/p/d98013e0cd03)
 
-QQ group: 482866708
+QQ group: 482866708  
 ![](https://github.com/SuperMan42/MVP/blob/master/share.png)
 
-[Chinese version](MVP.md) [English version](README.md)
+## [Chinese version](MVP.md)    [English version](README.md)
 
 ## [The Android learning data collection](https://github.com/SuperMan42/MVP/wiki/Android%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86)
 
 ## [Wiki](https://github.com/SuperMan42/MVP/wiki)
 
 ## Preview
-1. The overview (list)
+1. The overview (list)  
 ![](https://github.com/SuperMan42/MVP/blob/master/1.gif)
-2. Image selector and expression keyboard (support dynamic expression and emoji expressions, etc.)
+2. Image selector and expression keyboard (support dynamic expression and emoji expressions, etc.)  
 ![](https://github.com/SuperMan42/MVP/blob/master/2.gif)
-3. Night and day mode switching
+3. Night and day mode switching  
 ![](https://github.com/SuperMan42/MVP/blob/master/3.gif)  
 
 [Download APK](http://pro-app-mt.fir.im/85bcc48436a73ec65be41df573fd81ecbfc7f377.apk?AWSAccessKeyId=e0cada7f00f2465b929656d799937873&Expires=1479991896&Signature=RAHMsJ6bxPgxQxpDStKNj9rC3dE%3D&filename=app-release.apk_1.0.apk)
