@@ -2,23 +2,25 @@
 
 App based on Material Design + MVP + Rxjava + Retrofit + Okhttp + Glide
 
-本项目本着简洁的思想，让开发更加简单，抽取出了core做为库，可以直接引入进行快捷开发，项目仍在改进中，如果有好的建议或者发现什么问题欢迎[issue](https://github.com/SuperMan42/MVP/issues),email<424346976@qq.com>，如果感觉对你有帮助也欢迎点个star，fork，本项目仅做学习交流使用
+The project is based on the idea of simplicity, make development more simple, extract the core library, can be directly introduced to fast development. Project is still in improvement, if you have good suggestions or find any problems welcome[issue](https://github.com/SuperMan42/MVP/issues), email<424346976@qq.com>, If it help you welcome star, fork. This project only do study and communication
 
-简书(详情):[http://www.jianshu.com/p/d98013e0cd03](http://www.jianshu.com/p/d98013e0cd03)
+Blog (details): [http://www.jianshu.com/p/d98013e0cd03](http://www.jianshu.com/p/d98013e0cd03)
 
-QQ群:482866708  
-![](https://github.com/SuperMan42/MVP/blob/master/share.png)  
+QQ group: 482866708
+![](https://github.com/SuperMan42/MVP/blob/master/share.png)
 
-## [Andorid学习资料收集](https://github.com/SuperMan42/MVP/wiki/Android%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86)  
+[Chinese version](MVP.md) [English version](README.md)
+
+## [The Android learning data collection](https://github.com/SuperMan42/MVP/wiki/Android%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86)
 
 ## [Wiki](https://github.com/SuperMan42/MVP/wiki)
-   
+
 ## Preview
-1. 总览(列表)  
-![](https://github.com/SuperMan42/MVP/blob/master/1.gif)  
-2. 图片选择器和表情键盘(支持动态表情和emoji表情等)  
-![](https://github.com/SuperMan42/MVP/blob/master/2.gif)  
-3. 夜间和日间模式切换  
+1. The overview (list)
+![](https://github.com/SuperMan42/MVP/blob/master/1.gif)
+2. Image selector and expression keyboard (support dynamic expression and emoji expressions, etc.)
+![](https://github.com/SuperMan42/MVP/blob/master/2.gif)
+3. Night and day mode switching
 ![](https://github.com/SuperMan42/MVP/blob/master/3.gif)  
 
 [Download APK](http://pro-app-mt.fir.im/85bcc48436a73ec65be41df573fd81ecbfc7f377.apk?AWSAccessKeyId=e0cada7f00f2465b929656d799937873&Expires=1479991896&Signature=RAHMsJ6bxPgxQxpDStKNj9rC3dE%3D&filename=app-release.apk_1.0.apk)
@@ -27,24 +29,24 @@ QQ群:482866708
 ![](https://github.com/SuperMan42/MVP/blob/master/download.png)
 
 ## Points
-* 使用Rxjava配合Retrofit2+okhttp做网络请求和缓存
-* 使用RxUtil对线程操作和网络请求结果处理做了封装
-* 使用RxManager对订阅生命周期做了统一管理
-* 使用RxBus做了组件间通信
-* 使用RxPermissions对android6.0进行权限申请
-* 使用Material Design控件和动画
-* 使用MVP架构整个项目，并且抽取出core做为库，导入core即可省去50%的代码开发哦
-* 使用Glide做图片处理和加载
-* 使用Fragmentation简化Fragment的操作和懒加载
-* 日间和夜间模式切换
-* 添加了图片选择器(高仿微信)和表情键盘(支持动态表情)
-* 自己封装了recyclerview和recyclerviewpager实现下拉刷新，上拉加载更多和pagerview功能（只需简单几句代码即可实现各种列表，无需adapter，无需自己设计分页加载）
-* 使用x5WebView做阅览页
-* 日报首页的头部可以循环滚动（使用了rxjava轮循和recyclerviewpager）
+* Use Rxjava Retrofit2 okhttp to do network requests and caching
+* RxUtil is used to encapsulate thread handling and network request result processing
+* Use the RxManager to manage the subscription lifecycle
+* Use RxBus to do intercomponent communication
+* Use RxPermissions for android6.0 permission application
+* Use Material Design controls and animations
+* Use the MVP architecture throughout the project, and extract the core as a library, import core can save 50% of the code development
+* Use Glide for image processing and loading
+* Use Fragmentation to simplify the operation of Fragment and lazy loading
+* Day and night mode switching
+* Add image selector(High imitation WeChat) and expression keyboard (support dynamic expression and emoji expressions, etc.)
+* Encapsulates recyclerview and recyclerviewpager to implement pull-down refresh, pull-up loading and pagerview functionality（Just a few simple code to achieve a variety of lists, no adapter required, no need to design paging load）
+* Use x5WebView to do the reading page
+* The head of the daily home page can scroll in circles（Using the rxjava round robin and recyclerviewpager）
 
-## 使用  
+## Method of use
 
-### 导入core库
+### Import the core library
 ```
 dependencies {
     compile 'com.hpw.mvpframe.core.1.0.0'
@@ -52,9 +54,9 @@ dependencies {
 ```  
 
 ## TODO
-1. 添加aop
-2. 继续优化  
-3. 还有很多。。。
+1. Add aop
+2. Continue to optimize
+3. There are many to do。。。
 
 ## Thanks
-[知乎日报API](https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[微信精选API](http://www.tianapi.com/#wxnew)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+[Zhihu Daily API](https://github.com/izzyleung/ZhihuDailyPurify/wiki/%E7%9F%A5%E4%B9%8E%E6%97%A5%E6%8A%A5-API-%E5%88%86%E6%9E%90)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[WeChat API](http://www.tianapi.com/#wxnew)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
