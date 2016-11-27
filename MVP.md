@@ -6,21 +6,21 @@ App based on Material Design + MVP + Rxjava + Retrofit + Okhttp + Glide
 
 简书(详情):[http://www.jianshu.com/p/d98013e0cd03](http://www.jianshu.com/p/d98013e0cd03)
 
-QQ群:482866708
+QQ群:482866708  
 ![](https://github.com/SuperMan42/MVP/blob/master/share.png)  
 
-[中文版](MVP.md) [英文版](README.md)
+## [中文版](MVP.md)   [英文版](README.md)
 
 ## [Andorid学习资料收集](https://github.com/SuperMan42/MVP/wiki/Android%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86)
 
 ## [Wiki](https://github.com/SuperMan42/MVP/wiki)
    
 ## Preview
-1. 总览(列表)
+1. 总览(列表)  
 ![](https://github.com/SuperMan42/MVP/blob/master/1.gif)  
-2. 图片选择器和表情键盘(支持动态表情和emoji表情等)
+2. 图片选择器和表情键盘(支持动态表情和emoji表情等)  
 ![](https://github.com/SuperMan42/MVP/blob/master/2.gif)  
-3. 夜间和日间模式切换
+3. 夜间和日间模式切换  
 ![](https://github.com/SuperMan42/MVP/blob/master/3.gif)  
 
 [Download APK](http://pro-app-mt.fir.im/85bcc48436a73ec65be41df573fd81ecbfc7f377.apk?AWSAccessKeyId=e0cada7f00f2465b929656d799937873&Expires=1479991896&Signature=RAHMsJ6bxPgxQxpDStKNj9rC3dE%3D&filename=app-release.apk_1.0.apk)
