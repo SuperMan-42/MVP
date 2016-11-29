@@ -9,7 +9,7 @@ Blog (details): [http://www.jianshu.com/p/d98013e0cd03](http://www.jianshu.com/p
 QQ group: 482866708  
 ![](https://github.com/SuperMan42/MVP/blob/master/share.png)
 
-## [Chinese version](MVP.md)    [English version](README.md)
+## [中文版](MVP.md)    [English version](README.md)
 
 ## [The Android learning data collection](https://github.com/SuperMan42/MVP/wiki/Android%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86)
 
