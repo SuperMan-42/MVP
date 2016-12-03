@@ -42,6 +42,8 @@
         <activity android:name=".widget.imageselector.view.ImagePreviewActivity" />
         <activity android:name=".widget.imageselector.view.ImageCropActivity" />
         <activity android:name=".ui.main.AboutActivity" />
+        <activity android:name=".ui.tv.activity.TvMainActivity" />
+        <activity android:name=".ui.tv.activity.TvShowActivity" />
     </application>
 
 </manifest>

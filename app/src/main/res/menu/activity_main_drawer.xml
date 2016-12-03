@@ -6,6 +6,10 @@
             android:id="@+id/menu_publish"
             android:icon="@drawable/ic_menu_gallery"
             android:title="发布模块" />
+        <item
+            android:id="@+id/menu_tv"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="全民TV" />
     </group>
 
     <item android:title="选项">

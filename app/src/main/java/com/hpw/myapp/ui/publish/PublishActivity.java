@@ -32,7 +32,6 @@ import com.hpw.myapp.widget.imageselector.view.ImageSelectorActivity;
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -66,7 +65,6 @@ public class PublishActivity extends CoreBaseActivity implements FuncLayout.OnFu
     public void initView(Bundle savedInstanceState) {
         mSelectPath.clear();
         StatusBarUtil.setTransparent(this);
-        ButterKnife.bind(this);
         activity = this;
         tvPublish.setEnabled(false);
         initEmoticonsKeyBoardBar();

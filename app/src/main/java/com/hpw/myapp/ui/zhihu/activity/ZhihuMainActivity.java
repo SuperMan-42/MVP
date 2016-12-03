@@ -13,6 +13,7 @@ import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.myapp.R;
 import com.hpw.myapp.ui.main.AboutActivity;
 import com.hpw.myapp.ui.publish.PublishActivity;
+import com.hpw.myapp.ui.tv.activity.TvMainActivity;
 import com.hpw.myapp.ui.zhihu.fragment.ZhihuMainFragment;
 
 import butterknife.BindView;
@@ -69,6 +70,8 @@ public class ZhihuMainActivity extends CoreBaseActivity
 
         if (id == R.id.menu_publish) {
             startActivity(PublishActivity.class);
+        } else if (id == R.id.menu_tv) {
+            startActivity(TvMainActivity.class);
         } else if (id == R.id.about) {
             startActivity(AboutActivity.class);
         }
