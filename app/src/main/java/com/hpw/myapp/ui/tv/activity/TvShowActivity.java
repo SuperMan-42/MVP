@@ -40,6 +40,7 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
 
     private int mPortWidth;
     private int mPortHeight;
+    private boolean isLandscape = false;
     private LivePlayerHolder playerHolder;
     private HorMediaControllView horizontalControll;
     private OtherBean.DataBean mPlayBean;
@@ -176,6 +177,7 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
         if (getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
             //portrait
         } else {
+            isLandscape = true;
             //landscape
         }
     }
@@ -249,6 +251,8 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
         }
         if (playerHolder != null)
             playerHolder.release();
+        if (isLandscape == true)
+            TvMainActivity.startActivity(mContext, mPlayBean.getCategory_slug());
         super.onBackPressedSupport();
     }
 }

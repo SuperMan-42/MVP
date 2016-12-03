@@ -11,4 +11,5 @@ public class Constants {
     public static final String ARG_OTHER_LIST_URL = "arg_other_list_url";
     public static final String ARG_POSITION = "arg_position";
     public static final String WEIXIN_KEY = "3d88f5fb6e5a1fbf2921dbb643f25894";
+    public static final String ARG_POSITION_TV = "arg_position_tv";
 }
