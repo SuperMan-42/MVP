@@ -9,7 +9,7 @@ import com.hpw.myapp.ui.tv.contract.TvContract;
 public class TvShowPresenter extends TvContract.TvShowPresenter{
     @Override
     public void onTvShow(String url) {
-        mRxManager.add(mModel.onTvShow()
+        mRxManager.add(mModel.onTvShow(url)
                 .subscribe(
                         data -> mView.showContent(data),
                         e -> mView.showError("数据加载失败ヽ(≧Д≦)ノ")

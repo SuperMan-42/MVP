@@ -2,6 +2,7 @@ package com.hpw.myapp.api;
 
 import com.hpw.myapp.ui.tv.model.OtherBean;
 import com.hpw.myapp.ui.tv.model.TabBean;
+import com.hpw.myapp.ui.tv.model.TvShowBean;
 
 import org.json.JSONObject;
 
@@ -29,5 +30,5 @@ public interface TvApi {
     Observable<OtherBean> getOtherList(@Path("url") String url);
 
     @GET("http://www.quanmin.tv/json/rooms/{uid}/info1.json?11241653&v=2.2.4&os=1&ver=4")
-    Observable<JSONObject> onTvShow(@Path("uid") String uid);
+    Observable<TvShowBean> onTvShow(@Path("uid") String uid);
 }

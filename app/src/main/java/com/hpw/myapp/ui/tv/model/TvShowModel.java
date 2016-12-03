@@ -13,9 +13,9 @@ import rx.Observable;
 
 public class TvShowModel implements TvContract.TvShowModel {
     @Override
-    public Observable<OtherBean> onTvShow(String url) {
+    public Observable<TvShowBean> onTvShow(String url) {
         return RxService.createApi(TvApi.class)
-                .getTabList()
+                .onTvShow(url)
                 .compose(RxUtil.rxSchedulerHelper());
     }
 }

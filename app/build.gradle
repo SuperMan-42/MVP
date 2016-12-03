@@ -39,4 +39,5 @@ dependencies {
     compile 'com.isseiaoki:simplecropview:1.0.13'
     compile 'com.hpw.mvpframe:core:1.0.0'
     compile 'com.qiniu.pili:pili-android-qos:0.8.+'
+    compile files('libs/pldroid-player-1.4.0.jar')
 }

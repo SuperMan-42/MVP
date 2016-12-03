@@ -1,5 +1,6 @@
 package com.hpw.myapp.ui.tv.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -66,7 +67,10 @@ public class OtherFragment extends CoreBaseLazyFragment<OtherPresenter, OtherMod
                                 .setText(R.id.tv_viewnum, item.getView())
                                 .setText(R.id.nickName, item.getNick())
                                 .setOnClickListener(R.id.ll_click, v -> {
-                                    TvShowActivity.startActivity(mContext, item);
+                                    Intent starter = new Intent(mActivity, TvShowActivity.class);
+                                    starter.putExtra("playBean", item);
+                                    getActivity().startActivity(starter);
+                                    getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                                 });
                     }
                 }).openRefresh();

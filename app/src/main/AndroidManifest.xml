@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:name=".App"
@@ -43,7 +44,10 @@
         <activity android:name=".widget.imageselector.view.ImageCropActivity" />
         <activity android:name=".ui.main.AboutActivity" />
         <activity android:name=".ui.tv.activity.TvMainActivity" />
-        <activity android:name=".ui.tv.activity.TvShowActivity" />
+        <activity
+            android:name=".ui.tv.activity.TvShowActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:launchMode="singleTop" />
     </application>
 
 </manifest>

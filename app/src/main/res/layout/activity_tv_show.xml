@@ -4,19 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/statusbar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/status_bar_height"
-        android:alpha="0.75"
-        android:background="@color/colorPrimary" />
-
     <FrameLayout
         android:id="@+id/surfaceLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/statusbar">
-
+        android:layout_height="wrap_content">
 
         <SurfaceView
             android:id="@+id/surfaceView"
@@ -59,14 +50,12 @@
     <com.hpw.myapp.widget.media.VerticalMediaControllView
         android:id="@+id/verticalControll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/statusbar" />
+        android:layout_height="wrap_content" />
 
     <com.hpw.myapp.widget.media.HorMediaControllView
         android:id="@+id/horizontalControll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/statusbar"
         android:visibility="gone" />
 
 </RelativeLayout>

@@ -22,7 +22,7 @@ import java.io.IOException;
 public class LivePlayerHolder {
 
     private static final String TAG = LivePlayerHolder.class.getSimpleName();
-    ;
+
     private Integer codec;
     private BaseTvShowActivity mActivity;
     private AVOptions mAVOptions;

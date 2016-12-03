@@ -5,6 +5,7 @@ import com.hpw.mvpframe.base.CoreBasePresenter;
 import com.hpw.mvpframe.base.CoreBaseView;
 import com.hpw.myapp.ui.tv.model.OtherBean;
 import com.hpw.myapp.ui.tv.model.TabBean;
+import com.hpw.myapp.ui.tv.model.TvShowBean;
 
 import java.util.List;
 
@@ -47,11 +48,11 @@ public interface TvContract {
     }
 
     interface TvShowModel extends CoreBaseModel {
-        Observable<OtherBean> onTvShow(String url);
+        Observable<TvShowBean> onTvShow(String url);
     }
 
     interface TvShowView extends CoreBaseView {
-        void showContent(OtherBean info);
+        void showContent(TvShowBean info);
 
         void onConnecting();
 
