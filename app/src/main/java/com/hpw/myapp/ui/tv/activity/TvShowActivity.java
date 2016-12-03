@@ -124,7 +124,7 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
         JSONObject jsonObject = new JSONObject((Map) info.getLive().getWs().getHls());
         JSONObject object = jsonObject.optJSONObject("0");
         if (object != null) {
-            mPlayerPath = jsonObject.optString("src");
+            mPlayerPath = object.optString("src");
         } else {
             mPlayerPath = jsonObject.optJSONObject("4").optString("src");
         }

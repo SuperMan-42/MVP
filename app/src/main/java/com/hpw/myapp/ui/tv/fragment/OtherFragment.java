@@ -73,7 +73,9 @@ public class OtherFragment extends CoreBaseLazyFragment<OtherPresenter, OtherMod
                                     getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                                 });
                     }
-                }).openRefresh();
+                })
+                .openLoadMore(0, page -> mPresenter.getOtherData(getArguments().getString(Constants.ARG_OTHER_LIST_URL)))
+                .openRefresh();
         return coreRecyclerView;
     }
 
