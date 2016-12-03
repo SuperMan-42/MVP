@@ -20,7 +20,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.main.FlashActivity"
-            android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,8 +45,7 @@
         <activity android:name=".ui.tv.activity.TvMainActivity" />
         <activity
             android:name=".ui.tv.activity.TvShowActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"
-            android:launchMode="singleTop" />
+            android:configChanges="orientation|screenSize|keyboardHidden" />
     </application>
 
 </manifest>

@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.hpw.mvpframe.base.CoreBaseActivity;
-import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.myapp.R;
 import com.hpw.myapp.ui.main.AboutActivity;
 import com.hpw.myapp.ui.publish.PublishActivity;
@@ -20,7 +19,7 @@ import butterknife.BindView;
 
 public class ZhihuMainActivity extends CoreBaseActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        ZhihuMainFragment.OnFragmentOpenDrawerListener, CoreBaseFragment.OnBackToFirstListener {
+        ZhihuMainFragment.OnFragmentOpenDrawerListener, ZhihuMainFragment.OnBackToFirstListener {
 
     @BindView(R.id.nav_view)
     NavigationView navigationView;

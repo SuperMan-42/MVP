@@ -2,17 +2,18 @@ package com.hpw.myapp.ui.tv.activity;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.hpw.mvpframe.utils.LogUtil;
-import com.hpw.mvpframe.utils.StatusBarUtil;
 import com.hpw.myapp.R;
 import com.hpw.myapp.ui.tv.model.OtherBean;
 import com.hpw.myapp.ui.tv.model.TvShowBean;
@@ -37,6 +38,8 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
     private VerticalMediaControllView verticalControll;
     private View mLoadingView;
 
+    private int mPortWidth;
+    private int mPortHeight;
     private LivePlayerHolder playerHolder;
     private HorMediaControllView horizontalControll;
     private OtherBean.DataBean mPlayBean;
@@ -53,7 +56,7 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        StatusBarUtil.setTransparent(this);
+        getWindow().getDecorView().setSystemUiVisibility(View.INVISIBLE);
         initPlayer();
         initVerControll();
         initHorContrll();
@@ -168,6 +171,35 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
     }
 
     @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if (getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
+            //portrait
+        } else {
+            //landscape
+        }
+    }
+
+    @Override
+    public void setRequestedOrientation(int requestedOrientation) {
+        super.setRequestedOrientation(requestedOrientation);
+        if (requestedOrientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
+            if (verticalControll != null) {
+                isVertical = true;
+                verticalControll.onCreate();
+                horizontalControll.onDestroy();
+            }
+
+        } else {
+            if (horizontalControll != null) {
+                isVertical = false;
+                horizontalControll.onCreate();
+                verticalControll.onDestroy();
+            }
+        }
+    }
+
+    @Override
     public boolean onTouch(View v, MotionEvent event) {
         LogUtil.i("TOUCH  " + isVertical);
         verticalControll.onTouchEvent(isVertical, event);
@@ -178,11 +210,20 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
     @Override
     public void onVerticalClickFullScreen() {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        Display display =
-                getWindow().getWindowManager().getDefaultDisplay();
+        Display display = getWindow().getWindowManager().getDefaultDisplay();
         DisplayMetrics metrics = new DisplayMetrics();
         display.getMetrics(metrics);
+        int heightPixels = metrics.heightPixels;
+        int widthPixels = metrics.widthPixels;
+        ViewGroup.LayoutParams params = mSurfaceView.getLayoutParams();
+        int height = params.height;
+        int width = params.width;
         getWindow().getDecorView().setSystemUiVisibility(View.INVISIBLE);
+        mPortWidth = width;
+        mPortHeight = height;
+        params.width = widthPixels;
+        params.height = heightPixels;
+        mSurfaceView.setLayoutParams(params);
     }
 
     @Override
@@ -199,7 +240,11 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
     public void onBackPressedSupport() {
         if (getRequestedOrientation() == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+            ViewGroup.LayoutParams params = mSurfaceView.getLayoutParams();
+            params.width = mPortWidth;
+            params.height = mPortHeight;
+            mSurfaceView.setLayoutParams(params);
+            getWindow().getDecorView().setSystemUiVisibility(View.INVISIBLE);
             return;
         }
         if (playerHolder != null)
