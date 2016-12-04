@@ -1,5 +1,7 @@
 package com.hpw.myapp.ui.tv.model;
 
+import com.hpw.mvpframe.widget.recyclerview.entity.MultiItemEntity;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -123,7 +125,18 @@ public class FirstBean {
             this.list = list;
         }
 
-        public static class ListBean implements Serializable {
+        public static class ListBean implements MultiItemEntity, Serializable {
+            public static final int OTHER = 1;
+            public static final int OTHER1 = 2;
+
+            @Override
+            public int getItemType() {
+                if (getCategory_slug().equals("love")) {
+                    return 2;
+                } else {
+                    return 1;
+                }
+            }
 
             /**
              * beauty_cover :
@@ -488,6 +501,7 @@ public class FirstBean {
             public void setLink(String link) {
                 this.link = link;
             }
+
         }
     }
 }
