@@ -1,32 +1,43 @@
 package com.hpw.myapp.ui.tv.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.hpw.mvpframe.base.CoreBaseLazyFragment;
+import com.hpw.mvpframe.utils.DisplayUtils;
 import com.hpw.mvpframe.widget.GlideCircleTransform;
 import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
 import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
-import com.hpw.mvpframe.widget.recyclerview.listener.OnItemClickListener;
+import com.hpw.mvpframe.widget.recyclerview.recyclerviewpager.LoopRecyclerViewPager;
+import com.hpw.myapp.App;
 import com.hpw.myapp.R;
-import com.hpw.myapp.ui.zhihu.model.quick.QuickModel;
-import com.hpw.myapp.ui.zhihu.model.quick.Status;
-import com.hpw.myapp.ui.zhihu.presenter.quickpresenter.QuickPresenter;
+import com.hpw.myapp.ui.tv.activity.TvShowActivity;
+import com.hpw.myapp.ui.tv.activity.TvShowFullActivity;
+import com.hpw.myapp.ui.tv.contract.TvContract;
+import com.hpw.myapp.ui.tv.model.FirstBannerBean;
+import com.hpw.myapp.ui.tv.model.FirstBean;
+import com.hpw.myapp.ui.tv.model.FirstModel;
+import com.hpw.myapp.ui.tv.model.OtherBean;
+import com.hpw.myapp.ui.tv.presenter.FirstPresenter;
+import com.hpw.myapp.widget.GlideTransform;
+
+import java.util.List;
 
 /**
  * Created by hpw on 16/12/2.
  */
-public class FirstFragment extends CoreBaseLazyFragment<QuickPresenter, QuickModel> {
+public class FirstFragment extends CoreBaseLazyFragment<FirstPresenter, FirstModel> implements TvContract.FirstView {
     CoreRecyclerView coreRecyclerView;
-
-    @Override
-    protected void initLazyView(@Nullable Bundle savedInstanceState) {
-
-    }
+    LoopRecyclerViewPager vpTop;
 
     @Override
     public int getLayoutId() {
@@ -35,39 +46,86 @@ public class FirstFragment extends CoreBaseLazyFragment<QuickPresenter, QuickMod
 
     @Override
     public View getLayoutView() {
-        coreRecyclerView = new CoreRecyclerView(mContext)
-                .init(new BaseQuickAdapter<Status, BaseViewHolder>(R.layout.item_tweet) {
+        coreRecyclerView = new CoreRecyclerView(mContext).init(new GridLayoutManager(mContext, 2),
+                new BaseQuickAdapter<OtherBean.DataBean, BaseViewHolder>(R.layout.item_tv_other) {
                     @Override
-                    protected void convert(BaseViewHolder helper, Status item) {
-                        helper.setText(R.id.tweetName, item.getUserName())
-                                .setText(R.id.tweetText, item.getText())
-                                .setText(R.id.tweetDate, item.getCreatedAt())
-                                .setVisible(R.id.tweetRT, item.isRetweet())
-                                .addOnClickListener(R.id.tweetAvatar)
-                                .addOnClickListener(R.id.tweetName)
-                                .linkify(R.id.tweetText);
+                    protected void convert(BaseViewHolder helper, OtherBean.DataBean item) {
+                        //Glide在加载GridView等时,由于ImageView和Bitmap实际大小不符合,第一次时加载可能会变形(我这里出现了放大),必须在加载前再次固定ImageView大小
+                        ViewGroup.LayoutParams lp = helper.getView(R.id.thumnails).getLayoutParams();
+                        lp.width = (App.SCREEN_WIDTH - DisplayUtils.dp2px(mContext, 12)) / 2;
+                        lp.height = DisplayUtils.dp2px(mContext, 120);
 
-                        Glide.with(mContext).load(item.getUserAvatar()).crossFade().placeholder(R.mipmap.def_head).transform(new GlideCircleTransform(mContext)).into((ImageView) helper.getView(R.id.tweetAvatar));
+                        Glide.with(mContext).load(item.getThumb()).crossFade().transform(new GlideTransform(mContext, 5)).into((ImageView) helper.getView(R.id.thumnails));
+                        Glide.with(mContext).load(item.getAvatar()).crossFade().centerCrop().transform(new GlideCircleTransform(mContext)).into((ImageView) helper.getView(R.id.ic_head));
+
+                        helper.setText(R.id.title, item.getTitle())
+                                .setText(R.id.tv_viewnum, item.getView())
+                                .setText(R.id.nickName, item.getNick())
+                                .setOnClickListener(R.id.ll_click, v -> {
+                                    Intent starter = new Intent(mActivity, TvShowFullActivity.class);
+                                    starter.putExtra("playBean", item);
+                                    getActivity().startActivity(starter);
+                                    getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                                });
                     }
-                })
-                .addOnItemClickListener(new OnItemClickListener() {
-                    @Override
-                    public void SimpleOnItemClick(BaseQuickAdapter adapter, View view, int position) {
-                        showToast("点击了" + position);
-                    }
-                })
-                .openLoadMore(10, page -> coreRecyclerView.getAdapter().addData(mModel.getData()))
-                .openRefresh();
+                });
         return coreRecyclerView;
     }
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
-
+        View view1 = LayoutInflater.from(mContext).inflate(R.layout.daily_header, (ViewGroup) coreRecyclerView.getParent(), false);
+        vpTop = (LoopRecyclerViewPager) view1.findViewById(R.id.vp_top);
+        vpTop.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
+        coreRecyclerView.addHeaderView(view1);
     }
 
     @Override
     public void initData() {
-        coreRecyclerView.getAdapter().addData(mModel.getData());
+        mPresenter.getOtherData("json/categories/love/list.json");
+        mPresenter.getBannerData();
+        mPresenter.startInterval();
+    }
+
+    @Override
+    protected void initLazyView(@Nullable Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    public void showError(String msg) {
+
+    }
+
+    @Override
+    public void doInterval(int i) {
+        vpTop.smoothScrollToPosition(i);
+    }
+
+    @Override
+    public void showOther(OtherBean info) {
+        coreRecyclerView.getAdapter().addData(info.getData());
+    }
+
+    @Override
+    public void showContent(FirstBean info) {
+
+    }
+
+    @Override
+    public void showBannerContent(List<FirstBannerBean> info) {
+        vpTop.setAdapter(new BaseQuickAdapter<FirstBannerBean, BaseViewHolder>(R.layout.item_first_banner, info) {
+            @Override
+            protected void convert(BaseViewHolder helper, FirstBannerBean item) {
+                helper.setText(R.id.tv_top_title, item.getTitle());
+                Glide.with(mContext).load(item.getThumb()).crossFade().into((ImageView) helper.getView(R.id.iv_top_image));
+                helper.setOnClickListener(R.id.iv_top_image, v -> {
+                    Intent starter = new Intent(mActivity, TvShowActivity.class);
+                    starter.putExtra("playBean", item.getLink_object());
+                    getActivity().startActivity(starter);
+                    getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                });
+            }
+        });
     }
 }

@@ -35,4 +35,5 @@
     <color name="black_80">#cc000000</color>
     <color name="clear">#00000000</color>
     <color name="system_tips_bg">#60000000</color>
+    <color name="grey_word">#ffcccccc</color>
 </resources>

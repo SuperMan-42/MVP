@@ -31,4 +31,7 @@ public interface TvApi {
 
     @GET("http://www.quanmin.tv/json/rooms/{uid}/info1.json?11241653&v=2.2.4&os=1&ver=4")
     Observable<TvShowBean> onTvShow(@Path("uid") String uid);
+
+    @GET("http://www.quanmin.tv/json/page/app-data/info.json?v=2.2.4&os=1&ver=4")
+    Observable<Object> getBannerList();
 }

@@ -3,6 +3,8 @@ package com.hpw.myapp.ui.tv.contract;
 import com.hpw.mvpframe.base.CoreBaseModel;
 import com.hpw.mvpframe.base.CoreBasePresenter;
 import com.hpw.mvpframe.base.CoreBaseView;
+import com.hpw.myapp.ui.tv.model.FirstBannerBean;
+import com.hpw.myapp.ui.tv.model.FirstBean;
 import com.hpw.myapp.ui.tv.model.OtherBean;
 import com.hpw.myapp.ui.tv.model.TabBean;
 import com.hpw.myapp.ui.tv.model.TvShowBean;
@@ -40,6 +42,35 @@ public interface TvContract {
 
     interface OtherView extends CoreBaseView {
         void showContent(OtherBean info);
+    }
+
+    //First接口
+    abstract class FirstPresenter extends CoreBasePresenter<TvContract.FirstModel, TvContract.FirstView> {
+        public abstract void getFirstData(String url);
+
+        public abstract void getBannerData();
+
+        public abstract void startInterval();
+
+        public abstract void getOtherData(String url);
+    }
+
+    interface FirstModel extends CoreBaseModel {
+        Observable<FirstBean> getFirstData(String url);
+
+        Observable<Object> getBannerData();
+
+        Observable<OtherBean> getOtherData(String url);
+    }
+
+    interface FirstView extends CoreBaseView {
+        void showContent(FirstBean info);
+
+        void showBannerContent(List<FirstBannerBean> info);
+
+        void doInterval(int i);
+
+        void showOther(OtherBean info);
     }
 
     //TvShow接口

@@ -37,7 +37,7 @@ public class FirstBean {
          * category_more :
          * type : 1
          * screen : 0
-         * list : [{"beauty_cover":"","first_play_at":"2016-01-31 20:31:38","category_name":"????","thumb":"http://snap.quanmin.tv/819227-1480693780-579.jpg?imageView2/2/w/390/","last_play_at":"2016-12-01 17:53:33","screen":0,"video":"http://thumb.quanmin.tv/819227.mp4?t=1480693500","title":"???????????QAQ","recommend_image":null,"is_shield":false,"nick":"?????QAQ","uid":819227,"view":"35811","category_id":1,"slug":"annie0926","love_cover":"","level":0,"like":0,"weight":39270580,"avatar":"http://image.quanmin.tv/avatar/ca5b0d243dc2bd5ba77f55d30a83460bjpg?imageView2/2/w/300/","check":true,"follow":58143,"play_count":357,"play_true":276,"max_view":8391,"grade":0,"default_image":null,"last_end_at":"2016-01-31 20:31:38","create_at":"2016-12-02 17:59:26","category_slug":"lol","last_thumb":"819227-1480614505-623.jpg","play_status":true,"anniversary":7,"status":1,"coin":2344360,"link":"http://www.quanmin.tv/v/annie0926","icontext":""},{"beauty_cover":"","first_play_at":"2016-11-30 18:34:02","category_name":"????","thumb":"http://snap.quanmin.tv/9430312-1480693782-261.jpg?imageView2/2/w/390/","last_play_at":"2016-12-01 19:46:37","screen":0,"video":"http://thumb.quanmin.tv/9430312.mp4?t=1480693500","title":"???????????","recommend_image":null,"is_shield":false,"nick":"?????","uid":9430312,"view":"10612","category_id":4,"slug":"","love_cover":"","level":0,"like":0,"weight":83340,"avatar":"http://q.qlogo.cn/qqapp/101333140/A0C7BD9121958CDEEBBF1A0F7342C8C1/100","check":true,"follow":226,"play_count":2,"play_true":124,"max_view":158,"grade":0,"default_image":null,"last_end_at":"2016-11-30 18:34:02","create_at":"2016-12-02 20:26:10","category_slug":"beauty","last_thumb":"9430312-1480609901-929.jpg","play_status":true,"anniversary":0,"status":1,"coin":10193,"link":"http://www.quanmin.tv/v/9430312","icontext":""},{"beauty_cover":"","first_play_at":"2016-11-29 23:02:34","category_name":"????","thumb":"http://snap.quanmin.tv/8737345-1480693772-945.jpg?imageView2/2/w/390/","last_play_at":"2016-12-02 00:15:00","screen":0,"video":"http://thumb.quanmin.tv/8737345.mp4?t=1480693500","title":"????????D?","recommend_image":null,"is_shield":false,"nick":"????????","uid":8737345,"view":"8127","category_id":15,"slug":"bangbang","love_cover":"","level":0,"like":0,"weight":50700,"avatar":"http://q.qlogo.cn/qqapp/101333140/CD78890A16B4BAB3F74F5DF9FF9B0FE3/100","check":true,"follow":141,"play_count":5,"play_true":136,"max_view":184,"grade":0,"default_image":null,"last_end_at":"2016-11-29 23:02:34","create_at":"2016-12-02 21:22:53","category_slug":"overwatch","last_thumb":"8737345-1480623508-622.jpg","play_status":true,"anniversary":0,"status":1,"coin":42342,"link":"http://www.quanmin.tv/v/bangbang","icontext":""},{"beauty_cover":"","first_play_at":"2016-11-30 13:23:44","category_name":"????","thumb":"http://snap.quanmin.tv/9270622-1480693742-55.jpg?imageView2/2/w/390/","last_play_at":"2016-12-02 19:50:14","screen":0,"video":"http://thumb.quanmin.tv/9270622.mp4?t=1480693500","title":"??????????????","recommend_image":null,"is_shield":false,"nick":"????","uid":9270622,"view":"24907","category_id":3,"slug":"","love_cover":"","level":0,"like":0,"weight":9060,"avatar":"http://image.quanmin.tv/avatar/9a71a7fb7986b9d910529a7649e159c9?imageView2/2/w/300/","check":true,"follow":32,"play_count":2,"play_true":236,"max_view":252,"grade":0,"default_image":null,"last_end_at":"2016-11-30 13:23:44","create_at":"2016-12-02 19:57:19","category_slug":"heartstone","last_thumb":"9270622-1480679462-216.jpg","play_status":true,"anniversary":0,"status":1,"coin":999,"link":"http://www.quanmin.tv/v/9270622","icontext":""},{"beauty_cover":"","first_play_at":"2016-05-12 15:09:14","category_name":"????","thumb":"http://snap.quanmin.tv/2840819-1480693743-284.jpg?imageView2/2/w/390/","last_play_at":"2016-12-01 22:02:41","screen":0,"video":"http://thumb.quanmin.tv/2840819.mp4?t=1480693500","title":"?????","recommend_image":null,"is_shield":false,"nick":"????","uid":2840819,"view":"12888","category_id":13,"slug":"","love_cover":"","level":0,"like":0,"weight":5782380,"avatar":"http://image.quanmin.tv/avatar/cdd082497bb95c01da3e038c8e174611jpg?imageView2/2/w/300/","check":true,"follow":9073,"play_count":297,"play_true":304,"max_view":8075,"grade":0,"default_image":null,"last_end_at":"2016-05-12 15:09:14","create_at":"2016-12-02 22:29:00","category_slug":"huwai","last_thumb":"2840819-1480611063-898.jpg","play_status":true,"anniversary":0,"status":1,"coin":370782,"link":"http://www.quanmin.tv/v/2840819","icontext":""},{"beauty_cover":"","first_play_at":"2016-11-11 18:58:24","category_name":"????","thumb":"http://snap.quanmin.tv/8832533-1480693785-582.jpg?imageView2/2/w/390/","last_play_at":"2016-12-02 19:12:14","screen":0,"video":"http://thumb.quanmin.tv/8832533.mp4?t=1480693500","title":"???????????","recommend_image":"http://image.quanmin.tv/68377681dd4e79a8292daaa3c4ee4b36jpg","is_shield":false,"nick":"?????","uid":8832533,"view":"985243","category_id":1,"slug":"","love_cover":"","level":0,"like":0,"weight":19259220,"avatar":"http://image.quanmin.tv/avatar/70a37ce87dafaf0bec7628fd5d6a0c62?imageView2/2/w/300/","check":true,"follow":129864,"play_count":20,"play_true":17962,"max_view":56646,"grade":0,"default_image":null,"last_end_at":"2016-11-11 18:58:24","create_at":"2016-12-02 20:43:02","category_slug":"lol","last_thumb":"8832533-1480682505-918.jpg","play_status":true,"anniversary":5,"status":1,"coin":532556,"link":"http://www.quanmin.tv/v/8832533","icontext":""}]
+         * list : [{"beauty_cover":"","first_play_at":"2016-05-20 23:22:16","category_name":"????","thumb":"http://snap.quanmin.tv/3158218-1480820162-142.jpg?imageView2/2/w/390/","last_play_at":"2016-12-03 09:21:28","screen":0,"video":"http://thumb.quanmin.tv/3158218.mp4?t=1480820100","title":"?????????????????","recommend_image":"http://image.quanmin.tv/19d3c4bf4c6f8947c4b7acfd65f7c9c7jpg","is_shield":false,"nick":"???boon","uid":3158218,"view":"193856","category_id":1,"slug":"","love_cover":"","level":0,"like":1,"weight":18024600,"avatar":"http://image.quanmin.tv/avatar/3956c5056ec10e81795329ddae19ddeajpeg?imageView2/2/w/300/","check":true,"follow":57682,"play_count":228,"play_true":4392,"max_view":26086,"grade":0,"default_image":null,"last_end_at":"2016-05-20 23:22:16","create_at":"2016-12-04 08:01:52","category_slug":"lol","last_thumb":"3158218-1480740783-815.jpg","play_status":true,"anniversary":7,"status":1,"coin":306399,"link":"http://www.quanmin.tv/v/3158218"},{"beauty_cover":"","first_play_at":"2016-11-08 20:47:17","category_name":"????","thumb":"http://snap.quanmin.tv/8528095-1480820162-875.jpg?imageView2/2/w/390/","last_play_at":"2016-12-03 20:57:27","screen":0,"video":"http://thumb.quanmin.tv/8528095.mp4?t=1480820100","title":"?????????~???","recommend_image":null,"is_shield":false,"nick":"???","uid":8528095,"view":"16760","category_id":4,"slug":"","love_cover":"","level":0,"like":0,"weight":154720,"avatar":"http://image.quanmin.tv/avatar/7388e912c32ffd3c136a39ae207c66abjpg?imageView2/2/w/300/","check":true,"follow":924,"play_count":50,"play_true":176,"max_view":398,"grade":0,"default_image":null,"last_end_at":"2016-11-08 20:47:17","create_at":"2016-12-04 09:24:47","category_slug":"beauty","last_thumb":"8528095-1480774145-587.jpg","play_status":true,"anniversary":3,"status":1,"coin":26143,"link":"http://www.quanmin.tv/v/8528095"},{"beauty_cover":"","first_play_at":"2016-01-16 17:19:34","category_name":"????","thumb":"http://snap.quanmin.tv/297391-1480820199-807.jpg?imageView2/2/w/390/","last_play_at":"2016-12-03 09:18:07","screen":0,"video":"http://thumb.quanmin.tv/297391.mp4?t=1480820100","title":"???1????","recommend_image":null,"is_shield":false,"nick":"??","uid":297391,"view":"144782","category_id":5,"slug":"laoyang","love_cover":"","level":0,"like":0,"weight":77155220,"avatar":"http://image.quanmin.tv/avatar/ddc21bf3162a44f2ea56a1f44b1e28bbjpg?imageView2/2/w/300/","check":true,"follow":49029,"play_count":392,"play_true":352,"max_view":20922,"grade":0,"default_image":null,"last_end_at":"2016-01-16 17:19:34","create_at":"2016-12-04 08:46:37","category_slug":"tvgame","last_thumb":"297391-1480787723-400.jpg","play_status":true,"anniversary":7,"status":1,"coin":3690868,"link":"http://www.quanmin.tv/v/laoyang"},{"beauty_cover":"","first_play_at":"2016-10-31 13:36:35","category_name":"????","thumb":"http://snap.quanmin.tv/8501992-1480820201-105.jpg?imageView2/2/w/390/","last_play_at":"2016-12-04 10:02:07","screen":0,"video":"http://thumb.quanmin.tv/8501992.mp4?t=1480820100","title":"???? ????","recommend_image":"http://image.quanmin.tv/95c89120dbbd1dfa0539dff4fa0610e7jpg","is_shield":false,"nick":"Sweety??","uid":8501992,"view":"29592","category_id":4,"slug":"","love_cover":"http://image.quanmin.tv/love/cfcc717031628c470963e56effc1d215jpg","level":0,"like":239,"weight":886720,"avatar":"http://image.quanmin.tv/avatar/cb951ceec5381423d131383f44d48a17jpg?imageView2/2/w/300/","check":true,"follow":5588,"play_count":51,"play_true":108,"max_view":706,"grade":0,"default_image":null,"last_end_at":"2016-10-31 13:36:35","create_at":"2016-12-04 10:03:01","category_slug":"love","last_thumb":"8501992-1480743642-910.jpg","play_status":true,"anniversary":4,"status":1,"coin":228992,"link":"http://www.quanmin.tv/v/8501992"},{"beauty_cover":"","first_play_at":"2016-03-26 20:34:00","category_name":"????","thumb":"http://snap.quanmin.tv/1948045-1480820162-836.jpg?imageView2/2/w/390/","last_play_at":"2016-12-03 08:31:55","screen":0,"video":"http://thumb.quanmin.tv/1948045.mp4?t=1480820100","title":"???????","recommend_image":null,"is_shield":false,"nick":"??????","uid":1948045,"view":"4246","category_id":3,"slug":"xiaoshi4928988","love_cover":"","level":0,"like":0,"weight":202300,"avatar":"http://image.quanmin.tv/avatar/1dea9b34f3db4259b8ec4a51984da8fcjpg?imageView2/2/w/300/","check":true,"follow":1325,"play_count":262,"play_true":28,"max_view":281,"grade":0,"default_image":null,"last_end_at":"2016-03-26 20:34:00","create_at":"2016-12-04 08:57:12","category_slug":"heartstone","last_thumb":"1948045-1480739883-90.jpg","play_status":true,"anniversary":0,"status":1,"coin":19710,"link":"http://www.quanmin.tv/v/xiaoshi4928988"},{"beauty_cover":"","first_play_at":"2016-07-30 13:51:18","category_name":"????","thumb":"http://snap.quanmin.tv/4375676-1480820199-34.jpg?imageView2/2/w/390/","last_play_at":"2016-12-04 09:37:36","screen":0,"video":"http://thumb.quanmin.tv/4375676.mp4?t=1480820100","title":"???????","recommend_image":"http://image.quanmin.tv/76fc00742a7185767f7f46ee8204e52bjpg","is_shield":false,"nick":"??","uid":4375676,"view":"3184","category_id":13,"slug":"","love_cover":"","level":0,"like":0,"weight":3564820,"avatar":"http://image.quanmin.tv/avatar/e600012dfe9dc41f9ae1bc05678117cejpg?imageView2/2/w/300/","check":true,"follow":36075,"play_count":252,"play_true":44,"max_view":4864,"grade":0,"default_image":null,"last_end_at":"2016-07-30 13:51:18","create_at":"2016-12-04 10:51:59","category_slug":"huwai","last_thumb":"4375676-1480815279-683.jpg","play_status":true,"anniversary":0,"status":1,"coin":164952,"link":"http://www.quanmin.tv/v/4375676"}]
          */
 
         private int id;
@@ -125,42 +125,41 @@ public class FirstBean {
         public static class ListBean {
             /**
              * beauty_cover :
-             * first_play_at : 2016-01-31 20:31:38
+             * first_play_at : 2016-05-20 23:22:16
              * category_name : ????
-             * thumb : http://snap.quanmin.tv/819227-1480693780-579.jpg?imageView2/2/w/390/
-             * last_play_at : 2016-12-01 17:53:33
+             * thumb : http://snap.quanmin.tv/3158218-1480820162-142.jpg?imageView2/2/w/390/
+             * last_play_at : 2016-12-03 09:21:28
              * screen : 0
-             * video : http://thumb.quanmin.tv/819227.mp4?t=1480693500
-             * title : ???????????QAQ
-             * recommend_image : null
+             * video : http://thumb.quanmin.tv/3158218.mp4?t=1480820100
+             * title : ?????????????????
+             * recommend_image : http://image.quanmin.tv/19d3c4bf4c6f8947c4b7acfd65f7c9c7jpg
              * is_shield : false
-             * nick : ?????QAQ
-             * uid : 819227
-             * view : 35811
+             * nick : ???boon
+             * uid : 3158218
+             * view : 193856
              * category_id : 1
-             * slug : annie0926
+             * slug :
              * love_cover :
              * level : 0
-             * like : 0
-             * weight : 39270580
-             * avatar : http://image.quanmin.tv/avatar/ca5b0d243dc2bd5ba77f55d30a83460bjpg?imageView2/2/w/300/
+             * like : 1
+             * weight : 18024600
+             * avatar : http://image.quanmin.tv/avatar/3956c5056ec10e81795329ddae19ddeajpeg?imageView2/2/w/300/
              * check : true
-             * follow : 58143
-             * play_count : 357
-             * play_true : 276
-             * max_view : 8391
+             * follow : 57682
+             * play_count : 228
+             * play_true : 4392
+             * max_view : 26086
              * grade : 0
              * default_image : null
-             * last_end_at : 2016-01-31 20:31:38
-             * create_at : 2016-12-02 17:59:26
+             * last_end_at : 2016-05-20 23:22:16
+             * create_at : 2016-12-04 08:01:52
              * category_slug : lol
-             * last_thumb : 819227-1480614505-623.jpg
+             * last_thumb : 3158218-1480740783-815.jpg
              * play_status : true
              * anniversary : 7
              * status : 1
-             * coin : 2344360
-             * link : http://www.quanmin.tv/v/annie0926
-             * icontext :
+             * coin : 306399
+             * link : http://www.quanmin.tv/v/3158218
              */
 
             private String beauty_cover;
@@ -171,7 +170,7 @@ public class FirstBean {
             private int screen;
             private String video;
             private String title;
-            private Object recommend_image;
+            private String recommend_image;
             private boolean is_shield;
             private String nick;
             private int uid;
@@ -199,7 +198,6 @@ public class FirstBean {
             private int status;
             private int coin;
             private String link;
-            private String icontext;
 
             public String getBeauty_cover() {
                 return beauty_cover;
@@ -265,11 +263,11 @@ public class FirstBean {
                 this.title = title;
             }
 
-            public Object getRecommend_image() {
+            public String getRecommend_image() {
                 return recommend_image;
             }
 
-            public void setRecommend_image(Object recommend_image) {
+            public void setRecommend_image(String recommend_image) {
                 this.recommend_image = recommend_image;
             }
 
@@ -487,14 +485,6 @@ public class FirstBean {
 
             public void setLink(String link) {
                 this.link = link;
-            }
-
-            public String getIcontext() {
-                return icontext;
-            }
-
-            public void setIcontext(String icontext) {
-                this.icontext = icontext;
             }
         }
     }

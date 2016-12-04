@@ -46,6 +46,9 @@
         <activity
             android:name=".ui.tv.activity.TvShowActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity
+            android:name=".ui.tv.activity.TvShowFullActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
     </application>
 
 </manifest>
