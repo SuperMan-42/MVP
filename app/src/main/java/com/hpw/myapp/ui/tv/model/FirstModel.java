@@ -13,17 +13,12 @@ import rx.Observable;
 
 public class FirstModel implements TvContract.FirstModel {
     @Override
-    public Observable<FirstBean> getFirstData(String url) {
-        return null;
+    public Observable<FirstBean> getFirstData() {
+        return RxService.createApi(TvApi.class).getFirstList().compose(RxUtil.rxSchedulerHelper());
     }
 
     @Override
     public Observable<Object> getBannerData() {
         return RxService.createApi(TvApi.class).getBannerList().compose(RxUtil.rxSchedulerHelper());
-    }
-
-    @Override
-    public Observable<OtherBean> getOtherData(String url) {
-        return RxService.createApi(TvApi.class).getOtherList(url).compose(RxUtil.rxSchedulerHelper());
     }
 }

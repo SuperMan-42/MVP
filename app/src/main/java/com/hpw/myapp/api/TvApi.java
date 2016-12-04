@@ -1,10 +1,9 @@
 package com.hpw.myapp.api;
 
+import com.hpw.myapp.ui.tv.model.FirstBean;
 import com.hpw.myapp.ui.tv.model.OtherBean;
 import com.hpw.myapp.ui.tv.model.TabBean;
 import com.hpw.myapp.ui.tv.model.TvShowBean;
-
-import org.json.JSONObject;
 
 import java.util.List;
 
@@ -24,7 +23,7 @@ public interface TvApi {
     Observable<List<TabBean>> getTabList();
 
     @GET("http://www.quanmin.tv/json/app/index/recommend/list-android.json?11241742&v=2.2.4&os=1&ver=4")
-    Observable<JSONObject> getFirstList();
+    Observable<FirstBean> getFirstList();
 
     @GET("http://www.quanmin.tv/{url}?11211639&os=1&v=2.2.4&os=1&ver=4")
     Observable<OtherBean> getOtherList(@Path("url") String url);

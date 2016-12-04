@@ -46,21 +46,17 @@ public interface TvContract {
 
     //First接口
     abstract class FirstPresenter extends CoreBasePresenter<TvContract.FirstModel, TvContract.FirstView> {
-        public abstract void getFirstData(String url);
+        public abstract void getFirstData();
 
         public abstract void getBannerData();
 
         public abstract void startInterval();
-
-        public abstract void getOtherData(String url);
     }
 
     interface FirstModel extends CoreBaseModel {
-        Observable<FirstBean> getFirstData(String url);
+        Observable<FirstBean> getFirstData();
 
         Observable<Object> getBannerData();
-
-        Observable<OtherBean> getOtherData(String url);
     }
 
     interface FirstView extends CoreBaseView {
@@ -69,8 +65,6 @@ public interface TvContract {
         void showBannerContent(List<FirstBannerBean> info);
 
         void doInterval(int i);
-
-        void showOther(OtherBean info);
     }
 
     //TvShow接口

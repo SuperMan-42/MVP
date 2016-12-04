@@ -21,12 +21,10 @@ import com.hpw.mvpframe.widget.recyclerview.recyclerviewpager.LoopRecyclerViewPa
 import com.hpw.myapp.App;
 import com.hpw.myapp.R;
 import com.hpw.myapp.ui.tv.activity.TvShowActivity;
-import com.hpw.myapp.ui.tv.activity.TvShowFullActivity;
 import com.hpw.myapp.ui.tv.contract.TvContract;
 import com.hpw.myapp.ui.tv.model.FirstBannerBean;
 import com.hpw.myapp.ui.tv.model.FirstBean;
 import com.hpw.myapp.ui.tv.model.FirstModel;
-import com.hpw.myapp.ui.tv.model.OtherBean;
 import com.hpw.myapp.ui.tv.presenter.FirstPresenter;
 import com.hpw.myapp.widget.GlideTransform;
 
@@ -46,27 +44,34 @@ public class FirstFragment extends CoreBaseLazyFragment<FirstPresenter, FirstMod
 
     @Override
     public View getLayoutView() {
-        coreRecyclerView = new CoreRecyclerView(mContext).init(new GridLayoutManager(mContext, 2),
-                new BaseQuickAdapter<OtherBean.DataBean, BaseViewHolder>(R.layout.item_tv_other) {
+        coreRecyclerView = new CoreRecyclerView(mContext)
+                .init(new BaseQuickAdapter<FirstBean.RoomBean, BaseViewHolder>(R.layout.item_first_header) {
                     @Override
-                    protected void convert(BaseViewHolder helper, OtherBean.DataBean item) {
-                        //Glide在加载GridView等时,由于ImageView和Bitmap实际大小不符合,第一次时加载可能会变形(我这里出现了放大),必须在加载前再次固定ImageView大小
-                        ViewGroup.LayoutParams lp = helper.getView(R.id.thumnails).getLayoutParams();
-                        lp.width = (App.SCREEN_WIDTH - DisplayUtils.dp2px(mContext, 12)) / 2;
-                        lp.height = DisplayUtils.dp2px(mContext, 120);
+                    protected void convert(BaseViewHolder helper, FirstBean.RoomBean item) {
+                        CoreRecyclerView recyclerView = helper.getView(R.id.recyclerview);
+                        helper.setText(R.id.category_name, item.getName());
+                        recyclerView.init(new GridLayoutManager(mContext, 2), new BaseQuickAdapter<FirstBean.RoomBean.ListBean, BaseViewHolder>(R.layout.item_tv_other, item.getList()) {
+                            @Override
+                            protected void convert(BaseViewHolder helper, FirstBean.RoomBean.ListBean item) {
+                                //Glide在加载GridView等时,由于ImageView和Bitmap实际大小不符合,第一次时加载可能会变形(我这里出现了放大),必须在加载前再次固定ImageView大小
+                                ViewGroup.LayoutParams lp = helper.getView(R.id.thumnails).getLayoutParams();
+                                lp.width = (App.SCREEN_WIDTH - DisplayUtils.dp2px(mContext, 12)) / 2;
+                                lp.height = DisplayUtils.dp2px(mContext, 120);
 
-                        Glide.with(mContext).load(item.getThumb()).crossFade().transform(new GlideTransform(mContext, 5)).into((ImageView) helper.getView(R.id.thumnails));
-                        Glide.with(mContext).load(item.getAvatar()).crossFade().centerCrop().transform(new GlideCircleTransform(mContext)).into((ImageView) helper.getView(R.id.ic_head));
+                                Glide.with(mContext).load(item.getThumb()).crossFade().centerCrop().transform(new GlideTransform(mContext, 5)).into((ImageView) helper.getView(R.id.thumnails));
+                                Glide.with(mContext).load(item.getAvatar()).crossFade().centerCrop().transform(new GlideCircleTransform(mContext)).into((ImageView) helper.getView(R.id.ic_head));
 
-                        helper.setText(R.id.title, item.getTitle())
-                                .setText(R.id.tv_viewnum, item.getView())
-                                .setText(R.id.nickName, item.getNick())
-                                .setOnClickListener(R.id.ll_click, v -> {
-                                    Intent starter = new Intent(mActivity, TvShowFullActivity.class);
-                                    starter.putExtra("playBean", item);
-                                    getActivity().startActivity(starter);
-                                    getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                                });
+                                helper.setText(R.id.title, item.getTitle())
+                                        .setText(R.id.tv_viewnum, item.getView())
+                                        .setText(R.id.nickName, item.getNick())
+                                        .setOnClickListener(R.id.ll_click, v -> {
+                                            Intent starter = new Intent(mActivity, TvShowActivity.class);
+                                            starter.putExtra("playBean", item);
+                                            getActivity().startActivity(starter);
+                                            getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                                        });
+                            }
+                        });
                     }
                 });
         return coreRecyclerView;
@@ -74,6 +79,7 @@ public class FirstFragment extends CoreBaseLazyFragment<FirstPresenter, FirstMod
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
+
         View view1 = LayoutInflater.from(mContext).inflate(R.layout.daily_header, (ViewGroup) coreRecyclerView.getParent(), false);
         vpTop = (LoopRecyclerViewPager) view1.findViewById(R.id.vp_top);
         vpTop.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
@@ -82,7 +88,7 @@ public class FirstFragment extends CoreBaseLazyFragment<FirstPresenter, FirstMod
 
     @Override
     public void initData() {
-        mPresenter.getOtherData("json/categories/love/list.json");
+        mPresenter.getFirstData();
         mPresenter.getBannerData();
         mPresenter.startInterval();
     }
@@ -103,13 +109,8 @@ public class FirstFragment extends CoreBaseLazyFragment<FirstPresenter, FirstMod
     }
 
     @Override
-    public void showOther(OtherBean info) {
-        coreRecyclerView.getAdapter().addData(info.getData());
-    }
-
-    @Override
     public void showContent(FirstBean info) {
-
+        coreRecyclerView.getAdapter().addData(info.getRoom());
     }
 
     @Override
@@ -129,3 +130,46 @@ public class FirstFragment extends CoreBaseLazyFragment<FirstPresenter, FirstMod
         });
     }
 }
+
+//    private class MultipleItemAdapter extends BaseMultiItemQuickAdapter<FirstBean.RoomBean, BaseViewHolder> {
+//
+//        public MultipleItemAdapter(List<FirstBean.RoomBean> data) {
+//            super(data);
+//            addItemType(FirstBean.RoomBean.OTHER, R.layout.item_tv_other);
+//            addItemType(FirstBean.RoomBean.OTHER1, R.layout.item_tv_other1);
+//        }
+//
+//        @Override
+//        protected void convert(BaseViewHolder helper, FirstBean.RoomBean item) {
+//            ViewGroup.LayoutParams lp = helper.getView(R.id.thumnails).getLayoutParams();
+//            lp.width = (App.SCREEN_WIDTH - DisplayUtils.dp2px(mContext, 12)) / 2;
+//            lp.height = DisplayUtils.dp2px(mContext, 120);
+//            switch (helper.getItemViewType()) {
+//                case FirstBean.RoomBean.OTHER:
+//                    Glide.with(mContext).load(item.getThumb()).crossFade().transform(new GlideTransform(mContext, 5)).into((ImageView) helper.getView(R.id.thumnails));
+//                    Glide.with(mContext).load(item.getAvatar()).crossFade().centerCrop().transform(new GlideCircleTransform(mContext)).into((ImageView) helper.getView(R.id.ic_head));
+//
+//                    helper.setText(R.id.title, item.getTitle())
+//                            .setText(R.id.tv_viewnum, item.getView())
+//                            .setText(R.id.nickName, item.getNick())
+//                            .setOnClickListener(R.id.ll_click, v -> {
+//                                Intent starter = new Intent(mActivity, TvShowActivity.class);
+//                                starter.putExtra("playBean", item);
+//                                getActivity().startActivity(starter);
+//                                getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+//                            });
+//                    break;
+//                case FirstBean.RoomBean.OTHER1:
+//                    Glide.with(mContext).load(item.getThumb()).crossFade().transform(new GlideTransform(mContext, 5)).into((ImageView) helper.getView(R.id.thumnails));
+//                    helper.setText(R.id.tv_viewnum, item.getView())
+//                            .setText(R.id.intro, item.getTitle())
+//                            .setOnClickListener(R.id.ll_click, v -> {
+//                                Intent starter = new Intent(mActivity, TvShowFullActivity.class);
+//                                starter.putExtra("playBean", item);
+//                                getActivity().startActivity(starter);
+//                                getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+//                            });
+//                    break;
+//            }
+//        }
+//    }

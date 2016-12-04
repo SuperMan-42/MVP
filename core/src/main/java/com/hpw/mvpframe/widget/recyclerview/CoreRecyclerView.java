@@ -237,5 +237,13 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
         mSwipeRefreshLayout.setOnRefreshListener(this);
         return this;
     }
+
+    public RecyclerView getRecyclerView() {
+        return mRecyclerView;
+    }
+
+    public void setRecyclerView(RecyclerView mRecyclerView) {
+        this.mRecyclerView = mRecyclerView;
+    }
 }
 

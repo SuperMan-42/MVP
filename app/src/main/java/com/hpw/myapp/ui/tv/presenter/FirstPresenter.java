@@ -25,8 +25,12 @@ public class FirstPresenter extends TvContract.FirstPresenter {
     private int currentTopCount = 0;
 
     @Override
-    public void getFirstData(String url) {
-
+    public void getFirstData() {
+        mRxManager.add(mModel.getFirstData()
+                .subscribe(
+                        data -> mView.showContent(data),
+                        e -> mView.showError("数据加载失败ヽ(≧Д≦)ノ")
+                ));
     }
 
     @Override
@@ -63,14 +67,5 @@ public class FirstPresenter extends TvContract.FirstPresenter {
     @Override
     public void onStart() {
 
-    }
-
-    @Override
-    public void getOtherData(String url) {
-        mRxManager.add(mModel.getOtherData(url)
-                .subscribe(
-                        data -> mView.showOther(data),
-                        e -> mView.showError("数据加载失败ヽ(≧Д≦)ノ")
-                ));
     }
 }

@@ -1,5 +1,6 @@
 package com.hpw.myapp.ui.tv.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,6 @@ import java.util.List;
  */
 
 public class FirstBean {
-
     private List<RoomBean> room;
     private List<?> ad;
 
@@ -28,6 +28,7 @@ public class FirstBean {
     }
 
     public static class RoomBean {
+
         /**
          * id : 0
          * name : ????
@@ -122,7 +123,8 @@ public class FirstBean {
             this.list = list;
         }
 
-        public static class ListBean {
+        public static class ListBean implements Serializable {
+
             /**
              * beauty_cover :
              * first_play_at : 2016-05-20 23:22:16
