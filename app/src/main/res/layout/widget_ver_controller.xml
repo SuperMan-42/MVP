@@ -145,7 +145,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/verMediaControll"
-        android:background="@color/white">
+        android:background="?android:attr/colorBackground">
 
         <ImageView
             android:id="@+id/ic_head"
@@ -165,7 +165,6 @@
                 android:id="@+id/nickName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black_70"
                 android:textSize="12sp"
                 tool:text="国服第一打野成成天慢各种坑" />
 
@@ -174,7 +173,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/nickName"
-                android:textColor="@color/black_40"
                 android:textSize="10sp"
                 tool:text="肌肉飒飒撒" />
         </RelativeLayout>
@@ -211,7 +209,6 @@
                     android:layout_gravity="center"
                     android:paddingTop="1.0dip"
                     android:text="关注"
-                    android:textColor="@color/text_03"
                     android:textSize="10.0sp" />
             </LinearLayout>
 
@@ -234,7 +231,6 @@
                     android:layout_gravity="center"
                     android:paddingTop="1.0dip"
                     android:text="开播提醒"
-                    android:textColor="@color/text_03"
                     android:textSize="10.0sp" />
             </LinearLayout>
         </LinearLayout>

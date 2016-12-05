@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
     android:id="@+id/ll_click"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -67,18 +68,16 @@
                     android:id="@+id/nickName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="国服第一打野成成天慢各种坑"
-                    android:textColor="@color/black_70"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tool:text="国服第一打野成成天慢各种坑" />
 
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/nickName"
-                    android:text="肌肉飒飒撒"
-                    android:textColor="@color/black_40"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    tool:text="肌肉飒飒撒" />
             </RelativeLayout>
         </RelativeLayout>
 

@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="?android:attr/colorBackground"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="50dp"
-        android:background="@color/white"
+        android:background="?android:attr/colorBackground"
         android:paddingTop="10.0dip">
 
         <TextView
@@ -16,8 +16,7 @@
             style="@style/font15"
             android:layout_centerVertical="true"
             android:drawableLeft="@drawable/title_left"
-            android:drawablePadding="5.0dip"
-            android:textColor="@color/findback_text_color" />
+            android:drawablePadding="5.0dip" />
 
         <TextView
             android:id="@+id/goToThisLive"
@@ -37,29 +36,28 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/line_color" />
+        android:background="@color/white_10" />
 
     <com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="?android:attr/colorBackground"
         android:paddingLeft="2.5dp"
         android:paddingRight="2.5dp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/line_color" />
+        android:background="@color/white_10" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:background="@color/white_60" />
+        android:layout_height="15dp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/line_color" />
+        android:background="@color/white_10" />
 
 </LinearLayout>

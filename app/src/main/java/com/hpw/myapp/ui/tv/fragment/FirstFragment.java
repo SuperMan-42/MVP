@@ -117,14 +117,13 @@ public class FirstFragment extends CoreBaseFragment<FirstPresenter, FirstModel> 
 
         @Override
         protected void convert(BaseViewHolder helper, FirstBean.RoomBean.ListBean item) {
+            ViewGroup.LayoutParams lp = helper.getView(R.id.thumnails).getLayoutParams();
+            lp.width = (App.SCREEN_WIDTH - DisplayUtils.dp2px(mContext, 12)) / 2;
             switch (helper.getItemViewType()) {
                 case FirstBean.RoomBean.ListBean.OTHER:
-                    ViewGroup.LayoutParams lp = helper.getView(R.id.thumnails).getLayoutParams();
-                    lp.width = (App.SCREEN_WIDTH - DisplayUtils.dp2px(mContext, 12)) / 2;
                     lp.height = DisplayUtils.dp2px(mContext, 120);
                     Glide.with(mContext).load(item.getThumb()).crossFade().transform(new GlideTransform(mContext, 5)).into((ImageView) helper.getView(R.id.thumnails));
                     Glide.with(mContext).load(item.getAvatar()).crossFade().centerCrop().transform(new GlideCircleTransform(mContext)).into((ImageView) helper.getView(R.id.ic_head));
-
                     helper.setText(R.id.title, item.getTitle())
                             .setText(R.id.tv_viewnum, item.getView())
                             .setText(R.id.nickName, item.getNick())
@@ -136,7 +135,8 @@ public class FirstFragment extends CoreBaseFragment<FirstPresenter, FirstModel> 
                             });
                     break;
                 case FirstBean.RoomBean.ListBean.OTHER1:
-                    Glide.with(mContext).load(item.getThumb()).crossFade().fitCenter().transform(new GlideTransform(mContext, 5)).into((ImageView) helper.getView(R.id.thumnails));
+                    lp.height = lp.width;
+                    Glide.with(mContext).load(item.getThumb()).crossFade().centerCrop().transform(new GlideTransform(mContext, 5)).into((ImageView) helper.getView(R.id.thumnails));
                     helper.setText(R.id.tv_viewnum, item.getView())
                             .setText(R.id.intro, item.getTitle())
                             .setOnClickListener(R.id.ll_click, v -> {
