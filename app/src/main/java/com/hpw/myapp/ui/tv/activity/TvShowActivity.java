@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -60,6 +61,7 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
     @Override
     public void initView(Bundle savedInstanceState) {
         getWindow().getDecorView().setSystemUiVisibility(View.INVISIBLE);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         initPlayer();
         initVerControll();
         initHorContrll();

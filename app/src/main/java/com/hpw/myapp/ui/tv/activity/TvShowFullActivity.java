@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -46,6 +47,7 @@ public class TvShowFullActivity extends BaseTvShowActivity<TvShowPresenter, TvSh
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         initPlayer();
         initData();
     }
