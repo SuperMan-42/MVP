@@ -1,9 +1,11 @@
 package com.hpw.myapp.ui.tv.activity;
 
 import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.view.WindowManager;
 
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.mvpframe.base.CoreBaseModel;
@@ -28,6 +30,11 @@ public abstract class BaseTvShowActivity<T extends CoreBasePresenter, E extends 
     protected void onPause() {
         super.onPause();
         mIsActivityPaused = true;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     @Override
