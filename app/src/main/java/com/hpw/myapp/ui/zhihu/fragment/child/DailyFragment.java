@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.hpw.mvpframe.base.CoreBaseLazyFragment;
+import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
 import com.hpw.mvpframe.widget.recyclerview.BaseViewHolder;
 import com.hpw.mvpframe.widget.recyclerview.CoreRecyclerView;
@@ -25,7 +25,7 @@ import com.hpw.myapp.ui.zhihu.presenter.dailypresenter.DailyPresenter;
 /**
  * Created by hpw on 16/10/31.
  */
-public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyModel> implements ZhihuContract.DailyView {
+public class DailyFragment extends CoreBaseFragment<DailyPresenter, DailyModel> implements ZhihuContract.DailyView {
     CoreRecyclerView coreRecyclerView;
     LoopRecyclerViewPager vpTop;
 
@@ -68,17 +68,12 @@ public class DailyFragment extends CoreBaseLazyFragment<DailyPresenter, DailyMod
     }
 
     @Override
-    protected void initLazyView(@Nullable Bundle savedInstanceState) {
-
-    }
-
-    @Override
     public void showContent(DailyListBean info) {
         vpTop.setAdapter(new BaseQuickAdapter<DailyListBean.TopStoriesBean, BaseViewHolder>(R.layout.item_daily_header, info.getTop_stories()) {
             @Override
             protected void convert(BaseViewHolder helper, DailyListBean.TopStoriesBean item) {
                 helper.setText(R.id.tv_top_title, item.getTitle());
-                Glide.with(mContext).load(item.getImage()).crossFade().placeholder(R.drawable.ic_img).into((ImageView) helper.getView(R.id.iv_top_image));
+                Glide.with(mContext).load(item.getImage()).crossFade().placeholder(R.drawable.ic_default_cover).into((ImageView) helper.getView(R.id.iv_top_image));
                 helper.setOnClickListener(R.id.iv_top_image, v -> {
                     ZhihuDetailsActivity.start(mActivity, v.findViewById(R.id.iv_top_image), item.getId());
 //                    ((SupportFragment) getParentFragment()).start(DailyDetailsFragment.newInstance(item.getId()));

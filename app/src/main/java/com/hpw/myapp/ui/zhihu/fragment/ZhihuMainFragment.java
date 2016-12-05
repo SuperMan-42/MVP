@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.hpw.mvpframe.base.CoreBaseActivity;
-import com.hpw.mvpframe.base.CoreBaseLazyFragment;
+import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.mvpframe.utils.SpUtil;
 import com.hpw.mvpframe.utils.helper.FragmentAdapter;
 import com.hpw.myapp.Constants;
@@ -34,7 +34,7 @@ import butterknife.BindView;
 /**
  * Created by hpw on 16/10/31.
  */
-public class ZhihuMainFragment extends CoreBaseLazyFragment<ZhihuMainPresenter, ZhihuMainModel> implements ZhihuContract.ZhihuMainView, Toolbar.OnMenuItemClickListener {
+public class ZhihuMainFragment extends CoreBaseFragment<ZhihuMainPresenter, ZhihuMainModel> implements ZhihuContract.ZhihuMainView, Toolbar.OnMenuItemClickListener {
     protected OnFragmentOpenDrawerListener mOpenDraweListener;
     List<Fragment> fragments = new ArrayList<>();
     @BindView(R.id.tabs)
@@ -95,6 +95,18 @@ public class ZhihuMainFragment extends CoreBaseLazyFragment<ZhihuMainPresenter, 
 
     @Override
     public void initUI(View view, @Nullable Bundle savedInstanceState) {
+        toolbar.setTitle("首页");
+        toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
+        toolbar.setNavigationOnClickListener(v -> {
+            if (mOpenDraweListener != null) {
+                mOpenDraweListener.onOpenDrawer();
+            }
+        });
+        fab.setOnClickListener(v -> Snackbar.make(v, "Snackbar comes out", Snackbar.LENGTH_LONG).setAction("action", vi -> {
+            showToast("ZhihuMainFragment");
+        }));
+        toolbar.inflateMenu(R.menu.fragment_main_menu);
+        toolbar.setOnMenuItemClickListener(this);
     }
 
     @Override
@@ -130,21 +142,5 @@ public class ZhihuMainFragment extends CoreBaseLazyFragment<ZhihuMainPresenter, 
     @Override
     public void showError(String msg) {
 
-    }
-
-    @Override
-    protected void initLazyView(@Nullable Bundle savedInstanceState) {
-        toolbar.setTitle("首页");
-        toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
-        toolbar.setNavigationOnClickListener(v -> {
-            if (mOpenDraweListener != null) {
-                mOpenDraweListener.onOpenDrawer();
-            }
-        });
-        fab.setOnClickListener(v -> Snackbar.make(v, "Snackbar comes out", Snackbar.LENGTH_LONG).setAction("action", vi -> {
-            showToast("ZhihuMainFragment");
-        }));
-        toolbar.inflateMenu(R.menu.fragment_main_menu);
-        toolbar.setOnMenuItemClickListener(this);
     }
 }

@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.hpw.mvpframe.base.CoreBaseLazyFragment;
+import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.mvpframe.utils.DisplayUtils;
 import com.hpw.mvpframe.widget.GlideCircleTransform;
 import com.hpw.mvpframe.widget.recyclerview.BaseMultiItemQuickAdapter;
@@ -35,7 +36,7 @@ import java.util.List;
 /**
  * Created by hpw on 16/12/2.
  */
-public class FirstFragment extends CoreBaseLazyFragment<FirstPresenter, FirstModel> implements TvContract.FirstView {
+public class FirstFragment extends CoreBaseFragment<FirstPresenter, FirstModel> implements TvContract.FirstView {
     CoreRecyclerView coreRecyclerView;
     LoopRecyclerViewPager vpTop;
 
@@ -50,9 +51,10 @@ public class FirstFragment extends CoreBaseLazyFragment<FirstPresenter, FirstMod
                 .init(new BaseQuickAdapter<FirstBean.RoomBean, BaseViewHolder>(R.layout.item_first_header) {
                     @Override
                     protected void convert(BaseViewHolder helper, FirstBean.RoomBean item) {
-                        CoreRecyclerView recyclerView = helper.getView(R.id.recyclerview);
+                        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(mContext, 2);
+                        layoutManager.setAutoMeasureEnabled(true);
                         helper.setText(R.id.category_name, item.getName());
-                        recyclerView.init(new GridLayoutManager(mContext, 2), new MultipleItemAdapter(item.getList()));
+                        ((CoreRecyclerView) helper.getView(R.id.recyclerview)).init(layoutManager, new MultipleItemAdapter(item.getList()), false);
                     }
                 });
         return coreRecyclerView;
@@ -72,11 +74,6 @@ public class FirstFragment extends CoreBaseLazyFragment<FirstPresenter, FirstMod
         mPresenter.getFirstData();
         mPresenter.getBannerData();
         mPresenter.startInterval();
-    }
-
-    @Override
-    protected void initLazyView(@Nullable Bundle savedInstanceState) {
-
     }
 
     @Override
@@ -112,7 +109,6 @@ public class FirstFragment extends CoreBaseLazyFragment<FirstPresenter, FirstMod
     }
 
     private class MultipleItemAdapter extends BaseMultiItemQuickAdapter<FirstBean.RoomBean.ListBean, BaseViewHolder> {
-
         public MultipleItemAdapter(List<FirstBean.RoomBean.ListBean> data) {
             super(data);
             addItemType(FirstBean.RoomBean.ListBean.OTHER, R.layout.item_tv_other);

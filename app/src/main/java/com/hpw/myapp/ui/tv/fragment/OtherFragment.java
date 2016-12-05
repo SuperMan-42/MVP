@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.hpw.mvpframe.base.CoreBaseLazyFragment;
+import com.hpw.mvpframe.base.CoreBaseFragment;
 import com.hpw.mvpframe.utils.DisplayUtils;
 import com.hpw.mvpframe.widget.GlideCircleTransform;
 import com.hpw.mvpframe.widget.recyclerview.BaseQuickAdapter;
@@ -28,7 +28,7 @@ import com.hpw.myapp.widget.GlideTransform;
 /**
  * Created by hpw on 16/12/2.
  */
-public class OtherFragment extends CoreBaseLazyFragment<OtherPresenter, OtherModel> implements TvContract.OtherView {
+public class OtherFragment extends CoreBaseFragment<OtherPresenter, OtherModel> implements TvContract.OtherView {
     CoreRecyclerView coreRecyclerView;
 
     public static OtherFragment newInstance(String url) {
@@ -37,11 +37,6 @@ public class OtherFragment extends CoreBaseLazyFragment<OtherPresenter, OtherMod
         OtherFragment fragment = new OtherFragment();
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @Override
-    protected void initLazyView(@Nullable Bundle savedInstanceState) {
-
     }
 
     @Override

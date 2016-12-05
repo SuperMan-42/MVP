@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.hpw.mvpframe.utils.LogUtil;
 import com.hpw.myapp.R;
+import com.hpw.myapp.ui.tv.model.FirstBean;
 import com.hpw.myapp.ui.tv.model.OtherBean;
 import com.hpw.myapp.ui.tv.model.TvShowBean;
 import com.hpw.myapp.ui.tv.model.TvShowModel;
@@ -43,7 +44,8 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
     private boolean isLandscape = false;
     private LivePlayerHolder playerHolder;
     private HorMediaControllView horizontalControll;
-    private OtherBean.DataBean mPlayBean;
+    private FirstBean.RoomBean.ListBean mPlayBean;
+    private OtherBean.DataBean mPlayBean1;
     private boolean isVertical = true;
 
     private int mCodec;
@@ -69,7 +71,12 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
         bgImage = (ImageView) findViewById(R.id.bgImg);
         mSurfaceView = (SurfaceView) findViewById(R.id.surfaceView);
         mSurfaceView.setOnTouchListener(this);
-        mPlayBean = (OtherBean.DataBean) getIntent().getSerializableExtra("playBean");
+        try {
+            mPlayBean = (FirstBean.RoomBean.ListBean) getIntent().getSerializableExtra("playBean");
+        } catch (ClassCastException e) {
+            mPlayBean1 = (OtherBean.DataBean) getIntent().getSerializableExtra("playBean");
+        }
+
         mCodec = getIntent().getIntExtra("mediaCodec", 0);
     }
 
@@ -86,10 +93,14 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
 
     private void initData() {
         if (mPlayBean != null) {
-            mPresenter.onTvShow(mPlayBean.uid);
+            mPresenter.onTvShow(mPlayBean.getUid());
+            Glide.with(this).load(mPlayBean.getThumb()).fitCenter().into(bgImage);
+            verticalControll.setData(mPlayBean.getView(), mPlayBean.getAvatar(), mPlayBean.getNick(), mPlayBean.getTitle(), mPlayBean.getFollow());
+        } else if (mPlayBean1 != null) {
+            mPresenter.onTvShow(mPlayBean1.getUid());
+            Glide.with(this).load(mPlayBean1.getThumb()).fitCenter().into(bgImage);
+            verticalControll.setData(mPlayBean1.getView(), mPlayBean1.getAvatar(), mPlayBean1.getNick(), mPlayBean1.getTitle(), mPlayBean1.getFollow());
         }
-        Glide.with(this).load(mPlayBean.thumb).fitCenter().into(bgImage);
-        verticalControll.setData(mPlayBean.getView(), mPlayBean.getAvatar(), mPlayBean.getNick(), mPlayBean.getTitle(), mPlayBean.getFollow());
     }
 
     @Override
@@ -252,7 +263,11 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
         if (playerHolder != null)
             playerHolder.release();
         if (isLandscape == true)
-            TvMainActivity.startActivity(mContext, mPlayBean.getCategory_slug());
+            if (mPlayBean != null) {
+                TvMainActivity.startActivity(mContext, mPlayBean.getCategory_slug());
+            } else if (mPlayBean1 != null) {
+                TvMainActivity.startActivity(mContext, mPlayBean1.getCategory_slug());
+            }
         super.onBackPressedSupport();
     }
 }

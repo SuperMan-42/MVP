@@ -49,9 +49,9 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));
         addView(view);
-        mRecyclerView = (RecyclerView) findViewById(R.id.rv_list);
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeLayout);
         mSwipeRefreshLayout.setEnabled(false);
+        mRecyclerView = (RecyclerView) findViewById(R.id.rv_list);
         return this;
     }
 
@@ -60,7 +60,22 @@ public class CoreRecyclerView extends LinearLayout implements BaseQuickAdapter.R
         return this;
     }
 
+    public CoreRecyclerView init(BaseQuickAdapter mQuickAdapter, Boolean isRefresh) {
+        init(null, mQuickAdapter, true);
+        return this;
+    }
+
     public CoreRecyclerView init(RecyclerView.LayoutManager layoutManager, BaseQuickAdapter mQuickAdapter) {
+        init(layoutManager, mQuickAdapter, true);
+        return this;
+    }
+
+    public CoreRecyclerView init(RecyclerView.LayoutManager layoutManager, BaseQuickAdapter mQuickAdapter, Boolean isRefresh) {
+        if (isRefresh != true) {
+            mSwipeRefreshLayout.setVisibility(GONE);
+            mRecyclerView = (RecyclerView) findViewById(R.id.rv_list1);
+            mRecyclerView.setVisibility(VISIBLE);
+        }
         mRecyclerView.setLayoutManager(layoutManager != null ? layoutManager : new LinearLayoutManager(getContext()));
         this.mQuickAdapter = mQuickAdapter;
         mRecyclerView.setAdapter(mQuickAdapter);

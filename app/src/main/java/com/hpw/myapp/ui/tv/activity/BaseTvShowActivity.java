@@ -4,7 +4,6 @@ import android.content.pm.ActivityInfo;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.widget.Toast;
 
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.mvpframe.base.CoreBaseModel;
@@ -18,7 +17,6 @@ import com.hpw.myapp.ui.tv.contract.TvContract;
 
 public abstract class BaseTvShowActivity<T extends CoreBasePresenter, E extends CoreBaseModel> extends CoreBaseActivity<T, E> implements TvContract.TvShowView {
     protected boolean mIsActivityPaused = true;
-    protected Toast mToast = null;
 
     @Override
     protected void onResume() {
@@ -45,12 +43,7 @@ public abstract class BaseTvShowActivity<T extends CoreBasePresenter, E extends 
         if (mIsActivityPaused) {
             return;
         }
-        runOnUiThread(() -> {
-            if (mToast != null) {
-                mToast.cancel();
-            }
-            showToast(tips);
-        });
+        showToast(tips);
     }
 
     private static final int MESSAGE_ID_RECONNECTING = 0x01;

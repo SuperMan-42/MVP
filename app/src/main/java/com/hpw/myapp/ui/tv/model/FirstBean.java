@@ -138,81 +138,222 @@ public class FirstBean {
                 }
             }
 
-            /**
-             * beauty_cover :
-             * first_play_at : 2016-05-20 23:22:16
-             * category_name : ????
-             * thumb : http://snap.quanmin.tv/3158218-1480820162-142.jpg?imageView2/2/w/390/
-             * last_play_at : 2016-12-03 09:21:28
-             * screen : 0
-             * video : http://thumb.quanmin.tv/3158218.mp4?t=1480820100
-             * title : ?????????????????
-             * recommend_image : http://image.quanmin.tv/19d3c4bf4c6f8947c4b7acfd65f7c9c7jpg
-             * is_shield : false
-             * nick : ???boon
-             * uid : 3158218
-             * view : 193856
-             * category_id : 1
-             * slug :
-             * love_cover :
-             * level : 0
-             * like : 1
-             * weight : 18024600
-             * avatar : http://image.quanmin.tv/avatar/3956c5056ec10e81795329ddae19ddeajpeg?imageView2/2/w/300/
-             * check : true
-             * follow : 57682
-             * play_count : 228
-             * play_true : 4392
-             * max_view : 26086
-             * grade : 0
-             * default_image : null
-             * last_end_at : 2016-05-20 23:22:16
-             * create_at : 2016-12-04 08:01:52
-             * category_slug : lol
-             * last_thumb : 3158218-1480740783-815.jpg
-             * play_status : true
-             * anniversary : 7
-             * status : 1
-             * coin : 306399
-             * link : http://www.quanmin.tv/v/3158218
-             */
-
+            private String recommend_image;
+            private String announcement;
+            private String title;
+            private String create_at;
+            private String intro;
+            private String video;
+            private int screen;
+            private String push_ip;
+            private String love_cover;
+            private String category_id;
+            private String video_quality;
+            private String like;
+            private String default_image;
+            private String slug;
+            private String weight;
+            private String status;
+            private String level;
+            private String avatar;
+            private String uid;
+            private String play_at;
+            private String view;
+            private String category_slug;
+            private String nick;
             private String beauty_cover;
-            private String first_play_at;
+            private String app_shuffling_image;
+            private String start_time;
+            private int follow;
             private String category_name;
             private String thumb;
-            private String last_play_at;
-            private int screen;
-            private String video;
-            private String title;
-            private String recommend_image;
-            private boolean is_shield;
-            private String nick;
-            private int uid;
-            private String view;
-            private int category_id;
-            private String slug;
-            private String love_cover;
-            private int level;
-            private int like;
-            private int weight;
-            private String avatar;
-            private boolean check;
-            private int follow;
-            private int play_count;
-            private int play_true;
-            private int max_view;
-            private int grade;
-            private Object default_image;
-            private String last_end_at;
-            private String create_at;
-            private String category_slug;
-            private String last_thumb;
-            private boolean play_status;
-            private int anniversary;
-            private int status;
-            private int coin;
-            private String link;
+            private String grade;
+            private boolean hidden;
+            private String icontext;
+
+            public String getRecommend_image() {
+                return recommend_image;
+            }
+
+            public void setRecommend_image(String recommend_image) {
+                this.recommend_image = recommend_image;
+            }
+
+            public String getAnnouncement() {
+                return announcement;
+            }
+
+            public void setAnnouncement(String announcement) {
+                this.announcement = announcement;
+            }
+
+            public String getTitle() {
+                return title;
+            }
+
+            public void setTitle(String title) {
+                this.title = title;
+            }
+
+            public String getCreate_at() {
+                return create_at;
+            }
+
+            public void setCreate_at(String create_at) {
+                this.create_at = create_at;
+            }
+
+            public String getIntro() {
+                return intro;
+            }
+
+            public void setIntro(String intro) {
+                this.intro = intro;
+            }
+
+            public String getVideo() {
+                return video;
+            }
+
+            public void setVideo(String video) {
+                this.video = video;
+            }
+
+            public int getScreen() {
+                return screen;
+            }
+
+            public void setScreen(int screen) {
+                this.screen = screen;
+            }
+
+            public String getPush_ip() {
+                return push_ip;
+            }
+
+            public void setPush_ip(String push_ip) {
+                this.push_ip = push_ip;
+            }
+
+            public String getLove_cover() {
+                return love_cover;
+            }
+
+            public void setLove_cover(String love_cover) {
+                this.love_cover = love_cover;
+            }
+
+            public String getCategory_id() {
+                return category_id;
+            }
+
+            public void setCategory_id(String category_id) {
+                this.category_id = category_id;
+            }
+
+            public String getVideo_quality() {
+                return video_quality;
+            }
+
+            public void setVideo_quality(String video_quality) {
+                this.video_quality = video_quality;
+            }
+
+            public String getLike() {
+                return like;
+            }
+
+            public void setLike(String like) {
+                this.like = like;
+            }
+
+            public String getDefault_image() {
+                return default_image;
+            }
+
+            public void setDefault_image(String default_image) {
+                this.default_image = default_image;
+            }
+
+            public String getSlug() {
+                return slug;
+            }
+
+            public void setSlug(String slug) {
+                this.slug = slug;
+            }
+
+            public String getWeight() {
+                return weight;
+            }
+
+            public void setWeight(String weight) {
+                this.weight = weight;
+            }
+
+            public String getStatus() {
+                return status;
+            }
+
+            public void setStatus(String status) {
+                this.status = status;
+            }
+
+            public String getLevel() {
+                return level;
+            }
+
+            public void setLevel(String level) {
+                this.level = level;
+            }
+
+            public String getAvatar() {
+                return avatar;
+            }
+
+            public void setAvatar(String avatar) {
+                this.avatar = avatar;
+            }
+
+            public String getUid() {
+                return uid;
+            }
+
+            public void setUid(String uid) {
+                this.uid = uid;
+            }
+
+            public String getPlay_at() {
+                return play_at;
+            }
+
+            public void setPlay_at(String play_at) {
+                this.play_at = play_at;
+            }
+
+            public String getView() {
+                return view;
+            }
+
+            public void setView(String view) {
+                this.view = view;
+            }
+
+            public String getCategory_slug() {
+                return category_slug;
+            }
+
+            public void setCategory_slug(String category_slug) {
+                this.category_slug = category_slug;
+            }
+
+            public String getNick() {
+                return nick;
+            }
+
+            public void setNick(String nick) {
+                this.nick = nick;
+            }
 
             public String getBeauty_cover() {
                 return beauty_cover;
@@ -222,12 +363,28 @@ public class FirstBean {
                 this.beauty_cover = beauty_cover;
             }
 
-            public String getFirst_play_at() {
-                return first_play_at;
+            public String getApp_shuffling_image() {
+                return app_shuffling_image;
             }
 
-            public void setFirst_play_at(String first_play_at) {
-                this.first_play_at = first_play_at;
+            public void setApp_shuffling_image(String app_shuffling_image) {
+                this.app_shuffling_image = app_shuffling_image;
+            }
+
+            public String getStart_time() {
+                return start_time;
+            }
+
+            public void setStart_time(String start_time) {
+                this.start_time = start_time;
+            }
+
+            public int getFollow() {
+                return follow;
+            }
+
+            public void setFollow(int follow) {
+                this.follow = follow;
             }
 
             public String getCategory_name() {
@@ -246,262 +403,29 @@ public class FirstBean {
                 this.thumb = thumb;
             }
 
-            public String getLast_play_at() {
-                return last_play_at;
-            }
-
-            public void setLast_play_at(String last_play_at) {
-                this.last_play_at = last_play_at;
-            }
-
-            public int getScreen() {
-                return screen;
-            }
-
-            public void setScreen(int screen) {
-                this.screen = screen;
-            }
-
-            public String getVideo() {
-                return video;
-            }
-
-            public void setVideo(String video) {
-                this.video = video;
-            }
-
-            public String getTitle() {
-                return title;
-            }
-
-            public void setTitle(String title) {
-                this.title = title;
-            }
-
-            public String getRecommend_image() {
-                return recommend_image;
-            }
-
-            public void setRecommend_image(String recommend_image) {
-                this.recommend_image = recommend_image;
-            }
-
-            public boolean isIs_shield() {
-                return is_shield;
-            }
-
-            public void setIs_shield(boolean is_shield) {
-                this.is_shield = is_shield;
-            }
-
-            public String getNick() {
-                return nick;
-            }
-
-            public void setNick(String nick) {
-                this.nick = nick;
-            }
-
-            public int getUid() {
-                return uid;
-            }
-
-            public void setUid(int uid) {
-                this.uid = uid;
-            }
-
-            public String getView() {
-                return view;
-            }
-
-            public void setView(String view) {
-                this.view = view;
-            }
-
-            public int getCategory_id() {
-                return category_id;
-            }
-
-            public void setCategory_id(int category_id) {
-                this.category_id = category_id;
-            }
-
-            public String getSlug() {
-                return slug;
-            }
-
-            public void setSlug(String slug) {
-                this.slug = slug;
-            }
-
-            public String getLove_cover() {
-                return love_cover;
-            }
-
-            public void setLove_cover(String love_cover) {
-                this.love_cover = love_cover;
-            }
-
-            public int getLevel() {
-                return level;
-            }
-
-            public void setLevel(int level) {
-                this.level = level;
-            }
-
-            public int getLike() {
-                return like;
-            }
-
-            public void setLike(int like) {
-                this.like = like;
-            }
-
-            public int getWeight() {
-                return weight;
-            }
-
-            public void setWeight(int weight) {
-                this.weight = weight;
-            }
-
-            public String getAvatar() {
-                return avatar;
-            }
-
-            public void setAvatar(String avatar) {
-                this.avatar = avatar;
-            }
-
-            public boolean isCheck() {
-                return check;
-            }
-
-            public void setCheck(boolean check) {
-                this.check = check;
-            }
-
-            public int getFollow() {
-                return follow;
-            }
-
-            public void setFollow(int follow) {
-                this.follow = follow;
-            }
-
-            public int getPlay_count() {
-                return play_count;
-            }
-
-            public void setPlay_count(int play_count) {
-                this.play_count = play_count;
-            }
-
-            public int getPlay_true() {
-                return play_true;
-            }
-
-            public void setPlay_true(int play_true) {
-                this.play_true = play_true;
-            }
-
-            public int getMax_view() {
-                return max_view;
-            }
-
-            public void setMax_view(int max_view) {
-                this.max_view = max_view;
-            }
-
-            public int getGrade() {
+            public String getGrade() {
                 return grade;
             }
 
-            public void setGrade(int grade) {
+            public void setGrade(String grade) {
                 this.grade = grade;
             }
 
-            public Object getDefault_image() {
-                return default_image;
+            public boolean isHidden() {
+                return hidden;
             }
 
-            public void setDefault_image(Object default_image) {
-                this.default_image = default_image;
+            public void setHidden(boolean hidden) {
+                this.hidden = hidden;
             }
 
-            public String getLast_end_at() {
-                return last_end_at;
+            public String getIcontext() {
+                return icontext;
             }
 
-            public void setLast_end_at(String last_end_at) {
-                this.last_end_at = last_end_at;
+            public void setIcontext(String icontext) {
+                this.icontext = icontext;
             }
-
-            public String getCreate_at() {
-                return create_at;
-            }
-
-            public void setCreate_at(String create_at) {
-                this.create_at = create_at;
-            }
-
-            public String getCategory_slug() {
-                return category_slug;
-            }
-
-            public void setCategory_slug(String category_slug) {
-                this.category_slug = category_slug;
-            }
-
-            public String getLast_thumb() {
-                return last_thumb;
-            }
-
-            public void setLast_thumb(String last_thumb) {
-                this.last_thumb = last_thumb;
-            }
-
-            public boolean isPlay_status() {
-                return play_status;
-            }
-
-            public void setPlay_status(boolean play_status) {
-                this.play_status = play_status;
-            }
-
-            public int getAnniversary() {
-                return anniversary;
-            }
-
-            public void setAnniversary(int anniversary) {
-                this.anniversary = anniversary;
-            }
-
-            public int getStatus() {
-                return status;
-            }
-
-            public void setStatus(int status) {
-                this.status = status;
-            }
-
-            public int getCoin() {
-                return coin;
-            }
-
-            public void setCoin(int coin) {
-                this.coin = coin;
-            }
-
-            public String getLink() {
-                return link;
-            }
-
-            public void setLink(String link) {
-                this.link = link;
-            }
-
         }
     }
 }

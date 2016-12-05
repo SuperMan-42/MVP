@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.target.ImageViewTarget;
 import com.hpw.myapp.R;
+import com.hpw.myapp.ui.tv.model.FirstBean;
 import com.hpw.myapp.ui.tv.model.OtherBean;
 import com.hpw.myapp.ui.tv.model.TvShowBean;
 import com.hpw.myapp.ui.tv.model.TvShowModel;
@@ -29,7 +30,8 @@ import java.util.Map;
 public class TvShowFullActivity extends BaseTvShowActivity<TvShowPresenter, TvShowModel> {
     private SurfaceView mSurfaceView;
     private LivePlayerHolder playerHolder;
-    private OtherBean.DataBean mPlayBean;
+    private FirstBean.RoomBean.ListBean mPlayBean;
+    private OtherBean.DataBean mPlayBean1;
 
     private int mCodec;
     private String mPlayerPath;
@@ -49,7 +51,11 @@ public class TvShowFullActivity extends BaseTvShowActivity<TvShowPresenter, TvSh
     }
 
     private void initPlayer() {
-        mPlayBean = (OtherBean.DataBean) getIntent().getSerializableExtra("playBean");
+        try {
+            mPlayBean = (FirstBean.RoomBean.ListBean) getIntent().getSerializableExtra("playBean");
+        } catch (ClassCastException e) {
+            mPlayBean1 = (OtherBean.DataBean) getIntent().getSerializableExtra("playBean");
+        }
         mSurfaceView = (SurfaceView) findViewById(R.id.mSurfaceView);
         bgImg = (ImageView) findViewById(R.id.bgImg);
         loadingView = (LoadingImageView) findViewById(R.id.loadingView);
@@ -60,21 +66,24 @@ public class TvShowFullActivity extends BaseTvShowActivity<TvShowPresenter, TvSh
 
     private void initData() {
         if (mPlayBean != null) {
-            mPresenter.onTvShow(mPlayBean.uid);
+            mPresenter.onTvShow(mPlayBean.getUid());
+            Glide.with(this).load(mPlayBean.getLove_cover()).into(new ImageViewTarget<GlideDrawable>(bgImg) {
+                @Override
+                protected void setResource(GlideDrawable resource) {
+                    bgImg.setImageDrawable(resource);
+                    Blurry.with(TvShowFullActivity.this).animate().radius(10).sampling(8).capture(bgImg).into(bgImg);
+                }
+            });
+        } else if (mPlayBean1 != null) {
+            mPresenter.onTvShow(mPlayBean1.getUid());
+            Glide.with(this).load(mPlayBean1.getLove_cover()).into(new ImageViewTarget<GlideDrawable>(bgImg) {
+                @Override
+                protected void setResource(GlideDrawable resource) {
+                    bgImg.setImageDrawable(resource);
+                    Blurry.with(TvShowFullActivity.this).animate().radius(10).sampling(8).capture(bgImg).into(bgImg);
+                }
+            });
         }
-
-        Glide.with(this).load(mPlayBean.love_cover).into(new ImageViewTarget<GlideDrawable>(bgImg) {
-            @Override
-            protected void setResource(GlideDrawable resource) {
-                bgImg.setImageDrawable(resource);
-                Blurry.with(TvShowFullActivity.this)
-                        .animate()
-                        .radius(10)
-                        .sampling(8)
-                        .capture(bgImg)
-                        .into(bgImg);
-            }
-        });
     }
 
     @Override
