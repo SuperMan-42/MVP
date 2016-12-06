@@ -47,7 +47,7 @@ captures/
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.ear
 
@@ -121,3 +121,7 @@ MVP.iml
 app/app.iml
 core/core.iml
 mvp.jks
+.DS_Store
+app/src/androidTest/
+app/src/test/
+app/src/testDebug/
