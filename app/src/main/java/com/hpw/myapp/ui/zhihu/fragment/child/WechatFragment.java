@@ -25,7 +25,7 @@ import java.util.List;
 
 public class WechatFragment extends CoreBaseFragment<WechatPresenter, WechatModel> implements ZhihuContract.WechatView {
     CoreRecyclerView coreRecyclerView;
-    private static int pageNum = 10;
+    private static int pageNum = 50;
 
     @Override
     public int getLayoutId() {
@@ -62,6 +62,6 @@ public class WechatFragment extends CoreBaseFragment<WechatPresenter, WechatMode
 
     @Override
     public void showError(String msg) {
-        coreRecyclerView.showLoadMoreFailedView();
+        showToast(msg + " api key失效,自己去http://www.tianapi.com/#wxnew申请key");
     }
 }
