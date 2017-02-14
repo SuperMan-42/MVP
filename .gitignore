@@ -39,7 +39,7 @@ captures/
 .idea/workspace.xml
 
 # Keystore files
-*.jks
+#*.jks
 ### Java template
 *.class
 
