@@ -10,6 +10,10 @@
             android:id="@+id/menu_tv"
             android:icon="@drawable/ic_menu_gallery"
             android:title="全民TV" />
+        <item
+            android:id="@+id/menu_map"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="高德地图" />
     </group>
 
     <item android:title="选项">

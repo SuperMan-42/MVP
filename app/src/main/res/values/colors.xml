@@ -39,4 +39,7 @@
     <color name="findback_text_color">#ff333333</color>
     <color name="line_color">#ffe6edf0</color>
     <color name="white_60">#99ffffff</color>
+    <color name="search_title">#efeff4</color>
+    <color name="map">#d6e3ef</color>
+    <color name="map_fill">#96d6e3ef</color>
 </resources>

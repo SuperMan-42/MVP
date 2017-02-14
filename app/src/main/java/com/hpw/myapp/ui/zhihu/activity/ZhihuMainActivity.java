@@ -1,5 +1,6 @@
 package com.hpw.myapp.ui.zhihu.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import com.hpw.mvpframe.base.CoreBaseActivity;
 import com.hpw.myapp.R;
 import com.hpw.myapp.ui.main.AboutActivity;
+import com.hpw.myapp.ui.map.PoiAroundSearchActivity;
 import com.hpw.myapp.ui.publish.PublishActivity;
 import com.hpw.myapp.ui.tv.activity.TvMainActivity;
 import com.hpw.myapp.ui.zhihu.fragment.ZhihuMainFragment;
@@ -71,6 +73,9 @@ public class ZhihuMainActivity extends CoreBaseActivity
             startActivity(PublishActivity.class);
         } else if (id == R.id.menu_tv) {
             startActivity(TvMainActivity.class);
+        } else if (id == R.id.menu_map) {
+            Intent intent = new Intent(mContext, PoiAroundSearchActivity.class);
+            startActivityForResult(intent, PoiAroundSearchActivity.REQUESTCODE);
         } else if (id == R.id.about) {
             startActivity(AboutActivity.class);
         }

@@ -49,6 +49,13 @@
         <activity
             android:name=".ui.tv.activity.TvShowFullActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
+        <activity android:name=".ui.map.PoiAroundSearchActivity" />
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="5dfdbe43ad60eace00c71de28a967286" />
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService" />
     </application>
 
 </manifest>

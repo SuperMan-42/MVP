@@ -30,6 +30,22 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    //配置keystore签名
+    signingConfigs {
+        release {
+            storeFile file("Project.jks")
+            storePassword "424346976"
+            keyAlias "hpw"
+            keyPassword "424346976"
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
 }
 
 dependencies {

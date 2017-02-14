@@ -18,4 +18,8 @@
     <string name="all_image">所有图片</string>
     <string name="preview_num">预览(%1$s)</string>
     <string name="preview">预览</string>
+    <string name="cancel">取消</string>
+    <string name="search">搜索</string>
+    <string name="no_result">对不起，没有搜索到相关数据！</string>
+    <string name="search_map">查找小区/大厦/学校等</string>
 </resources>
