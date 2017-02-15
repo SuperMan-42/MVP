@@ -50,7 +50,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:23.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
     compile 'com.isseiaoki:simplecropview:1.0.13'
     compile 'com.qiniu.pili:pili-android-qos:0.8.+'
