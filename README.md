@@ -53,7 +53,7 @@ QQ group: 482866708
 ### Import the core library
 ```
 dependencies {
-    compile 'com.hpw.mvpframe.core.1.0.0'
+    compile 'com.hpw.mvpframe:core:1.0.0'
 }
 ```  
 
