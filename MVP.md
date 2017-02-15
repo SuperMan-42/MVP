@@ -53,7 +53,7 @@ QQ群:482866708
 ### 导入core库
 ```
 dependencies {
-    compile 'com.hpw.mvpframe.core.1.0.0'
+    compile 'com.hpw.mvpframe:core:1.0.0'
 }
 ```  
 
