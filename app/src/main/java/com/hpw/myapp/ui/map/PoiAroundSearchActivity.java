@@ -7,6 +7,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AutoCompleteTextView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -144,6 +145,12 @@ public class PoiAroundSearchActivity extends CoreBaseActivity implements View.On
         mSearchText.setHint(getString(R.string.search_map));
         findViewById(R.id.search_back).setOnClickListener(view -> {
             finish();
+        });
+        mSearchText.setOnEditorActionListener((textView, i, keyEvent) -> {
+            if (i == EditorInfo.IME_ACTION_SEARCH) {
+                doSearch();
+            }
+            return false;
         });
     }
 
@@ -283,7 +290,8 @@ public class PoiAroundSearchActivity extends CoreBaseActivity implements View.On
                 Intent intent = new Intent();
                 intent.putExtra(Constants.ARG_POIITEM, listString.get(position).get("name"));
                 setResult(RESULTCODE, intent);
-                finish();
+//                finish();
+                showToast(listString.get(position).get("name"));
             });
         } else {
             ToastUtils.showToast(this.getApplicationContext(), String.valueOf(rCode));
@@ -353,8 +361,7 @@ public class PoiAroundSearchActivity extends CoreBaseActivity implements View.On
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.search_button:
-                AppUtils.hideSoftInput(mSearchText);
-                doSearchQuery(mSearchText.getText().toString().trim(), mAMapLocation.getCityCode(), true);
+                doSearch();
                 break;
             case R.id.location:
                 mlocationClient.startLocation();
@@ -365,8 +372,18 @@ public class PoiAroundSearchActivity extends CoreBaseActivity implements View.On
 
     }
 
+    private void doSearch() {
+        AppUtils.hideSoftInput(mSearchText);
+        doSearchQuery(mSearchText.getText().toString().trim(), mAMapLocation.getCityCode(), true);
+    }
+
     @Override
     public void onCameraChange(CameraPosition cameraPosition) {
+
+    }
+
+    @Override
+    public void onCameraChangeFinish(CameraPosition cameraPosition) {
         LatLng target = cameraPosition.target;
         lp = new LatLonPoint(target.latitude, target.longitude);
         GeocodeSearch geocoderSearch = new GeocodeSearch(this);
@@ -390,11 +407,6 @@ public class PoiAroundSearchActivity extends CoreBaseActivity implements View.On
         });
         RegeocodeQuery query = new RegeocodeQuery(lp, 200, GeocodeSearch.AMAP);
         geocoderSearch.getFromLocationAsyn(query);
-    }
-
-    @Override
-    public void onCameraChangeFinish(CameraPosition cameraPosition) {
-
     }
 
     private class ListviewAdapter extends BaseAdapter {
@@ -456,7 +468,8 @@ public class PoiAroundSearchActivity extends CoreBaseActivity implements View.On
                 Intent intent = new Intent();
                 intent.putExtra(Constants.ARG_POIITEM, mCurrentPoi);
                 setResult(RESULTCODE, intent);
-                finish();
+//                finish();
+                showToast(mCurrentPoi.getTitle());
             });
             return convertView;
         }

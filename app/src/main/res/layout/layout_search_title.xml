@@ -39,6 +39,7 @@
             android:completionThreshold="1"
             android:focusable="true"
             android:hint="搜索项目"
+            android:imeOptions="actionSearch"
             android:inputType="text|textAutoComplete"
             android:singleLine="true"
             android:textColorHint="@color/divider_color"
