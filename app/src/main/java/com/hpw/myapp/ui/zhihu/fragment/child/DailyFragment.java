@@ -64,7 +64,6 @@ public class DailyFragment extends CoreBaseFragment<DailyPresenter, DailyModel> 
     @Override
     public void initData() {
         mPresenter.getDailyData();
-        mPresenter.startInterval();
     }
 
     @Override
@@ -81,6 +80,7 @@ public class DailyFragment extends CoreBaseFragment<DailyPresenter, DailyModel> 
             }
         });
         coreRecyclerView.getAdapter().addData(info.getStories());
+        mPresenter.startInterval();
     }
 
     @Override
