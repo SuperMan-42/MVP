@@ -13,7 +13,7 @@ QQ group: 482866708
 
 ## [The Android learning data collection](https://github.com/SuperMan42/MVP/wiki/Android%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86)
 
-## [Wiki](https://github.com/SuperMan42/MVP/wiki)
+## [Wiki 使用方法](https://github.com/SuperMan42/MVP/wiki)
 
 ## Preview
 1. The overview (list)  
