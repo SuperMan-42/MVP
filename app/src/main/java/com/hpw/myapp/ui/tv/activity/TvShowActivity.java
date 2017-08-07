@@ -113,7 +113,7 @@ public class TvShowActivity extends BaseTvShowActivity<TvShowPresenter, TvShowMo
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         if (playerHolder != null)
             playerHolder.onPause();

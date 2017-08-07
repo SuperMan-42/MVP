@@ -25,7 +25,7 @@ public abstract class BaseTvShowActivity<T extends CoreBasePresenter, E extends 
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         mIsActivityPaused = true;
     }

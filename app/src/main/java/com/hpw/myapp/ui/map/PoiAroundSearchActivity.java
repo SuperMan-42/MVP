@@ -331,7 +331,7 @@ public class PoiAroundSearchActivity extends CoreBaseActivity implements View.On
      * 方法必须重写
      */
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         mapview.onPause();
     }
