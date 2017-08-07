@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
 
     <application
         android:name=".App"
@@ -53,11 +54,29 @@
             android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity android:name=".ui.map.PoiAroundSearchActivity" />
 
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="5dfdbe43ad60eace00c71de28a967286" />
         <!-- 定位需要的服务 -->
         <service android:name="com.amap.api.location.APSService" />
+
+        <meta-data android:value="59881d5d4ad15615220000a8" android:name="UMENG_APPKEY"/>
+        <meta-data android:value="Mvp" android:name="UMENG_CHANNEL"/>
     </application>
 
 </manifest>

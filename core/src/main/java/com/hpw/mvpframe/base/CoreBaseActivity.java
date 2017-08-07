@@ -23,6 +23,7 @@ import com.hpw.mvpframe.utils.ThemeUtil;
 import com.hpw.mvpframe.utils.TitleBuilder;
 import com.hpw.mvpframe.utils.ToastUtils;
 import com.hpw.mvpframe.widget.SwipeBackLayout;
+import com.umeng.analytics.MobclickAgent;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -79,9 +80,14 @@ public abstract class CoreBaseActivity<T extends CoreBasePresenter, E extends Co
         if (mPresenter != null) mPresenter.detachVM();
     }
 
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
+
     @Override
     protected void onResume() {
-        super.onResume();
+        super.onResume(); MobclickAgent.onResume(this);
     }
 
     public void reload() {

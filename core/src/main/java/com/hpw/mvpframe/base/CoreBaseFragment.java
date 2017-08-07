@@ -17,6 +17,7 @@ import com.hpw.mvpframe.utils.StatusBarUtil;
 import com.hpw.mvpframe.utils.TUtil;
 import com.hpw.mvpframe.utils.TitleBuilder;
 import com.hpw.mvpframe.utils.ToastUtils;
+import com.umeng.analytics.MobclickAgent;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -167,6 +168,18 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
 
     public interface OnBackToFirstListener {
         void onBackToFirstFragment();
+    }
+
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onPageStart(TAG); //统计页面(仅有Activity的应用中SDK自动调用，不需要单独写。"SplashScreen"为页面名称，可自定义)
+        MobclickAgent.onResume(mContext);          //统计时长
+    }
+
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPageEnd(TAG); // （仅有Activity的应用中SDK自动调用，不需要单独写）保证 onPageEnd 在onPause 之前调用,因为 onPause 中会保存信息。"SplashScreen"为页面名称，可自定义
+        MobclickAgent.onPause(mContext);
     }
 
     public void showToast(String msg) {
