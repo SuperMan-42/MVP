@@ -6,7 +6,7 @@ The project is based on the idea of simplicity, make development more simple, ex
 
 Blog (details): [http://www.jianshu.com/p/d98013e0cd03](http://www.jianshu.com/p/d98013e0cd03)
 
-公众号:
+公众号:  
 ![](https://github.com/SuperMan42/MVP/blob/master/art/wechat.jpg)  
 
 QQ group: 482866708  
