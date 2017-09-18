@@ -6,8 +6,8 @@ App based on Material Design + MVP + Rxjava + Retrofit + Okhttp + Glide
 
 简书(详情):[http://www.jianshu.com/p/d98013e0cd03](http://www.jianshu.com/p/d98013e0cd03)
 
-WeChat:
-![](https://github.com/SuperMan42/MVP/blob/master/art/wechat.png)  
+WeChat:  
+![](https://github.com/SuperMan42/MVP/blob/master/art/wechat.jpg)  
 
 QQ群:482866708  
 ![](https://github.com/SuperMan42/MVP/blob/master/art/share.png)  
