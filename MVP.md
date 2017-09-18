@@ -6,8 +6,11 @@ App based on Material Design + MVP + Rxjava + Retrofit + Okhttp + Glide
 
 简书(详情):[http://www.jianshu.com/p/d98013e0cd03](http://www.jianshu.com/p/d98013e0cd03)
 
+WeChat:
+![](https://github.com/SuperMan42/MVP/blob/master/art/wechat.png)  
+
 QQ群:482866708  
-![](https://github.com/SuperMan42/MVP/blob/master/share.png)  
+![](https://github.com/SuperMan42/MVP/blob/master/art/share.png)  
 
 ## [中文版](MVP.md)   [英文版](README.md)
 
@@ -17,11 +20,11 @@ QQ群:482866708
    
 ## Preview
 1. 总览(列表)  
-![](https://github.com/SuperMan42/MVP/blob/master/1.gif)  
+![](https://github.com/SuperMan42/MVP/blob/master/art/1.gif)  
 2. 图片选择器和表情键盘(支持动态表情和emoji表情等)  
-![](https://github.com/SuperMan42/MVP/blob/master/2.gif)  
+![](https://github.com/SuperMan42/MVP/blob/master/art/2.gif)  
 3. 夜间和日间模式切换  
-![](https://github.com/SuperMan42/MVP/blob/master/3.gif)  
+![](https://github.com/SuperMan42/MVP/blob/master/art/3.gif)  
 4. 全民直播(如何优雅的看视频)  
 ![](https://github.com/SuperMan42/MVP/blob/master/art/4.gif)  
 5. 缓存(断网情况下任然可以愉快的玩)  
@@ -30,7 +33,7 @@ QQ群:482866708
 [Download APK](http://pro-app-mt.fir.im/85bcc48436a73ec65be41df573fd81ecbfc7f377.apk?AWSAccessKeyId=e0cada7f00f2465b929656d799937873&Expires=1479991896&Signature=RAHMsJ6bxPgxQxpDStKNj9rC3dE%3D&filename=app-release.apk_1.0.apk)
 (Android 5.0 or above)  
 
-![](https://github.com/SuperMan42/MVP/blob/master/download.png)
+![](https://github.com/SuperMan42/MVP/blob/master/art/download.png)
 
 ## Points
 * 使用Rxjava配合Retrofit2+okhttp做网络请求和缓存

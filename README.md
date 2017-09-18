@@ -6,8 +6,11 @@ The project is based on the idea of simplicity, make development more simple, ex
 
 Blog (details): [http://www.jianshu.com/p/d98013e0cd03](http://www.jianshu.com/p/d98013e0cd03)
 
+公众号:
+![](https://github.com/SuperMan42/MVP/blob/master/art/wechat.png)  
+
 QQ group: 482866708  
-![](https://github.com/SuperMan42/MVP/blob/master/share.png)
+![](https://github.com/SuperMan42/MVP/blob/master/art/share.png)
 
 ## [中文版](MVP.md)    [English version](README.md)
 
@@ -17,11 +20,11 @@ QQ group: 482866708
 
 ## Preview
 1. The overview (list)  
-![](https://github.com/SuperMan42/MVP/blob/master/1.gif)
+![](https://github.com/SuperMan42/MVP/blob/master/art/1.gif)
 2. Image selector and expression keyboard (support dynamic expression and emoji expressions, etc.)  
-![](https://github.com/SuperMan42/MVP/blob/master/2.gif)
+![](https://github.com/SuperMan42/MVP/blob/master/art/2.gif)
 3. Night and day mode switching  
-![](https://github.com/SuperMan42/MVP/blob/master/3.gif) 
+![](https://github.com/SuperMan42/MVP/blob/master/art/3.gif) 
 4. TV  
 ![](https://github.com/SuperMan42/MVP/blob/master/art/4.gif)  
 5. Cache(No network)  
@@ -30,7 +33,7 @@ QQ group: 482866708
 [Download APK](http://pro-app-mt.fir.im/85bcc48436a73ec65be41df573fd81ecbfc7f377.apk?AWSAccessKeyId=e0cada7f00f2465b929656d799937873&Expires=1479991896&Signature=RAHMsJ6bxPgxQxpDStKNj9rC3dE%3D&filename=app-release.apk_1.0.apk)
 (Android 5.0 or above)  
 
-![](https://github.com/SuperMan42/MVP/blob/master/download.png)
+![](https://github.com/SuperMan42/MVP/blob/master/art/download.png)
 
 ## Points
 * Use Rxjava Retrofit2 okhttp to do network requests and caching
