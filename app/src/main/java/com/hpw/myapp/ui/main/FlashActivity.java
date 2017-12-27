@@ -91,7 +91,7 @@ public class FlashActivity extends CoreBaseActivity {
         SharedPreferences setting = getSharedPreferences("mvp", 0);
         Boolean user_first = setting.getBoolean("FIRST", true);
         if (user_first) {
-            setting.edit().putBoolean("FIRST", false).commit();
+            setting.edit().putBoolean("FIRST", false).apply();
             DeviceBean deviceBean = new DeviceBean();
             Map<String, String> map = device();
             deviceBean.setEmulator(map.get("Running on emulator"));
