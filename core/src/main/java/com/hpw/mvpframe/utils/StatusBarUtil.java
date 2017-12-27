@@ -511,13 +511,17 @@ public class StatusBarUtil {
      * 设置根布局参数
      */
     private static void setRootView(Activity activity) {
-        ViewGroup parent = (ViewGroup) activity.findViewById(android.R.id.content);
-        for (int i = 0, count = parent.getChildCount(); i < count; i++) {
-            View childView = parent.getChildAt(i);
-            if (childView instanceof ViewGroup) {
-                childView.setFitsSystemWindows(true);
-                ((ViewGroup) childView).setClipToPadding(true);
+        try {
+            ViewGroup parent = (ViewGroup) activity.findViewById(android.R.id.content);
+            for (int i = 0, count = parent.getChildCount(); i < count; i++) {
+                View childView = parent.getChildAt(i);
+                if (childView instanceof ViewGroup) {
+                    childView.setFitsSystemWindows(true);
+                    ((ViewGroup) childView).setClipToPadding(true);
+                }
             }
+        } catch (Exception e) {
+
         }
     }
 

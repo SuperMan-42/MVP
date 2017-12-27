@@ -60,8 +60,12 @@ public abstract class CoreBaseFragment<T extends CoreBasePresenter, E extends Co
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         //设置状态栏透明
-        setStatusBarColor();
-        mActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        try {
+            setStatusBarColor();
+            mActivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        } catch (Exception e) {
+
+        }
         TAG = getClass().getSimpleName();
         binder = ButterKnife.bind(this, view);
         mPresenter = TUtil.getT(this, 0);
