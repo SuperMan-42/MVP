@@ -9,6 +9,8 @@ import com.hpw.mvpframe.CoreApp;
 import com.tencent.bugly.Bugly;
 import com.umeng.analytics.MobclickAgent;
 
+import cn.bmob.v3.Bmob;
+
 /**
  * Created by hpw on 16/10/28.
  */
@@ -31,6 +33,7 @@ public class App extends CoreApp {
         //初始化屏幕宽高
         getScreenSize();
         Bugly.init(getApplicationContext(), "e0bec44741", true);
+        Bmob.initialize(this, "b2c214bf677dbc9f2c22bd4645d4061e");
         MobclickAgent.startWithConfigure(new MobclickAgent.UMAnalyticsConfig(this, "59881d5d4ad15615220000a8", "Mvp", MobclickAgent.EScenarioType.E_UM_NORMAL, true));
     }
 

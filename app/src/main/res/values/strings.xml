@@ -22,4 +22,10 @@
     <string name="search">搜索</string>
     <string name="no_result">对不起，没有搜索到相关数据！</string>
     <string name="search_map">查找小区/大厦/学校等</string>
+    <string name="device_charging_via">"Device charging via "</string>
+    <string name="network_type">Network Type</string>
+    <string name="ringer_mode">Ringer mode</string>
+    <string name="device_type">Device type</string>
+    <string name="phone_type">Phone Type</string>
+    <string name="orientation">Orientation</string>
 </resources>
