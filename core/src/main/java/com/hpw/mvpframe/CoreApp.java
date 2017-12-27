@@ -3,6 +3,7 @@ package com.hpw.mvpframe;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Resources;
+import android.support.multidex.MultiDexApplication;
 
 import com.hpw.mvpframe.utils.SpUtil;
 
@@ -10,7 +11,7 @@ import com.hpw.mvpframe.utils.SpUtil;
  * Created by hpw on 16/10/28.
  */
 
-public abstract class CoreApp extends Application {
+public abstract class CoreApp extends MultiDexApplication {
     private static CoreApp mApp;
 
     @Override

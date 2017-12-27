@@ -11,6 +11,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -24,6 +25,13 @@ android {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/NOTICE'
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.properties'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+        exclude 'META-INF/maven/com.google.code.gson/gson/pom.xml'
+        exclude 'META-INF/maven/com.google.code.gson/gson/pom.properties'
     }
 
     compileOptions {
@@ -46,16 +54,7 @@ android {
             signingConfig signingConfigs.release
         }
     }
-    //删除META-INF信息
-    packagingOptions {
-        exclude 'META-INF/rxjava.properties'
-        exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.xml'
-        exclude 'META-INF/maven/com.squareup.okhttp3/okhttp/pom.properties'
-        exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
-        exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
-        exclude 'META-INF/maven/com.google.code.gson/gson/pom.xml'
-        exclude 'META-INF/maven/com.google.code.gson/gson/pom.properties'
-    }
+
     useLibrary 'org.apache.http.legacy'
 }
 
@@ -70,7 +69,6 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
     compile 'com.isseiaoki:simplecropview:1.0.13'
     compile 'com.qiniu.pili:pili-android-qos:0.8.+'
-    compile(name: 'bmob-sdk-3.5.8', ext: 'aar')
     compile files('libs/pldroid-player-1.4.0.jar')
     compile project(':core')
 }

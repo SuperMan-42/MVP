@@ -1,6 +1,7 @@
 package com.hpw.myapp;
 
 import android.content.Context;
+import android.support.multidex.MultiDex;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
@@ -25,6 +26,12 @@ public class App extends CoreApp {
     @Override
     public String setBaseUrl() {
         return "http://news-at.zhihu.com/api/4/";
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     @Override
