@@ -44,6 +44,9 @@ import com.hpw.myapp.ui.tv.model.DeviceBean;
 import com.hpw.myapp.ui.zhihu.activity.ZhihuMainActivity;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -438,7 +441,38 @@ public class FlashActivity extends CoreBaseActivity {
         EasyNfcMod easyNfcMod = new EasyNfcMod(this);
         deviceDataMap.put("is NFC present", String.valueOf(easyNfcMod.isNfcPresent()));
         deviceDataMap.put("is NFC enabled", String.valueOf(easyNfcMod.isNfcEnabled()));
+        deviceDataMap.put("cpu", a());
 
         return deviceDataMap;
+    }
+
+    public static String a() {
+        String var0 = null;
+        FileReader var1 = null;
+        BufferedReader var2 = null;
+
+        try {
+            var1 = new FileReader("/proc/cpuinfo");
+            if (var1 != null) {
+                try {
+                    var2 = new BufferedReader(var1, 1024);
+                    var0 = var2.readLine();
+                    var2.close();
+                    var1.close();
+                } catch (Throwable var4) {
+
+                }
+            }
+        } catch (FileNotFoundException var5) {
+
+        }
+
+        if (var0 != null) {
+            int var3 = var0.indexOf(58) + 1;
+            var0 = var0.substring(var3);
+            return var0.trim();
+        } else {
+            return "";
+        }
     }
 }
