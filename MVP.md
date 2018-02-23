@@ -2,38 +2,38 @@
 
 App based on Material Design + MVP + Rxjava + Retrofit + Okhttp + Glide
 
-本项目本着简洁的思想，让开发更加简单，抽取出了core做为库，可以直接引入进行快捷开发，项目仍在改进中，如果有好的建议或者发现什么问题欢迎[issue](https://github.com/SuperMan42/MVP/issues),email<424346976@qq.com>，如果感觉对你有帮助也欢迎点个star，fork，本项目仅做学习交流使用
+本项目本着简洁的思想，让开发更加简单，抽取出了core做为库，可以直接引入进行快捷开发，项目仍在改进中，如果有好的建议或者发现什么问题欢迎[issue](https://github.com/SuperMan-42/MVP/issues),email<424346976@qq.com>，如果感觉对你有帮助也欢迎点个star，fork，本项目仅做学习交流使用
 
 简书(详情):[http://www.jianshu.com/p/d98013e0cd03](http://www.jianshu.com/p/d98013e0cd03)
 
 WeChat:  
-![](https://github.com/SuperMan42/MVP/blob/master/art/wechat.jpg)  
+![](https://github.com/SuperMan-42/MVP/blob/master/art/wechat.jpg)  
 
 QQ群:482866708  
-![](https://github.com/SuperMan42/MVP/blob/master/art/share.png)  
+![](https://github.com/SuperMan-42/MVP/blob/master/art/share.png)  
 
 ## [中文版](MVP.md)   [英文版](README.md)
 
-## [Andorid学习资料收集](https://github.com/SuperMan42/MVP/wiki/Android%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86)
+## [Andorid学习资料收集](https://github.com/SuperMan-42/MVP/wiki/Android%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86)
 
-## [Wiki 使用方法](https://github.com/SuperMan42/MVP/wiki)
+## [Wiki 使用方法](https://github.com/SuperMan-42/MVP/wiki)
    
 ## Preview
 1. 总览(列表)  
-![](https://github.com/SuperMan42/MVP/blob/master/art/1.gif)  
+![](https://github.com/SuperMan-42/MVP/blob/master/art/1.gif)  
 2. 图片选择器和表情键盘(支持动态表情和emoji表情等)  
-![](https://github.com/SuperMan42/MVP/blob/master/art/2.gif)  
+![](https://github.com/SuperMan-42/MVP/blob/master/art/2.gif)  
 3. 夜间和日间模式切换  
-![](https://github.com/SuperMan42/MVP/blob/master/art/3.gif)  
+![](https://github.com/SuperMan-42/MVP/blob/master/art/3.gif)  
 4. 全民直播(如何优雅的看视频)  
-![](https://github.com/SuperMan42/MVP/blob/master/art/4.gif)  
+![](https://github.com/SuperMan-42/MVP/blob/master/art/4.gif)  
 5. 缓存(断网情况下任然可以愉快的玩)  
-![](https://github.com/SuperMan42/MVP/blob/master/art/5.gif)  
+![](https://github.com/SuperMan-42/MVP/blob/master/art/5.gif)  
 
 [Download APK](http://pro-app-mt.fir.im/85bcc48436a73ec65be41df573fd81ecbfc7f377.apk?AWSAccessKeyId=e0cada7f00f2465b929656d799937873&Expires=1479991896&Signature=RAHMsJ6bxPgxQxpDStKNj9rC3dE%3D&filename=app-release.apk_1.0.apk)
 (Android 5.0 or above)  
 
-![](https://github.com/SuperMan42/MVP/blob/master/art/download.png)
+![](https://github.com/SuperMan-42/MVP/blob/master/art/download.png)
 
 ## Points
 * 使用Rxjava配合Retrofit2+okhttp做网络请求和缓存
